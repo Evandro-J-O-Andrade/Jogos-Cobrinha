@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: black; /* Cor de fundo */
+}
+
+#stage {
+    border: 10px solid darkblue; /* Borda do jogo */
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.game-stage {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
