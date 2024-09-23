@@ -5,23 +5,23 @@ window.onload = function () {
     // Variáveis de controle
     const vel = 1;
     var vx = 0, vy = 1; // A cobrinha começa sempre descendo
-    var px, py; // Posição inicial da cobrinha no canto
+    var px, py; // Posição inicial da cobrinha
     var lp, tp, qpX, qpY;
-    var ax = 15, ay = 15; // Posição inicial da comida
+    var ax, ay; // Posição inicial da comida
     var trail = [];
     var tail = 5;
-    var gameOver = false;
+    var gameOuver = false;
     var level = 1; // Nível inicial
-    var score = 0; // Pontuação
     var applesEaten = 0; // Contagem de maçãs comidas para fase
     var walls = []; // Paredes
-    var showGameOver = false; // Controle para exibir "Game Over"
-
-    // Imagem da cobrinha
-    var snakeImage = new Image();
-    snakeImage.src = '' // Caminho correto da imagem
-
+    var showGameOuver = false; // Controle para exibir "Game Ouver"
+    var showRestartMessage = false; // Controle para exibir a mensagem de reinício
+    
+    // Cores do jogo
+    var snakeColor = generateColor(); // Cor inicial da cobrinha
+    var backgroundColor = "black"; // Cor inicial do fundo do jogo
     var gameInterval; // Intervalo do jogo
+    var mapColors = ["#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Função para redimensionar o canvas
     function resizeCanvas() {
@@ -29,8 +29,8 @@ window.onload = function () {
         stage.height = window.innerHeight;
 
         // Ajuste dos blocos para o novo tamanho
-        lp = Math.floor(stage.width / 30);
-        tp = Math.floor(stage.height / 30);
+        lp = Math.floor(stage.width / 65); // Ajusta a largura
+        tp = lp; // Garantindo que a altura seja igual à largura
         qpX = Math.floor(stage.width / lp);
         qpY = Math.floor(stage.height / tp);
     }
@@ -38,42 +38,63 @@ window.onload = function () {
     resizeCanvas(); // Chama ao carregar a página
     window.onresize = resizeCanvas; // Atualiza ao redimensionar a janela
 
-    // Função para gerar paredes em posições aleatórias, com blocos entre 2 e 5
+    // Função para gerar uma cor aleatória
+    function generateColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = [];
         if (level === 1) return; // Sem obstáculos na primeira fase
 
-        for (let i = 0; i < level * 3; i++) { // Mais paredes conforme o nível
-            let wallLength = Math.floor(2 + Math.random() * 4); // Paredes com 2 a 5 blocos
+        for (let i = 0; i < level * 3; i++) {
+            let wallLength = Math.floor(2 + Math.random() * 4);
             let wallX = Math.floor(Math.random() * (qpX - wallLength));
             let wallY = Math.floor(Math.random() * qpY);
             for (let j = 0; j < wallLength; j++) {
-                walls.push({
-                    x: wallX + j,
-                    y: wallY
-                });
+                walls.push({ x: wallX + j, y: wallY });
+            }
+            // Gera paredes verticais
+            wallLength = Math.floor(2 + Math.random() * 4);
+            wallX = Math.floor(Math.random() * qpX);
+            wallY = Math.floor(Math.random() * (qpY - wallLength));
+            for (let j = 0; j < wallLength; j++) {
+                walls.push({ x: wallX, y: wallY + j });
             }
         }
     }
 
-    generateWalls(); // Gera paredes para o nível 1
+    // Função para gerar a posição da maçã
+    function generateApple() {
+        ax = Math.floor(Math.random() * qpX);
+        ay = Math.floor(Math.random() * qpY);
+    }
 
+    // Função principal do jogo
     function game() {
-        if (gameOver) {
-            if (!showGameOver) {
-                // Exibe "Game Over" no centro do mapa
+        if (gameOuver) {
+            if (!showGameOuver) {
+                // Exibe "Game Ouver" no centro do mapa
                 ctx.fillStyle = "white";
-                ctx.font = "50px Arial";
-                ctx.fillText("Game Over", stage.width / 2 - 100, stage.height / 2);
-                showGameOver = true;
+                ctx.font = "100px sans-serif";
+                ctx.textAlign = "center"; // Alinha o texto ao centro
+                ctx.fillText("Game Ouver", stage.width / 2 - 50, stage.height / 2);
+                showGameOuver = true;
+            }
 
-                // Aguarda 3 segundos antes de exibir "Aperte Enter"
-                setTimeout(() => {
-                    ctx.clearRect(0, 0, stage.width, stage.height); // Limpa a mensagem "Game Over"
-                    ctx.fillStyle = "white";
-                    ctx.font = "40px Arial";
-                    ctx.fillText("Aperte Enter para começar", stage.width / 4, stage.height / 2);
-                }, 3000);
+            // Exibe a mensagem para voltar à página inicial
+            if (!showRestartMessage) {
+                ctx.fillStyle = "white";
+                ctx.font = "30px Arial";
+                ctx.textAlign = "center"; // Alinha o texto ao centro
+                ctx.fillText("Pressione Enter para Continuar ou S para sair! ", stage.width / 2 - 50, stage.height / 2 + 50);
+                showRestartMessage = true;
             }
             clearInterval(gameInterval);
             return;
@@ -84,34 +105,52 @@ window.onload = function () {
 
         // Colisão com bordas
         if (px < 0 || px >= qpX || py < 0 || py >= qpY) {
-            gameOver = true;
+            gameOuver = true;
         }
 
         // Limpa o canvas
-        ctx.fillStyle = "black";
+        ctx.fillStyle = backgroundColor; // Preenche o fundo com a cor atual do nível
         ctx.fillRect(0, 0, stage.width, stage.height);
 
-        // Exibe o nível atual
-        ctx.fillStyle = "white";
-        ctx.font = "20px Arial";
-        ctx.fillText("Fase: " + level, 10, 30);
+        // Ajuste de cores para a maçã e a cabeça se o fundo for vermelho
+        let appleColor = "red";
+        let headColor = "#FF4500"; // Laranja para a cabeça
+
+        if (backgroundColor === "red") {
+            appleColor = "yellow"; // Muda a maçã para amarelo
+            headColor = "blue"; // Muda a cabeça para azul
+        }
 
         // Desenha a comida
-        ctx.fillStyle = "red";
-        ctx.fillRect(ax * lp, ay * tp, lp, tp);
+        ctx.fillStyle = appleColor;
+        ctx.beginPath(); // Inicia um novo caminho
+        ctx.arc(ax * lp + lp / 2, ay * tp + tp / 2, lp / 2, 0, Math.PI * 2); // Desenha um círculo
+        ctx.fill(); // Preenche o círculo
 
-        // Desenha paredes (obstáculos)
+        // Desenha paredes
         ctx.fillStyle = "blue";
         for (let i = 0; i < walls.length; i++) {
             ctx.fillRect(walls[i].x * lp, walls[i].y * tp, lp, tp);
             if (px === walls[i].x && py === walls[i].y) {
-                gameOver = true; // A cobrinha não pode tocar nas paredes
+                gameOuver = true;
             }
         }
 
-        // Desenha a cobrinha com a imagem inteira
-        let snakeLength = tail * tp; // Comprimento da cobrinha baseado no rabo
-        ctx.drawImage(snakeImage, 0, 0, snakeImage.width, snakeImage.height, px * lp, py * tp, lp, snakeLength);
+        // Desenha a cobrinha
+        ctx.fillStyle = headColor; // Cor da cabeça
+        ctx.fillRect(px * lp, py * tp, lp, tp);
+        ctx.fillStyle = snakeColor; // Cor do corpo
+        for (let i = 0; i < trail.length; i++) {
+            ctx.fillRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
+        }
+
+        // Verifica colisão com o corpo
+        for (let i = 0; i < trail.length; i++) {
+            if (trail[i].x === px && trail[i].y === py) {
+                gameOuver = true;
+                break; // Adicionado break para sair do loop após a colisão
+            }
+        }
 
         trail.push({ x: px, y: py });
         while (trail.length > tail) {
@@ -119,92 +158,94 @@ window.onload = function () {
         }
 
         // Verifica se a cobra comeu a comida
-        if (ax == px && ay == py) {
+        if (ax === px && ay === py) {
             tail++;
-            applesEaten++; // Contagem de maçãs comidas
-            score++;
-
-            // Verifica se é hora de mudar de fase
-            if (applesEaten % 15 === 0) {
-                level++; // Passa para a próxima fase
-                clearInterval(gameInterval); // Pausa temporária no jogo
-                gameInterval = setInterval(game, 160 - (level * 10)); // Aumenta a velocidade
-                generateWalls(); // Gera mais paredes
-                resizeCanvas(); // Ajusta o tamanho do canvas na nova fase
-
-                // Ajusta os blocos de acordo com o novo tamanho da fase
-                lp = Math.floor(stage.width / 30);
-                tp = Math.floor(stage.height / 30);
-                qpX = Math.floor(stage.width / lp);
-                qpY = Math.floor(stage.height / tp);
-            }
+            applesEaten++;
 
             // Gera uma nova posição para a comida
-            ax = Math.floor(Math.random() * qpX);
-            ay = Math.floor(Math.random() * qpY);
+            generateApple();
+
+            // Verifica se passou de fase
+            if (applesEaten >= 10 + (level - 1) * 5) { // Aumenta a contagem de maçãs conforme o nível
+                level++;
+                applesEaten = 0; // Reinicia a contagem de maçãs
+                clearInterval(gameInterval); // Pausa temporária no jogo
+                backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
+                generateWalls(); // Gera mais paredes
+                gameInterval = setInterval(game, 180 - (level * 20)); // Aumenta a velocidade
+            }
         }
+
+        // Exibe o nível no rodapé
+        ctx.fillStyle = "white";
+        ctx.font = "30px sans-serif";
+        ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
     }
 
     // Controle de movimento
     function keyPush(e) {
-        if (gameOver && e.keyCode === 13) { // Se der Game Over e pressionar Enter
+        if (gameOuver && e.keyCode === 13) {
             resetGame();
             return;
         }
-
-        switch (e.keyCode) {
-            case 37: // Esquerda
-                vx = -vel;
-                vy = 0;
-                break;
-            case 38: // Cima
-                vx = 0;
-                vy = -vel;
-                break;
-            case 39: // Direita
-                vx = vel;
-                vy = 0;
-                break;
-            case 40: // Baixo
-                vx = 0;
-                vy = vel;
-                break;
+        if (gameOuver && e.keyCode === 83) { // 83 é o código da tecla "S"
+            window.location.href = '../index.html'; // Altere para o caminho correto da sua página inicial
+            return;
         }
-    }
 
-    // Função para iniciar o jogo
-    function startGame() {
-        ctx.clearRect(0, 0, stage.width, stage.height); // Limpa o texto "Aperte Enter"
-        document.addEventListener("keydown", keyPush); // Ativa controle
-        resetGame();
+        if (!gameOuver) {
+            switch (e.keyCode) {
+                case 37:
+                    if (vx === 0) {
+                        vx = -vel;
+                        vy = 0;
+                    }
+                    break;
+                case 38:
+                    if (vy === 0) {
+                        vx = 0;
+                        vy = -vel;
+                    }
+                    break;
+                case 39:
+                    if (vx === 0) {
+                        vx = vel;
+                        vy = 0;
+                    }
+                    break;
+                case 40:
+                    if (vy === 0) {
+                        vx = 0;
+                        vy = vel;
+                    }
+                    break;
+            }
+        }
     }
 
     // Função para reiniciar o jogo
     function resetGame() {
-        gameOver = false;
-        showGameOver = false;
-        px = 1; // Inicia a cobrinha no canto superior esquerdo
-        py = 1;
-        vx = 0;
-        vy = 1; // Começa para baixo
-        tail = 5;
-        applesEaten = 0;
-        score = 0;
-        level = 1;
-        generateWalls(); // Gera novas paredes
         clearInterval(gameInterval);
-        gameInterval = setInterval(game, 200); // Inicia o intervalo do jogo
+
+        gameOuver = false;
+        applesEaten = 0;
+        level = 1;
+        tail = 5;
+        vx = 0;
+        vy = 1;
+        trail = [];
+        px = 0; // Cobra começa no canto superior esquerdo
+        py = 0;
+
+        generateWalls();
+        generateApple();
+        backgroundColor = "black"; // Cor inicial do nível 1
+
+        gameInterval = setInterval(game, 200);
+        showGameOuver = false; // Reinicia o controle de exibição de "Game Ouver"
+        showRestartMessage = false; // Reinicia o controle da mensagem de reinício
     }
 
-    // Exibir "Aperte Enter para começar"
-    ctx.fillStyle = "white";
-    ctx.font = "40px Arial";
-    ctx.fillText("Aperte Enter para começar", stage.width / 4, stage.height / 2);
-
-    // Aguarda o jogador apertar Enter para iniciar o jogo
-    document.addEventListener("keydown", function (e) {
-        if (e.keyCode === 13) { // Tecla Enter
-            startGame();
-        }
-    });
+    document.addEventListener("keydown", keyPush);
+    resetGame();
 };

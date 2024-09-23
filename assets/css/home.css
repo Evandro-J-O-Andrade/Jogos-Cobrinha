@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Para garantir que o fundo cubra toda a altura da tela */
+    background-image: url('/assets/image/Tela.jpg'); /* Altere para o caminho correto da sua imagem */
+    background-size: cover; /* Para cobrir toda a área do body */
+    background-position: center; /* Centraliza a imagem */
+    display: flex; /* Usado para centralizar o conteúdo */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    width: 100%; /* Para ocupar toda a largura */
+    position: relative; /* Para controlar a posição do h1 */
+    top: 100px; /* Distância do topo da página */
+}
+
+h1 {
+    margin: 0; /* Remove margens padrão */
+    color: white; /* Cor do texto do título */
+    font-size: 50sdspx; /* Tamanho do texto do título */
+}
+h2{
+    margin: 0; /* Remove margens padrão */
+    color: rgb(39, 224, 15); /* Cor do texto do título */
+    font-size: 24px; /* Tamanho do texto do título */
+    margin-top: 30px;
+}
+button {
+    padding: 15px 30px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px; /* Empurra o botão para a parte inferior */
+    position: relative;
+    
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px 0; /* Espaçamento interno */
+    position: absolute; /* Posiciona o footer na parte inferior */
+    bottom: 0; /* Coloca o footer no fundo da página */
+    width: 100%; /* Largura total */
+}
+
+footer ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+footer ul li {
+    display: inline; /* Exibe os itens da lista em linha */
+    margin: 0 15px; /* Espaçamento entre os links */
+}
+
+footer a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}

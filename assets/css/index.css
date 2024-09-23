@@ -10,7 +10,7 @@ body {
 }
 
 #stage {
-    border: 10px solid darkblue; /* Borda do jogo */
+    border: 20px solid rgba(139, 9, 0, 0.959); /* Borda do jogo */
 }
 
 html, body {
@@ -26,3 +26,4 @@ html, body {
     height: 100vh;
     background-color: black;
 }
+
