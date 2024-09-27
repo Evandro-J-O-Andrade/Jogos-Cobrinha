@@ -20,14 +20,15 @@ body {
 
 h1 {
     margin: 0; /* Remove margens padrão */
+    font-style: "sans-serif";
     color: white; /* Cor do texto do título */
-    font-size: 50sdspx; /* Tamanho do texto do título */
+    font-size: 60px; /* Tamanho do texto do título */
 }
 h2{
     margin: 0; /* Remove margens padrão */
     color: rgb(39, 224, 15); /* Cor do texto do título */
-    font-size: 24px; /* Tamanho do texto do título */
-    margin-top: 30px;
+    font-size: 30px; /* Tamanho do texto do título */
+    margin-top: 35px;
 }
 button {
     padding: 15px 30px;
