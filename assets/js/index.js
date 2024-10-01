@@ -16,7 +16,7 @@ window.onload = function () {
     var walls = []; // Paredes
     var showGameOver = false; // Controle para exibir "Game Over"
     var showRestartMessage = false; // Controle para exibir a mensagem de reinício
-    var recordAtual = 0;
+    var recordAtual =0;
     var recordSalvo = localStorage.getItem('recordSalvo') ? parseInt(localStorage.getItem('recordSalvo')) : 0;
     // Cores do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
@@ -106,8 +106,10 @@ window.onload = function () {
     function displayScores() {
         ctx.fillStyle = "white";
         ctx.font = "20px Arial";
-        ctx.fillText("Seu Record: " + recordAtual, stage.width - 200, 30); // Alinha o "Seu Record" à direita
-        ctx.fillText("Record Salvo: " + recordSalvo, stage.width - 200, 60); // Alinha o "Record Salvo" logo abaixo
+        ctx.textAlign = "left";
+        ctx.fillText("Seu Record: " + recordAtual, stage.width / 20 - 50, stage.height - 10); // Alinha o "Seu Record" à direita
+        ctx.fillText("New Recod: " + recordSalvo, stage.height  + 625,  700); // Alinha o "Record Salvo" logo abaixo
+        
     }
 
     // Função para gerar a posição da maçã
@@ -126,6 +128,11 @@ window.onload = function () {
                 ctx.textAlign = "center"; // Alinha o texto ao centro
                 ctx.fillText("Game Over", stage.width / 2 - 50, stage.height / 2);
                 showGameOver = true;
+
+                if (recordAtual > recordSalvo) {
+                    recordSalvo = recordAtual;
+                    localStorage.setItem('recordSalvo', recordSalvo); // Salva no localStorage
+                }
             }
 
             // Exibe a mensagem para voltar à página inicial
@@ -209,26 +216,29 @@ window.onload = function () {
         if (ax === px && ay === py) {
             tail++;
             applesEaten++;
-
-            // Gera uma nova posição para a comida
+            recordAtual = applesEaten * 100; // Atualiza o record atual
             generateApple();
+            // Gera uma nova posição para a comida
 
             // Verifica se passou de fase
             if (applesEaten >= 10 + (level - 1) * 5) { // Aumenta a contagem de maçãs conforme o nível
-                level++;
-                //cont == cont+ level
+                level++;//cont == cont+ level
                 applesEaten = 0; // Reinicia a contagem de maçãs
                 clearInterval(gameInterval); // Pausa temporária no jogo
                 backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
                 ctx.fillStyle = "white";
                 ctx.font = "50px Arial";
                 ctx.fillText("Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
-                generateWalls(); // Gera mais paredes
+                generateWalls(Math.random); // Gera mais paredes
                 gameInterval = setInterval(game, 180 - (level * 20)); // Aumenta a velocidade
                 
             }
         
-            displayScores(); 
+            if (gameOver) 
+                if (recordAtual > recordSalvo) {
+                    recordSalvo = recordAtual;
+                    localStorage.setItem('recordSalvo', recordSalvo);
+                }
         }
 
         // Exibe o nível no rodapé
@@ -236,6 +246,11 @@ window.onload = function () {
         ctx.font = "30px sans-serif";
         ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
 
+        ctx.fillStyle = "white";
+        ctx.font = "30px sans-serif";
+        ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);        
+        displayScores(); // Chama a função para exibir os scores
+        displayLevel(); // Chama a função para exibir o nível apenas se o jogo estiver ativo
     }
 
     // Controle de movimento
@@ -284,6 +299,7 @@ window.onload = function () {
         clearInterval(gameInterval);
         gameOver = false;
         applesEaten = 0;
+        recordAtual =0; //Reseta o record autal
         level = 1;
         tail = 5;
         vx = 0;
@@ -299,6 +315,8 @@ window.onload = function () {
         gameInterval = setInterval(game, 200);
         showGameOver = false; // Reinicia o controle de exibição de "Game Over"
         showRestartMessage = false; // Reinicia o controle da mensagem de reinício
+
+        
     }
 
     document.addEventListener("keydown", keyPush);
