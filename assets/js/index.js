@@ -32,12 +32,12 @@ window.onload = function () {
     var fundoTela = new Audio('/assets/audio/fundo.mp3');
 
     // Configurações de volume
-    backgroundMusic.volume = 0.2; // volume baixo para a música de fundo
+    backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
     moveSound.volume = 1.0; // volume normal para o som de movimento
     eatSound.volume = 1.0; // volume normal para o som de comer
     gameOverSound.volume = 1.0; // volume normal para o som de game over
     levelUpSound.volume = 1.0; // volume normal para o som de passar de fase
-    fundoTela.volume = 0.2; // volume normal para o som de fundo da tela 
+    fundoTela.volume = 0.3; // volume normal para o som de fundo da tela 
 
     // Tocar música de fundo
     backgroundMusic.loop = true; // Repetir a música de fundo
