@@ -42,9 +42,9 @@ window.onload = function () {
     // Tocar música de fundo
     backgroundMusic.loop = true; // Repetir a música de fundo
     backgroundMusic.play();
-    fundoTela.loop =true;
+    fundoTela.loop = true;
     fundoTela.play();
-    
+
 
 
     // Função para redimensionar o canvas
@@ -70,7 +70,7 @@ window.onload = function () {
         return color;
     }
 
-   // Função para gerar paredes em posições aleatórias
+    // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = []; // Reinicia as paredes a cada nova fase
         if (level === 1) return;
@@ -89,63 +89,63 @@ window.onload = function () {
             }
         }
     }
-   // Função para gerar paredes em posições aleatórias
-   function generateWalls() {
-    walls = []; // Reinicia as paredes a cada nova fase
-    if (level === 1) return;
-    for (let i = 0; i < level * 3; i++) {
-        let wallLength = Math.floor(2 + Math.random() * 4);
-        let wallX = Math.floor(Math.random() * (qpX - wallLength));
-        let wallY = Math.floor(Math.random() * qpY);
-        for (let j = 0; j < wallLength; j++) {
-            walls.push({ x: wallX + j, y: wallY });
-        }
-        wallLength = Math.floor(2 + Math.random() * 4);
-        wallX = Math.floor(Math.random() * qpX);
-        wallY = Math.floor(Math.random() * (qpY - wallLength));
-        for (let j = 0; j < wallLength; j++) {
-            walls.push({ x: wallX, y: wallY + j });
+    // Função para gerar paredes em posições aleatórias
+    function generateWalls() {
+        walls = []; // Reinicia as paredes a cada nova fase
+        if (level === 1) return;
+        for (let i = 0; i < level * 3; i++) {
+            let wallLength = Math.floor(2 + Math.random() * 4);
+            let wallX = Math.floor(Math.random() * (qpX - wallLength));
+            let wallY = Math.floor(Math.random() * qpY);
+            for (let j = 0; j < wallLength; j++) {
+                walls.push({ x: wallX + j, y: wallY });
+            }
+            wallLength = Math.floor(2 + Math.random() * 4);
+            wallX = Math.floor(Math.random() * qpX);
+            wallY = Math.floor(Math.random() * (qpY - wallLength));
+            for (let j = 0; j < wallLength; j++) {
+                walls.push({ x: wallX, y: wallY + j });
+            }
         }
     }
-}
 
-// Função para verificar se a maçã está em cima da cobra ou das paredes
-function isAppleOnSnakeOrWall() {
-    return trail.some(segment => segment.x === ax && segment.y === ay) || walls.some(wall => wall.x === ax && wall.y === ay);
-}
-
-// Função para gerar a maçã
-function generateApple() {
-    do {
-        ax = Math.floor(Math.random() * qpX);
-        ay = Math.floor(Math.random() * qpY);
-    } while (isAppleOnSnakeOrWall()); // Garante que a maçã não colida com a cobra ou paredes
-}
-
-// Função unificada de verificação de colisões
-function checkCollision() {
-    // Verifica colisão com bordas
-    if (px < 0 || px >= qpX || py < 0 || py >= qpY) {
-        gameOver = true;
-        return;
+    // Função para verificar se a maçã está em cima da cobra ou das paredes
+    function isAppleOnSnakeOrWall() {
+        return trail.some(segment => segment.x === ax && segment.y === ay) || walls.some(wall => wall.x === ax && wall.y === ay);
     }
 
-    // Verifica colisão com as paredes
-    for (let wall of walls) {
-        if (px === wall.x && py === wall.y) {
+    // Função para gerar a maçã
+    function generateApple() {
+        do {
+            ax = Math.floor(Math.random() * qpX);
+            ay = Math.floor(Math.random() * qpY);
+        } while (isAppleOnSnakeOrWall()); // Garante que a maçã não colida com a cobra ou paredes
+    }
+
+    // Função unificada de verificação de colisões
+    function checkCollision() {
+        // Verifica colisão com bordas
+        if (px < 0 || px >= qpX || py < 0 || py >= qpY) {
             gameOver = true;
             return;
         }
-    }
 
-    // Verifica colisão com o corpo da cobra
-    for (let segment of trail) {
-        if (px === segment.x && py === segment.y) {
-            gameOver = true;
-            return;
+        // Verifica colisão com as paredes
+        for (let wall of walls) {
+            if (px === wall.x && py === wall.y) {
+                gameOver = true;
+                return;
+            }
+        }
+
+        // Verifica colisão com o corpo da cobra
+        for (let segment of trail) {
+            if (px === segment.x && py === segment.y) {
+                gameOver = true;
+                return;
+            }
         }
     }
-}
 
 
     // Função para exibir os scores na tela
@@ -175,7 +175,7 @@ function checkCollision() {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo); // Salva no localStorage
                 }
-                
+
                 gameOverSound.play(); // Toca som de game over
             }
 
@@ -226,7 +226,7 @@ function checkCollision() {
         ctx.beginPath();
         ctx.arc(ax * lp + lp / 2, ay * tp + tp / 2, lp / 2, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Desenha paredes
         ctx.fillStyle = "blue";
         for (let i = 0; i < walls.length; i++) {
@@ -274,7 +274,7 @@ function checkCollision() {
                 backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
                 ctx.fillStyle = "white";
                 ctx.font = "50px Arial";
-                ctx.textAlign="center";
+                ctx.textAlign = "center";
                 ctx.fillText("Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
                 setTimeout(() => {
                     generateWalls();
@@ -282,16 +282,16 @@ function checkCollision() {
                 }, 2000); // Aumenta a velocidade
                 levelUpSoun.play();
             }
-        
-            if (gameOver) 
+
+            if (gameOver)
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
                 }
-                   // Desenha os scores
-       displayScores();
-       isMoving = false; // Reseta a variável de movimento
-   
+            // Desenha os scores
+            displayScores();
+            isMoving = false; // Reseta a variável de movimento
+
         }
 
         // Exibe o nível no rodapé
@@ -300,71 +300,71 @@ function checkCollision() {
         ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
         ctx.fillStyle = "white";
         ctx.font = "30px sans-serif";
-        ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);        
+        ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
         displayScores(); // Chama a função para exibir os scores
         displayLevel(); // Chama a função para exibir o nível apenas se o jogo estiver ativo
     }
-    
-   // Controle de teclado
-   document.addEventListener("keydown", function (e) {
-    if (gameOver) {
-        if (e.key === "Enter") {
-            resetGame();
-        } else if (e.key === "s" || e.key === "S") {
-            window.location.href = "../index.html"; // Redireciona para a página inicial
+
+    // Controle de teclado
+    document.addEventListener("keydown", function (e) {
+        if (gameOver) {
+            if (e.key === "Enter") {
+                resetGame();
+            } else if (e.key === "s" || e.key === "S") {
+                window.location.href = "/index.html"; // Redireciona para a página inicial
+            }
+            return;
         }
-        return;
+
+        if (e.key === "ArrowUp" && vy !== 1) {
+            vx = 0;
+            vy = -1; // Mover para cima
+            if (!isMoving) {
+                moveSound.play(); // Toca som de movimento
+
+            }
+        } else if (e.key === "ArrowDown" && vy !== -1) {
+            vx = 0;
+            vy = 1; // Mover para baixo
+            if (!isMoving) {
+                moveSound.play(); // Toca som de movimento
+
+            }
+        } else if (e.key === "ArrowLeft" && vx !== 1) {
+            vx = -1;
+            vy = 0; // Mover para a esquerda
+            if (!isMoving) {
+                moveSound.play(); // Toca som de movimento
+
+            }
+        } else if (e.key === "ArrowRight" && vx !== -1) {
+            vx = 1;
+            vy = 0; // Mover para a direita
+            if (!isMoving) {
+                moveSound.play(); // Toca som de movimento
+
+            }
+        }
+    });
+
+    // Função para reiniciar o jogo
+    function resetGame() {
+        gameOver = false;
+        showGameOver = false; // Reseta a exibição do game over
+        showRestartMessage = false; // Reseta a mensagem de reinício
+        px = Math.floor(qpX / 2); // Inicia a cobrinha no centro
+        py = Math.floor(qpY / 2);
+        trail = []; // Limpa o rastro da cobrinha
+        tail = 5; // Reseta o tamanho da cobrinha
+        applesEaten = 0; // Reseta contagem de maçãs
+        recordAtual = 0; // Reseta o recorde atual
+        level = 1; // Reseta o nível
+        generateWalls(); // Gera novas paredes
+        generateApple(); // Gera nova maçã
+        gameInterval = setInterval(game, 180); // Reinicia o intervalo do jogo
+        snakeColor = generateColor(); // Gera nova cor para a cobrinha
     }
 
-    if (e.key === "ArrowUp" && vy !== 1) {
-        vx = 0;
-        vy = -1; // Mover para cima
-        if (!isMoving) {
-            moveSound.play(); // Toca som de movimento
-        
-        }
-    } else if (e.key === "ArrowDown" && vy !== -1) {
-        vx = 0;
-        vy = 1; // Mover para baixo
-        if (!isMoving) {
-            moveSound.play(); // Toca som de movimento
-           
-        }
-    } else if (e.key === "ArrowLeft" && vx !== 1) {
-        vx = -1;
-        vy = 0; // Mover para a esquerda
-        if (!isMoving) {
-            moveSound.play(); // Toca som de movimento
-         
-        }
-    } else if (e.key === "ArrowRight" && vx !== -1) {
-        vx = 1;
-        vy = 0; // Mover para a direita
-        if (!isMoving) {
-            moveSound.play(); // Toca som de movimento
-        
-        }
-    }
-});
-
-// Função para reiniciar o jogo
-function resetGame() {
-    gameOver = false;
-    showGameOver = false; // Reseta a exibição do game over
-    showRestartMessage = false; // Reseta a mensagem de reinício
-    px = Math.floor(qpX / 2); // Inicia a cobrinha no centro
-    py = Math.floor(qpY / 2);
-    trail = []; // Limpa o rastro da cobrinha
-    tail = 5; // Reseta o tamanho da cobrinha
-    applesEaten = 0; // Reseta contagem de maçãs
-    recordAtual = 0; // Reseta o recorde atual
-    level = 1; // Reseta o nível
-    generateWalls(); // Gera novas paredes
-    generateApple(); // Gera nova maçã
-    gameInterval = setInterval(game, 180); // Reinicia o intervalo do jogo
-    snakeColor = generateColor(); // Gera nova cor para a cobrinha
-}
-
-// Inicia o jogo
-resetGame();
+    // Inicia o jogo
+    resetGame();
 };
