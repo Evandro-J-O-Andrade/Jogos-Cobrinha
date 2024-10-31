@@ -205,7 +205,7 @@ window.onload = function () {
                 ctx.fillStyle = "white";
                 ctx.font = "30px Arial";
                 ctx.textAlign = "center"; // Alinha o texto ao centro
-               ctx.fillText("Pressione Enter para Continuar ou S para sair! ", stage.width / 2 - 50, stage.height / 2 + 50);
+                ctx.fillText("Pressione Enter para Continuar ou S para sair! ", stage.width / 2 - 50, stage.  height / 2 + 50);
                 showRestartMessage = true;
             }
             clearInterval(gameInterval);
