@@ -5,20 +5,24 @@
 }
 body {
     height: 100vh; /* Usa a altura da janela de visualização */
+    width: 100%;
     background-image: url('/assets/image/tela2.jpg'); /* Altere para o caminho correto da sua imagem */
     background-position: center; /* Centraliza a imagem */
     background-size: cover; /* Faz a imagem cobrir todo o espaço */
     display: flex; /* Usado para centralizar o conteúdo */
     flex-direction: column; /* Organiza o conteúdo em coluna */
     margin: 0; /* Remove margens padrão do body */
+   
+
 }
 
 @media (max-width: 768px) {
     body {
-        background-size: contain; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+        background-size: cover; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+        display: flex;
+        width: 100%;
     }
 }
-
 
 .container {
     display: flex;
@@ -50,7 +54,7 @@ button {
     border-radius: 5px;
     margin-top: 50px; /* Empurra o botão para a parte inferior */
     position: relative;
-    transition: 05s;
+    transition: 0.6s;
     
     
 }
@@ -66,6 +70,9 @@ footer {
     position: absolute; /* Posiciona o footer na parte inferior */
     bottom: 0; /* Coloca o footer no fundo da página */
     width: 100%; /* Largura total */
+    font-size: 25px;
+    display: flexbox;
+    flex-direction: column;
 }
 
 footer ul {
@@ -85,4 +92,50 @@ footer a {
 
 footer a:hover {
     text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.jogo-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Áreas de toque para dispositivos móveis */
+.toqueCelular {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    opacity: 0.5; /* Transparência */
+}
+
+/* Ajustes de toque */
+#toqueCima {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueBaixo {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueEsquerda {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueDireita {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
 }

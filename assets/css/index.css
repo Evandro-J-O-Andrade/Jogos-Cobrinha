@@ -51,3 +51,48 @@ html, body {
     margin: 0 auto; /* centraliza o canvas */
     background-color: black; /* cor de fundo do canvas */
 }
+.jogo-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Áreas de toque para dispositivos móveis */
+.toqueCelular {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    opacity: 0.5; /* Transparência */
+}
+
+/* Ajustes de toque */
+#toqueCima {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueBaixo {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueEsquerda {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueDireita {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}

@@ -1,4 +1,24 @@
 /* Estilos padrão do jogo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Adiciona um modelo de box mais previsível */
+}
+body {
+    height: 100vh; /* Usa a altura da janela de visualização */
+    background-image: url('/assets/image/tela2.jpg'); /* Altere para o caminho correto da sua imagem */
+    background-position: center; /* Centraliza a imagem */
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    display: flex; /* Usado para centralizar o conteúdo */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    margin: 0; /* Remove margens padrão do body */
+   
+
+}
+.background-image{
+    display: flex;
+}
 body {
     background-color: #000; /* Cor de fundo */
     color: #fff; /* Cor do texto */
@@ -123,6 +143,10 @@ body {
         max-width: 100%;
     }
 
+    .background-image{
+        display: flex;
+    }
+
     .toqueCelular {
         width: 60px; /* Ajuste para telas menores */
         height: 60px; 
@@ -139,7 +163,9 @@ body {
         max-width: 200px;
         /* Defina um tamanho máximo, se necessário */
     }
-
+.background-image{
+    display: flex;
+}
     body {
         background-size: contain; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
     }
@@ -214,6 +240,10 @@ body {
                 max-width: 200px;
                 /* Defina um tamanho máximo, se necessário */
             }
+        
+        }
+        .background-image{
+            display: flex;
         }
     }
 
@@ -223,6 +253,9 @@ body {
             /* Ajuste a largura da logo para telas menores */
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
+        }
+        .background-image{
+            display: flex;
         }
     }
 
@@ -305,7 +338,9 @@ body {
 
         }
 
-
+        .background-image{
+            display: flex;
+        }
     }
 
     /*Esse resolução foi feita com classe pra utilização de codigo*/
@@ -317,7 +352,9 @@ body {
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
         }
-
+        .background-image{
+            display: flex;
+        }
         .resolucao nav ul {
             position: absolute;
             top: 70px;
@@ -353,6 +390,9 @@ body {
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
         }
+        .background-image{
+            display: flex;
+        }
     }
 
     @media only screen and (min-width: 100px) and (max-width: 600px) {
@@ -378,6 +418,9 @@ body {
         .resolucao #MenuItens {
             width: 100%;
             max-width: 100%;
+        }
+        .background-image{
+            display: flex;
         }
     }
 
@@ -451,6 +494,9 @@ body {
             color: var(--cor-fonte);
         }
     }
+    .background-image{
+        display: flex;
+    }
 
 }
 
@@ -463,11 +509,17 @@ body {
         .resolucao body {
             background-color: var(--cor-padrao-hover), var(--cor-padrao);
         }
+        .background-image{
+            display: flex;
+        }
     }
 
     @media (max-width: 480px) {
         .resolucao body {
             font-size: 12px;
+        }
+        .background-image{
+            display: flex;
         }
     }
 
@@ -475,12 +527,18 @@ body {
         .resolucao body {
             padding: 10px;
         }
+        .background-image{
+            display: flex;
+        }
     }
 
     @media (max-width: 600px) {
         .rodape-col-4 ul li {
             text-align: center;
         }
+    }
+    .background-image{
+        display: flex;
     }
 }
 

@@ -89,6 +89,27 @@ window.onload = function () {
             }
         }
     }
+
+    function handleTouch(event) {
+        event.preventDefault();
+        const touch = event.touches ? event.touches[0] : event; // Se for um toque, pega o primeiro toque; se for mouse, usa o evento diretamente.
+        const touchX = touch.clientX - stage.offsetLeft;
+        const touchY = touch.clientY - stage.offsetTop;
+        const snakeHead = snake[0];
+    
+        // Lógica de direção com base na posição do toque
+        if (touchX < snakeHead.x * blockSize) {
+            if (snakeDirection !== 'RIGHT') snakeDirection = 'LEFT';
+        } else {
+            if (snakeDirection !== 'LEFT') snakeDirection = 'RIGHT';
+        }
+        if (touchY < snakeHead.y * blockSize) {
+            if (snakeDirection !== 'DOWN') snakeDirection = 'UP';
+        } else {
+            if (snakeDirection !== 'UP') snakeDirection = 'DOWN';
+        }
+    }
+    
     // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = []; // Reinicia as paredes a cada nova fase
@@ -184,6 +205,7 @@ window.onload = function () {
                 ctx.fillStyle = "white";
                 ctx.font = "30px Arial";
                 ctx.textAlign = "center"; // Alinha o texto ao centro
+                ctx.display = flex;
                 ctx.fillText("Pressione Enter para Continuar ou S para sair! ", stage.width / 2 - 50, stage.height / 2 + 50);
                 showRestartMessage = true;
             }
@@ -344,7 +366,28 @@ window.onload = function () {
                 moveSound.play(); // Toca som de movimento
 
             }
+        }  
+        
+        function handleTouch(event) {
+            event.preventDefault(); // Previne o comportamento padrão
+            const touch = event.touches[0];
+            const snakeHead = { x: px, y: py }; // Posição da cabeça da cobrinha
+        
+            // Lógica de direção com base na posição do toque
+            if (touch.clientX < snakeHead.x * lp) {
+                if (vx === 0) { vx = -vel; vy = 0; } // Mover para a esquerda
+            } else {
+                if (vx === 0) { vx = vel; vy = 0; } // Mover para a direita
+            }
+            if (touch.clientY < snakeHead.y * tp) {
+                if (vy === 0) { vx = 0; vy = -vel; } // Mover para cima
+            } else {
+                if (vy === 0) { vx = 0; vy = vel; } // Mover para baixo
+            }
         }
+        
+        // Adiciona evento de toque ao canvas
+       
     });
 
     // Função para reiniciar o jogo
@@ -366,5 +409,8 @@ window.onload = function () {
     }
 
     // Inicia o jogo
+    
     resetGame();
+    
 };
+canvas.addEventListener("touchstart", handleTouch);

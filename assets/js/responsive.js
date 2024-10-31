@@ -1,3 +1,8 @@
+
+    var stage = document.getElementById("stage");
+    var ctx = stage.getContext("2d");
+
+
 // Captura das áreas de toque
 const toqueCima = document.getElementById("toqueCima");
 const toqueBaixo = document.getElementById("toqueBaixo");
@@ -16,7 +21,25 @@ function moverCobra(novaDirecao) {
         direcao = novaDirecao; // Atualiza a direção
     }
 }
+function handleTouch(event) {
+    event.preventDefault();
+    const touch = event.touches ? event.touches[0] : event; // Se for um toque, pega o primeiro toque; se for mouse, usa o evento diretamente.
+    const touchX = touch.clientX - stage.offsetLeft;
+    const touchY = touch.clientY - stage.offsetTop;
+    const snakeHead = snake[0];
 
+    // Lógica de direção com base na posição do toque
+    if (touchX < snakeHead.x * blockSize) {
+        if (snakeDirection !== 'RIGHT') snakeDirection = 'LEFT';
+    } else {
+        if (snakeDirection !== 'LEFT') snakeDirection = 'RIGHT';
+    }
+    if (touchY < snakeHead.y * blockSize) {
+        if (snakeDirection !== 'DOWN') snakeDirection = 'UP';
+    } else {
+        if (snakeDirection !== 'UP') snakeDirection = 'DOWN';
+    }
+}
 toqueCima.addEventListener("click", () => moverCobra('cima'));
 toqueBaixo.addEventListener("click", () => moverCobra('baixo'));
 toqueEsquerda.addEventListener("click", () => moverCobra('esquerda'));
@@ -64,3 +87,49 @@ document.getElementById("right").onclick = function() {
         vy = 0; 
     }
 };
+
+// Função para lidar com o toque na tela
+function handleTouch(event) {
+    // Previne o comportamento padrão de rolagem
+    event.preventDefault();
+    
+    // Obtém a posição do toque
+    const touch = event.touches[0];
+    
+    // Calcula a posição do toque em relação à área de jogo
+    const touchX = touch.clientX;
+    const touchY = touch.clientY;
+    
+    // Obtém a posição da cobrinha (assumindo que snake é um array com as coordenadas)
+    const snakeHead = snake[0]; // A cabeça da cobrinha é a primeira parte do array
+
+    // Calcula a direção com base na posição do toque
+    if (touchX < snakeHead.x * blockSize) {
+        // Toque à esquerda da cobrinha
+        if (snakeDirection !== 'RIGHT') {
+            snakeDirection = 'LEFT';
+        }
+    } else {
+        // Toque à direita da cobrinha
+        if (snakeDirection !== 'LEFT') {
+            snakeDirection = 'RIGHT';
+        }
+    }
+
+    if (touchY < snakeHead.y * blockSize) {
+        // Toque acima da cobrinha
+        if (snakeDirection !== 'DOWN') {
+            snakeDirection = 'UP';
+        }
+    } else {
+        // Toque abaixo da cobrinha
+        if (snakeDirection !== 'UP') {
+            snakeDirection = 'DOWN';
+        }
+    }
+}
+canvas.addEventListener("touchstart", handleTouch);
+canvas.addEventListener("mousedown", handleTouch);
+// Adiciona o evento de toque à área de jogo
+const gameArea = document.getElementById('stage'); // Substitua pelo ID do seu elemento
+gameArea.addEventListener('touchstart', handleTouch);
