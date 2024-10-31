@@ -27,3 +27,27 @@ html, body {
     background-color: black;
 }
 
+#controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#controls button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 24px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+#stage {
+    display: block; /* remove espaço abaixo do canvas */
+    margin: 0 auto; /* centraliza o canvas */
+    background-color: black; /* cor de fundo do canvas */
+}

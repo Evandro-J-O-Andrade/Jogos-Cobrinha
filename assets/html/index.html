@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="/assets/css/home.css"> 
+    <link rel="stylesheet" href="/assets/css/celulares.css">
     <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 <body>
+
+    <!-- Container para áreas de toque -->
+<div class="toque">
+    <!-- Áreas de toque para dispositivos móveis -->
+    <div id="toqueCima" class="toqueCelular"></div>
+    <div id="toqueBaixo" class="toqueCelular"></div>
+    <div id="toqueEsquerda" class="toqueCelular"></div>
+    <div id="toqueDireita" class="toqueCelular"></div>
+</div>
+
     <!-- Canvas do jogo -->
     <canvas class="game-stage" id="stage"></canvas>
     
 
     <!-- Script do jogo -->
-    <script src="/assets/js/index.js"></script>
+    
 </body>
+<script src="/assets/js/index.js"></script>
+    <script src="/assets/js/responsive.js"></script>
 </html>

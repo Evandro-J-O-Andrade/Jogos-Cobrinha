@@ -1,13 +1,24 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    height: 100vh; /* Para garantir que o fundo cubra toda a altura da tela */
-    background-image: url('/assets/image/Tela.jpg'); /* Altere para o caminho correto da sua imagem */
-    background-size: cover; /* Para cobrir toda a área do body */
+    box-sizing: border-box; /* Adiciona um modelo de box mais previsível */
+}
+body {
+    height: 100vh; /* Usa a altura da janela de visualização */
+    background-image: url('/assets/image/tela2.jpg'); /* Altere para o caminho correto da sua imagem */
     background-position: center; /* Centraliza a imagem */
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
     display: flex; /* Usado para centralizar o conteúdo */
     flex-direction: column; /* Organiza o conteúdo em coluna */
+    margin: 0; /* Remove margens padrão do body */
 }
+
+@media (max-width: 768px) {
+    body {
+        background-size: contain; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+    }
+}
+
 
 .container {
     display: flex;
@@ -27,7 +38,7 @@ h1 {
 h2{
     margin: 0; /* Remove margens padrão */
     color: rgb(39, 224, 15); /* Cor do texto do título */
-    font-size: 30px; /* Tamanho do texto do título */
+    font-size: 35px; /* Tamanho do texto do título */
     margin-top: 35px;
 }
 button {
@@ -39,6 +50,8 @@ button {
     border-radius: 5px;
     margin-top: 50px; /* Empurra o botão para a parte inferior */
     position: relative;
+    transition: 05s;
+    
     
 }
 

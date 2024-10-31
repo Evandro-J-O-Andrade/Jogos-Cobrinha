@@ -1,0 +1,508 @@
+/* Estilos padrão do jogo */
+body {
+    background-color: #000; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.jogo-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Áreas de toque para dispositivos móveis */
+.toqueCelular {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    opacity: 0.5; /* Transparência */
+}
+
+/* Ajustes de toque */
+#toqueCima {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueBaixo {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueEsquerda {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+#toqueDireita {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Largura do botão */
+    height: 80px; /* Altura do botão */
+}
+
+/* Suas media queries adaptadas */
+@media only screen and (min-width: 75px) and (max-width: 500px) {
+    .jogo-container {
+        width: 100%;
+        /* Ajuste a largura da logo para telas menores */
+        max-width: 200px;
+        .menu-celular {
+            display: block;
+        }
+    
+        /* Ajustes para área de toque */
+        .toqueCelular {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5); /* Fundo com leve transparência */
+            z-index: 10; /* Para ficar acima de outros elementos */
+        }
+    
+        #toqueCima {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 50%; /* Ajuste a altura conforme necessário */
+        }
+    
+        #toqueBaixo {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 50%; /* Ajuste a altura conforme necessário */
+        }
+    
+        #toqueEsquerda {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%; /* Ajuste a largura conforme necessário */
+            height: 100%;
+        }
+    
+        #toqueDireita {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%; /* Ajuste a largura conforme necessário */
+            height: 100%;
+        }
+        /* Defina um tamanho máximo, se necessário */
+        /* Ajustes para telas menores */
+    }
+
+    .toqueCelular {
+        /* Ajustes nas áreas de toque */
+        width: 60px; /* Largura do botão */
+        height: 60px; /* Altura do botão */
+    }
+
+    #toqueCima, #toqueBaixo, #toqueEsquerda, #toqueDireita {
+        #toqueEsquerda, #toqueDireita {
+            width: 50%;
+            height: 100%;
+        }
+        /* Ajustes específicos para botões de toque em telas menores */
+    }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1000px) {
+    #MenuItens {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .toqueCelular {
+        width: 60px; /* Ajuste para telas menores */
+        height: 60px; 
+        /* Ajustes ad
+        icionais */
+    }
+}
+
+/* Continue com suas media queries, adaptando conforme necessário */
+@media only screen and (min-width: 75px) and (max-width:500px) {
+    .logo {
+        width: 100%;
+        /* Ajuste a largura da logo para telas menores */
+        max-width: 200px;
+        /* Defina um tamanho máximo, se necessário */
+    }
+
+    body {
+        background-size: contain; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+    }
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: var(--cor-btn-fonte);
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        min-width: 100%;
+        max-width: none;
+    }
+
+    .menu-ativo nav ul {
+        
+        max-height: 300px;
+        /* Ajuste conforme necessário */
+    }
+
+    @media only screen and (min-width:100px) and (max-width: 1000px) {
+
+        /* Ajustes específicos para telas menores */
+        #MenuItens {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    #MenuItens {
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Preto com 50% de transparência */
+    }
+
+    .menu-ativo nav ul {
+        max-width: 300px;
+        transition: max-heitght 0.3s ease-in-out;
+    }
+
+    nav ul li {
+        display: block;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        color: var(--cor-fonte);
+    }
+
+    .menu-celular {
+        display: block;
+    }
+
+    .novoMenu nav ul li a {
+        color: var(--cor-fonte);
+
+    }
+
+
+    @media only screen and (min-width: 100px) and (max-width: 550px) {
+        .resolucao {
+
+            /* Estilos para telas entre 100px e 500px */
+            .logo {
+                width: 100%;
+                /* Ajuste a largura da logo para telas menores */
+                max-width: 200px;
+                /* Defina um tamanho máximo, se necessário */
+            }
+        }
+    }
+
+    @media only screen and (min-width: 100px) and (max-width: 600px) {
+        .logo {
+            width: 100%;
+            /* Ajuste a largura da logo para telas menores */
+            max-width: 200px;
+            /* Defina um tamanho máximo, se necessário */
+        }
+    }
+
+    /*Forçando o codigo pra que não perca resolução para celulares menores*/
+
+
+    /*Fim do menu forçando*/
+
+    @media only screen and (max-width:300) {
+        .linha {
+            text-align: center;
+        }
+
+        .col-2,
+        .col-3,
+        .col-4 {
+            flex-basis: 100%;
+            min-width: 100%;
+        }
+
+        .col-2 h1 {
+            font-size: 27px;
+        }
+
+        .rodape-col-3,
+        .rodape-col-4 {
+
+            text-align: center;
+
+        }
+
+        .col-4 p {
+            font-size: 24px;
+        }
+
+        .novoMenu nav ul li a {
+            color: var(--cor-fonte);
+
+        }
+
+        .rodape-col-4 ul {
+            width: 15px;
+            min-width: 250px;
+            margin-bottom: 20px;
+            font-size: 25px;
+            flex-basis: 12%;
+            text-align: right;
+
+        }
+
+        .rodape-col-4 ul li {
+            width: 15px;
+            min-width: 250px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            flex-basis: 12%;
+            text-align: right;
+            margin: 0;
+
+
+
+        }
+
+        .rodape-col-3 ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .rodape-col-3 ul li {
+            width: 15px;
+            min-width: 250px;
+            margin-bottom: 0px;
+            font-size: 15px;
+            flex-basis: 12%;
+            text-align: right;
+
+
+
+
+        }
+
+
+    }
+
+    /*Esse resolução foi feita com classe pra utilização de codigo*/
+
+    @media only screen and (min-width: 100px) and (max-width: 800px) {
+        .resolucao .logo {
+            width: 100%;
+            /* Ajuste a largura da logo para telas menores */
+            max-width: 200px;
+            /* Defina um tamanho máximo, se necessário */
+        }
+
+        .resolucao nav ul {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: var(--cor-btn-fonte);
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            transition: max-height 0.5s;
+            min-width: 100%;
+            max-width: 0;
+        }
+
+        .resolucao .menu-ativo nav ul {
+            max-height: 300px;
+            /* Ajuste conforme necessário */
+        }
+
+        .resolucao nav ul li {
+            display: block;
+            /* Altere para bloco */
+            margin-top: 10px;
+            margin-right: 0;
+            /* Remova margem direita para menu em coluna */
+            margin-bottom: 10px;
+        }
+    }
+
+    @media only screen and (min-width: 100px) and (max-width: 740px) {
+        .resolucao .logo {
+            width: 100%;
+            /* Ajuste a largura da logo para telas menores */
+            max-width: 200px;
+            /* Defina um tamanho máximo, se necessário */
+        }
+    }
+
+    @media only screen and (min-width: 100px) and (max-width: 600px) {
+        .resolucao .logo {
+            width: 100%;
+            /* Ajuste a largura da logo para telas menores */
+            max-width: 200px;
+            /* Defina um tamanho máximo, se necessário */
+        }
+
+        .resolucao nav ul {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: var(--cor-btn-fonte);
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            transition: max-height 0.5s;
+            min-width: 100%;
+        }
+
+        .resolucao #MenuItens {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .resolucao #MenuItens {
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .resolucao .menu-ativo nav ul {
+        max-width: 300px;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .resolucao nav ul li {
+        display: block;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-bottom: 10px;
+    }
+
+    .resolucao nav ul li a {
+        color: var(--cor-fonte);
+    }
+
+    .resolucao .menu-celular {
+        display: block;
+    }
+
+    .resolucao .novoMenu nav ul li a {
+        color: var(--cor-fonte);
+    }
+
+    @media only screen and (max-width: 100px) and (min-width: 400px) {
+        .resolucao nav ul {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: var(--cor-btn-fonte);
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            transition: max-height 0.5s;
+            min-width: 100%;
+        }
+
+        .resolucao .linha {
+            text-align: center;
+        }
+
+        .resolucao .col-2,
+        .resolucao .col-3,
+        .resolucao .col-4 {
+            flex-basis: 100%;
+            min-width: 100%;
+        }
+
+        .resolucao .col-2 h1 {
+            font-size: 27px;
+        }
+
+        .resolucao .rodape-col-3,
+        .resolucao .rodape-col-4 {
+            text-align: center;
+        }
+
+        .resolucao .col-4 p {
+            font-size: 24px;
+        }
+
+        .resolucao .novoMenu nav ul li a {
+            color: var(--cor-fonte);
+        }
+    }
+
+}
+
+
+.resolucao {
+    /* As regras padrão (caso queira manter) */
+
+
+    @media (max-width: 768px) {
+        .resolucao body {
+            background-color: var(--cor-padrao-hover), var(--cor-padrao);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .resolucao body {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .resolucao body {
+            padding: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .rodape-col-4 ul li {
+            text-align: center;
+        }
+    }
+}
+
+.footer {
+    margin-top: auto;
+}
+#controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#controls button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 24px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+}
