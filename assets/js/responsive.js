@@ -11,6 +11,11 @@ const toqueDireita = document.getElementById("toqueDireita");
 let direcao = 'baixo'; // Direção inicial da cobra
 // Adiciona eventos de toque
 
+
+MenuItens.style.maxHeight = "0px";
+
+
+
 function moverCobra(novaDirecao) {
     // Verifica se a nova direção não é oposta à direção atual
     if ((direcao === 'cima' && novaDirecao !== 'baixo') || 
@@ -128,8 +133,30 @@ function handleTouch(event) {
         }
     }
 }
+
+function ajustarLayout() {
+    const larguraTela = window.innerWidth;
+
+    // Exemplo de lógica para ajustar elementos
+    const logo = document.querySelector('.logo');
+    const menuCelular = document.querySelector('.menu-celular');
+
+    if (larguraTela < 500) {
+        // Ajustes para telas menores
+        logo.style.Width = '100%'; // Ajuste a largura da logo
+        menuCelular.style.display = 'block'; // Mostra o menu celular
+    } else {
+        // Ajustes para telas maiores
+        logo.style.maxWidth = 'none'; // Remove a restrição de largura
+        menuCelular.style.display = 'none'; // Esconde o menu celular
+    }
+}
 canvas.addEventListener("touchstart", handleTouch);
 canvas.addEventListener("mousedown", handleTouch);
 // Adiciona o evento de toque à área de jogo
 const gameArea = document.getElementById('stage'); // Substitua pelo ID do seu elemento
 gameArea.addEventListener('touchstart', handleTouch);
+window.addEventListener('touchstart', handleTouch);
+
+// Chama a função no carregamento da página para garantir que o layout esteja correto
+ajustarLayout();
