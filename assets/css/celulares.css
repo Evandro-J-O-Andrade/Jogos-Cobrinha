@@ -52,17 +52,25 @@ body {
 
 
 h1 {
+    text-align: center;
+    display: flex;
     margin: 0; /* Remove margens padrão */
     font-style: "sans-serif";
-    color: white; /* Cor do texto do título */
-    font-size: 60px; /* Tamanho do texto do título */
+    color: rgb(240, 3, 34); /* Cor do texto do título */
+    font-size: 80px; /* Tamanho do texto do título */
+    padding: 0;
 }
+
 h2{
+    text-align: center;
+    display: flex;
     margin: 0; /* Remove margens padrão */
-    color: rgb(39, 224, 15); /* Cor do texto do título */
-    font-size: 35px; /* Tamanho do texto do título */
+    color: rgb(241, 240, 247); /* Cor do texto do título */
+    font-size: 45px; /* Tamanho do texto do título */
     margin-top: 35px;
+    padding: 0;
 }
+
 button {
     padding: 10px 20px; /* Espaçamento interno do botão */
     color: rgb(38, 16, 97); /* Cor do texto do botão */
@@ -275,16 +283,23 @@ footer a:hover {
     
     
     h1 {
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
         font-style: "sans-serif";
-        color: white; /* Cor do texto do título */
-        font-size: 60px; /* Tamanho do texto do título */
+        color: rgb(240, 3, 34); /* Cor do texto do título */
+        font-size: 80px; /* Tamanho do texto do título */
+        padding: 0;
     }
+    
     h2{
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
-        color: rgb(39, 224, 15); /* Cor do texto do título */
-        font-size: 35px; /* Tamanho do texto do título */
+        color: rgb(241, 240, 247); /* Cor do texto do título */
+        font-size: 45px; /* Tamanho do texto do título */
         margin-top: 35px;
+        padding: 0;
     }
     button {
         padding: 10px 20px; /* Espaçamento interno do botão */
@@ -369,16 +384,23 @@ footer a:hover {
     
     
     h1 {
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
         font-style: "sans-serif";
-        color: white; /* Cor do texto do título */
-        font-size: 60px; /* Tamanho do texto do título */
+        color: rgb(240, 3, 34); /* Cor do texto do título */
+        font-size: 80px; /* Tamanho do texto do título */
+        padding: 0;
     }
+    
     h2{
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
-        color: rgb(39, 224, 15); /* Cor do texto do título */
-        font-size: 35px; /* Tamanho do texto do título */
+        color: rgb(241, 240, 247); /* Cor do texto do título */
+        font-size: 45px; /* Tamanho do texto do título */
         margin-top: 35px;
+        padding: 0;
     }
     button {
         padding: 10px 20px; /* Espaçamento interno do botão */
@@ -542,16 +564,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -629,16 +658,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -707,16 +743,23 @@ footer a:hover {
     
     
     h1 {
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
         font-style: "sans-serif";
-        color: white; /* Cor do texto do título */
-        font-size: 60px; /* Tamanho do texto do título */
+        color: rgb(240, 3, 34); /* Cor do texto do título */
+        font-size: 80px; /* Tamanho do texto do título */
+        padding: 0;
     }
+    
     h2{
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
-        color: rgb(39, 224, 15); /* Cor do texto do título */
-        font-size: 35px; /* Tamanho do texto do título */
+        color: rgb(241, 240, 247); /* Cor do texto do título */
+        font-size: 45px; /* Tamanho do texto do título */
         margin-top: 35px;
+        padding: 0;
     }
     button {
         padding: 10px 20px; /* Espaçamento interno do botão */
@@ -785,7 +828,7 @@ footer a:hover {
         }
 
         .col-2 h1 {
-            font-size: 27px;
+            font-size: 28px;
         }
 
         .rodape-col-3,
@@ -863,16 +906,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -979,16 +1029,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1066,16 +1123,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1168,18 +1232,24 @@ footer a:hover {
             top: 100px; /* Distância do topo da página */
         }
         
-        
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1315,16 +1385,23 @@ footer a:hover {
         
         
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1434,18 +1511,24 @@ footer a:hover {
             top: 100px; /* Distância do topo da página */
         }
         
-        
         h1 {
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
             font-style: "sans-serif";
-            color: white; /* Cor do texto do título */
-            font-size: 60px; /* Tamanho do texto do título */
+            color: rgb(240, 3, 34); /* Cor do texto do título */
+            font-size: 80px; /* Tamanho do texto do título */
+            padding: 0;
         }
+        
         h2{
+            text-align: center;
+            display: flex;
             margin: 0; /* Remove margens padrão */
-            color: rgb(39, 224, 15); /* Cor do texto do título */
-            font-size: 35px; /* Tamanho do texto do título */
+            color: rgb(241, 240, 247); /* Cor do texto do título */
+            font-size: 45px; /* Tamanho do texto do título */
             margin-top: 35px;
+            padding: 0;
         }
         button {
             padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1581,16 +1664,23 @@ footer a:hover {
     
     
     h1 {
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
         font-style: "sans-serif";
-        color: white; /* Cor do texto do título */
-        font-size: 60px; /* Tamanho do texto do título */
+        color: rgb(240, 3, 34); /* Cor do texto do título */
+        font-size: 50px; /* Tamanho do texto do título */
+        padding: 0;
     }
+    
     h2{
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
-        color: rgb(39, 224, 15); /* Cor do texto do título */
+        color: rgb(241, 240, 247); /* Cor do texto do título */
         font-size: 35px; /* Tamanho do texto do título */
         margin-top: 35px;
+        padding: 0;
     }
     button {
         padding: 10px 20px; /* Espaçamento interno do botão */
@@ -1667,16 +1757,25 @@ footer a:hover {
     
     
     h1 {
+        justify-content: space-around;
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
         font-style: "sans-serif";
-        color: white; /* Cor do texto do título */
-        font-size: 60px; /* Tamanho do texto do título */
+        color: rgb(240, 3, 34); /* Cor do texto do título */
+        font-size: 80px; /* Tamanho do texto do título */
+        padding: 0;
     }
+    
     h2{
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
         margin: 0; /* Remove margens padrão */
-        color: rgb(47, 82, 82); /* Cor do texto do título */
-        font-size: 35px; /* Tamanho do texto do título */
+        color: rgb(241, 240, 247); /* Cor do texto do título */
+        font-size: 45px; /* Tamanho do texto do título */
         margin-top: 35px;
+        padding: 0;
     }
     button {
         padding: 10px 20px; /* Espaçamento interno do botão */

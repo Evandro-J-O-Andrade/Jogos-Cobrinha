@@ -55,6 +55,7 @@ html, body {
     width: 100%; /* Para ocupar toda a largura */
     position: relative; /* Para controlar a posição do h1 */
     top: 100px; /* Distância do topo da página */
+    text-align: center;
     
 }
 
@@ -62,11 +63,13 @@ h1 {
     display: flex;
     margin: 0; /* Remove margens padrão */
     font-style: "sans-serif";
-    color: rgb(138, 45, 45); /* Cor do texto do título */
+    color: rgb(45, 138, 60); /* Cor do texto do título */
     font-size: 60px; /* Tamanho do texto do título */
+    
 }
 
 h2{
+    text-align: center;
     display: flex;
     margin: 0; /* Remove margens padrão */
     color: rgb(21, 46, 18); /* Cor do texto do título */
