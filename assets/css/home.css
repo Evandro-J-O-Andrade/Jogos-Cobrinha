@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box; /* Adiciona um modelo de box mais previsível */
 }
+
 body {
     height: 100vh; /* Usa a altura da janela de visualização */
     width: 100%;
@@ -12,12 +13,14 @@ body {
     display: flex; /* Usado para centralizar o conteúdo */
     flex-direction: column; /* Organiza o conteúdo em coluna */
     margin: 0; /* Remove margens padrão do body */
+    background-repeat: no-repeat; /* Adicione esta linha */
    
 
 }
 
 @media (max-width: 768px) {
     body {
+        background-repeat: no-repeat; /* Adicione esta linha */
         background-size: cover; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
         display: flex;
         width: 100%;
@@ -32,21 +35,35 @@ body {
     position: relative; /* Para controlar a posição do h1 */
     top: 100px; /* Distância do topo da página */
 }
+html, body {
+    height: 100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo do contêiner */
+    flex-direction: column; /* Organiza os itens em coluna */
+    padding: 0;
+}
 
 h1 {
     margin: 0; /* Remove margens padrão */
     font-style: "sans-serif";
     color: white; /* Cor do texto do título */
     font-size: 60px; /* Tamanho do texto do título */
+    top: 10%;
 }
 h2{
     margin: 0; /* Remove margens padrão */
-    color: rgb(39, 224, 15); /* Cor do texto do título */
+    color: rgb(123, 15, 224); /* Cor do texto do título */
     font-size: 35px; /* Tamanho do texto do título */
     margin-top: 35px;
 }
 button {
-    padding: 15px 30px;
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    color: rgb(16, 97, 63); /* Cor do texto do botão */
     font-size: 25px;
     cursor: pointer;
     background-color: #61dafb;
@@ -66,13 +83,14 @@ footer {
     background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
     color: white; /* Cor do texto */
     text-align: center; /* Centraliza o texto */
-    padding: 20px 0; /* Espaçamento interno */
+    padding: 10px 0; /* Espaçamento interno */
     position: absolute; /* Posiciona o footer na parte inferior */
     bottom: 0; /* Coloca o footer no fundo da página */
     width: 100%; /* Largura total */
     font-size: 25px;
-    display: flexbox;
+    display: flex;
     flex-direction: column;
+    
 }
 
 footer ul {
@@ -112,30 +130,57 @@ footer a:hover {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px; /* Largura do botão */
+    height: 20px; /* Altura do botão */
 }
 
 #toqueBaixo {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px; /* Largura do botão */
+    height: 20px; /* Altura do botão *//
 }
 
 #toqueEsquerda {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
 }
 
 #toqueDireita {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+}
+.game-stage{
+    display: flex;
+}
+#stage{
+    display: flex;
+}
+html, body {
+    height: 100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo do contêiner */
+    flex-direction: column; /* Organiza os itens em coluna */
+    padding: 0;
+}
+.footer {
+    position: absolute;
+    bottom: 10px; /* Espaçamento do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o rodapé */
+    text-align: center;
+    font-size: 13px; /* Tamanho padrão */
+    color: white; /* Cor do texto */
 }

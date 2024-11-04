@@ -5,8 +5,23 @@
 }
 
 body {
+    height: 100%;
+    width: 100%;
+    /* Usa a altura da janela de visualização */
+    background-image: url('/assets/image/tela2.jpg');
+    /* Altere para o caminho correto da sua imagem */
+    background-position: center;
+    /* Centraliza a imagem */
+    background-size: cover;
+    /* Faz a imagem cobrir todo o espaço */
+    display: flex;
+    /* Usado para centralizar o conteúdo */
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
     margin: 0;
+    /* Remove margens padrão do body */
     background-color: black; /* Cor de fundo */
+    background-repeat: no-repeat; /* Adicione esta linha */
 }
 
 #stage {
@@ -15,17 +30,103 @@ body {
 
 html, body {
     height: 100%;
+    width:100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo do contêiner */
+    flex-direction: column; /* Organiza os itens em coluna */
+    padding: 0;
 }
 
 .game-stage {
     width: 100vw;
     height: 100vh;
     background-color: black;
+    display: flex;
 }
+
+.container {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    width: 100%; /* Para ocupar toda a largura */
+    position: relative; /* Para controlar a posição do h1 */
+    top: 100px; /* Distância do topo da página */
+    
+}
+
+h1 {
+    display: flex;
+    margin: 0; /* Remove margens padrão */
+    font-style: "sans-serif";
+    color: rgb(138, 45, 45); /* Cor do texto do título */
+    font-size: 60px; /* Tamanho do texto do título */
+}
+
+h2{
+    display: flex;
+    margin: 0; /* Remove margens padrão */
+    color: rgb(21, 46, 18); /* Cor do texto do título */
+    font-size: 35px; /* Tamanho do texto do título */
+    margin-top: 35px;
+}
+
+button {
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    color: rgb(38, 16, 97); /* Cor do texto do botão */
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px; /* Empurra o botão para a parte inferior */
+    position: relative;
+    transition: 0.6s;
+    display: flex;
+    
+    
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Espaçamento interno */
+    position: absolute; /* Posiciona o footer na parte inferior */
+    bottom: 0; /* Coloca o footer no fundo da página */
+    width: 100%; /* Largura total */
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+footer ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+footer ul li {
+    display: inline; /* Exibe os itens da lista em linha */
+    margin: 0 15px; /* Espaçamento entre os links */
+}
+
+footer a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
 
 #controls {
     position: absolute;
@@ -50,11 +151,12 @@ html, body {
     display: block; /* remove espaço abaixo do canvas */
     margin: 0 auto; /* centraliza o canvas */
     background-color: black; /* cor de fundo do canvas */
+    
 }
 .jogo-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 /* Áreas de toque para dispositivos móveis */
@@ -69,30 +171,56 @@ html, body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px; /* Largura do botão */
+    height: 20px; /* Altura do botão */
 }
 
 #toqueBaixo {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px; /* Largura do botão */
+    height: 20px; /* Altura do botão *//
 }
 
 #toqueEsquerda {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
 }
 
 #toqueDireita {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px; /* Largura do botão */
+    height: 50px; /* Altura do botão */
+}
+
+    
+.footer {
+    position: absolute;
+    bottom: 10px; /* Espaçamento do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o rodapé */
+    text-align: center;
+    font-size: 16px; /* Tamanho padrão */
+    color: white; /* Cor do texto */
+}
+.background-image{
+    /* Usa a altura da janela de visualização */
+    /* Altere para o caminho correto da sua imagem */
+    background-position:center;
+    /* Centraliza a imagem */
+    background-size: cover;
+    /* Faz a imagem cobrir todo o espaço */
+    display: flex;
+    /* Usado para centralizar o conteúdo */
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
+    margin: 0;
+    /* Remove margens padrão do body */
+    background-repeat: no-repeat; /* Adicione esta linha */
 }

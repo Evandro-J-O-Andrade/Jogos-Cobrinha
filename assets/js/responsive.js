@@ -136,6 +136,21 @@ function handleTouch(event) {
         }
     }
 }
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    desenharTexto(); // Redesenha o texto
+}
+
+// Desenha um texto no canvas
+function desenharTexto() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+    ctx.fillStyle = "white";
+    ctx.font = `${canvas.width / 25}px Sans-Serif`;
+    ctx.textAlign = "left";
+    ctx.fillText("Record: 0", canvas.width / 20, canvas.height - 10);
+    ctx.fillText("New Record: 100", canvas.width / 2, canvas.height - 10);
+}
 
 function ajustarLayout() {
     const larguraTela = window.innerWidth;
@@ -160,6 +175,9 @@ canvas.addEventListener("mousedown", handleTouch);
 const gameArea = document.getElementById('stage'); // Substitua pelo ID do seu elemento
 gameArea.addEventListener('touchstart', handleTouch);
 window.addEventListener('touchstart', handleTouch);
+window.addEventListener("resize", resizeCanvas);
 
+// Chama a função uma vez ao carregar a página
+resizeCanvas();
 // Chama a função no carregamento da página para garantir que o layout esteja correto
 ajustarLayout();

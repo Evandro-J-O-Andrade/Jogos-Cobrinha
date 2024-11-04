@@ -3,25 +3,116 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Adiciona um modelo de box mais previsível */
+    box-sizing: border-box;
+    /* Adiciona um modelo de box mais previsível */
+   
+   
 }
 body {
-    height: 100vh; /* Usa a altura da janela de visualização */
-    background-image: url('/assets/image/tela2.jpg'); /* Altere para o caminho correto da sua imagem */
-    background-position: center; /* Centraliza a imagem */
-    background-size: cover; /* Faz a imagem cobrir todo o espaço */
-    display: flex; /* Usado para centralizar o conteúdo */
-    flex-direction: column; /* Organiza o conteúdo em coluna */
-    margin: 0; /* Remove margens padrão do body */
-   
+    height: 100%;
+    width: 100%;
+    /* Usa a altura da janela de visualização */
+    background-image: url('/assets/image/tela2.jpg');
+    /* Altere para o caminho correto da sua imagem */
+    background-position: center;
+    /* Centraliza a imagem */
+    background-size: cover;
+    /* Faz a imagem cobrir todo o espaço */
+    display: flex;
+    /* Usado para centralizar o conteúdo */
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
+    margin: 0;
+    /* Remove margens padrão do body */
+    background-repeat: no-repeat; /* Adicione esta linha */
+      
 
 }
-.background-image{
+
+.background-image {
     display: flex;
+    
+
 }
+
 body {
-    background-color: #000; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
+    background-color: #000;
+    /* Cor de fundo */
+    color: #fff;
+    /* Cor do texto */
+}
+.container {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    width: 100%; /* Para ocupar toda a largura */
+    position: relative; /* Para controlar a posição do h1 */
+    top: 100px; /* Distância do topo da página */
+}
+
+
+h1 {
+    margin: 0; /* Remove margens padrão */
+    font-style: "sans-serif";
+    color: white; /* Cor do texto do título */
+    font-size: 60px; /* Tamanho do texto do título */
+}
+h2{
+    margin: 0; /* Remove margens padrão */
+    color: rgb(39, 224, 15); /* Cor do texto do título */
+    font-size: 35px; /* Tamanho do texto do título */
+    margin-top: 35px;
+}
+button {
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    color: rgb(38, 16, 97); /* Cor do texto do botão */
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px; /* Empurra o botão para a parte inferior */
+    position: relative;
+    transition: 0.6s;
+    display: flex;
+    
+    
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Espaçamento interno */
+    position: absolute; /* Posiciona o footer na parte inferior */
+    bottom: 0; /* Coloca o footer no fundo da página */
+    width: 100%; /* Largura total */
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+footer ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+footer ul li {
+    display: inline; /* Exibe os itens da lista em linha */
+    margin: 0 15px; /* Espaçamento entre os links */
+}
+
+footer a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
 }
 
 .jogo-container {
@@ -33,8 +124,10 @@ body {
 /* Áreas de toque para dispositivos móveis */
 .toqueCelular {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
-    opacity: 0.5; /* Transparência */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo transparente */
+    opacity: 0.5;
+    /* Transparência */
 }
 
 /* Ajustes de toque */
@@ -42,99 +135,209 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px;
+    /* Largura do botão */
+    height: 20px;
+    /* Altura do botão */
 }
 
 #toqueBaixo {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 50px;
+    /* Largura do botão */
+    height: 20px;
+    /* Altura do botão */
+    /
 }
 
 #toqueEsquerda {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px;
+    /* Largura do botão */
+    height: 50px;
+    /* Altura do botão */
 }
 
 #toqueDireita {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px; /* Largura do botão */
-    height: 80px; /* Altura do botão */
+    width: 20px;
+    /* Largura do botão */
+    height: 50px;
+    /* Altura do botão */
+}
+.game-stage{
+    display: flex;
+}
+#stage{
+    display: flex;
 }
 
 /* Suas media queries adaptadas */
-@media only screen and (min-width: 75px) and (max-width: 500px) {
+@media only screen and (min-width: 100px) and (max-width: 500px) {
     .jogo-container {
         width: 100%;
         /* Ajuste a largura da logo para telas menores */
         max-width: 200px;
+
         .menu-celular {
             display: block;
         }
-    
+
         /* Ajustes para área de toque */
         .toqueCelular {
             position: absolute;
-            background: rgba(255, 255, 255, 0.5); /* Fundo com leve transparência */
-            z-index: 10; /* Para ficar acima de outros elementos */
+            background: rgba(255, 255, 255, 0.5);
+            /* Fundo com leve transparência */
+            z-index: 10;
+            /* Para ficar acima de outros elementos */
         }
-    
+
         #toqueCima {
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100%;
-            height: 50%; /* Ajuste a altura conforme necessário */
+            width: 50px;
+            /* Largura do botão */
+            height: 20px;
+            /* Altura do botão */
         }
-    
+
         #toqueBaixo {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100%;
-            height: 50%; /* Ajuste a altura conforme necessário */
+            width: 50px;
+            /* Largura do botão */
+            height: 20px;
+            /* Altura do botão */
         }
-    
+
         #toqueEsquerda {
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 50%; /* Ajuste a largura conforme necessário */
-            height: 100%;
+            width: 20px;
+            /* Largura do botão */
+            height: 50px;
+            /* Altura do botão */
         }
-    
+
         #toqueDireita {
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 50%; /* Ajuste a largura conforme necessário */
-            height: 100%;
+            width: 20px;
+            /* Largura do botão */
+            height: 50px;
+            /* Altura do botão */
         }
+
         /* Defina um tamanho máximo, se necessário */
         /* Ajustes para telas menores */
     }
 
     .toqueCelular {
         /* Ajustes nas áreas de toque */
-        width: 60px; /* Largura do botão */
-        height: 60px; /* Altura do botão */
-    }
+        width: 60px;
+        /* Largura do botão */
+        height: 60px;
+        /* Altura do botão */
+     }
 
-    #toqueCima, #toqueBaixo, #toqueEsquerda, #toqueDireita {
-        #toqueEsquerda, #toqueDireita {
-            width: 50%;
-            height: 100%;
+   
+
+     #toqueEsquerda, #toqueDireita {
+
+        #toqueEsquerda,
+        #toqueDireita {
+            width: 20px;
+            /* Largura do botão */
+            height: 50px;
+            /* Altura do botão */
         }
+
         /* Ajustes específicos para botões de toque em telas menores */
     }
+    .container {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        width: 100%; /* Para ocupar toda a largura */
+        position: relative; /* Para controlar a posição do h1 */
+        top: 100px; /* Distância do topo da página */
+    }
+    
+    
+    h1 {
+        margin: 0; /* Remove margens padrão */
+        font-style: "sans-serif";
+        color: white; /* Cor do texto do título */
+        font-size: 60px; /* Tamanho do texto do título */
+    }
+    h2{
+        margin: 0; /* Remove margens padrão */
+        color: rgb(39, 224, 15); /* Cor do texto do título */
+        font-size: 35px; /* Tamanho do texto do título */
+        margin-top: 35px;
+    }
+    button {
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        color: rgb(38, 16, 97); /* Cor do texto do botão */
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px; /* Empurra o botão para a parte inferior */
+        position: relative;
+        transition: 0.6s;
+        display: flex;
+        
+        
+    }
+    
+    button:hover {
+        background-color: #21a1f1;
+    }
+    footer {
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; /* Espaçamento interno */
+        position: absolute; /* Posiciona o footer na parte inferior */
+        bottom: 0; /* Coloca o footer no fundo da página */
+        width: 100%; /* Largura total */
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    footer ul {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0; /* Remove o preenchimento padrão */
+    }
+    
+    footer ul li {
+        display: inline; /* Exibe os itens da lista em linha */
+        margin: 0 15px; /* Espaçamento entre os links */
+    }
+    
+    footer a {
+        color: white; /* Cor dos links */
+        text-decoration: none; /* Remove o sublinhado dos links */
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+    
 }
 
 @media only screen and (min-width: 100px) and (max-width: 1000px) {
@@ -143,16 +346,92 @@ body {
         max-width: 100%;
     }
 
-    .background-image{
+    .background-image {
         display: flex;
     }
 
     .toqueCelular {
-        width: 60px; /* Ajuste para telas menores */
-        height: 60px; 
+        display: flex;
+        width: 60px;
+        /* Ajuste para telas menores */
+        height: 60px;
         /* Ajustes ad
         icionais */
     }
+    .container {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        width: 100%; /* Para ocupar toda a largura */
+        position: relative; /* Para controlar a posição do h1 */
+        top: 100px; /* Distância do topo da página */
+    }
+    
+    
+    h1 {
+        margin: 0; /* Remove margens padrão */
+        font-style: "sans-serif";
+        color: white; /* Cor do texto do título */
+        font-size: 60px; /* Tamanho do texto do título */
+    }
+    h2{
+        margin: 0; /* Remove margens padrão */
+        color: rgb(39, 224, 15); /* Cor do texto do título */
+        font-size: 35px; /* Tamanho do texto do título */
+        margin-top: 35px;
+    }
+    button {
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        color: rgb(38, 16, 97); /* Cor do texto do botão */
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px; /* Empurra o botão para a parte inferior */
+        position: relative;
+        transition: 0.6s;
+        display: flex;
+        
+        
+    }
+    
+    button:hover {
+        background-color: #21a1f1;
+    }
+    footer {
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; /* Espaçamento interno */
+        position: absolute; /* Posiciona o footer na parte inferior */
+        bottom: 0; /* Coloca o footer no fundo da página */
+        width: 100%; /* Largura total */
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    footer ul {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0; /* Remove o preenchimento padrão */
+    }
+    
+    footer ul li {
+        display: inline; /* Exibe os itens da lista em linha */
+        margin: 0 15px; /* Espaçamento entre os links */
+    }
+    
+    footer a {
+        color: white; /* Cor dos links */
+        text-decoration: none; /* Remove o sublinhado dos links */
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+    
 }
 
 /* Continue com suas media queries, adaptando conforme necessário */
@@ -163,12 +442,17 @@ body {
         max-width: 200px;
         /* Defina um tamanho máximo, se necessário */
     }
-.background-image{
-    display: flex;
-}
-    body {
-        background-size: contain; /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+
+    .background-image {
+        display: flex;
     }
+
+    body {
+        background-size: cover;
+        background-repeat: no-repeat; /* Adicione esta linha */
+        /* Ajusta a imagem para se encaixar na tela em dispositivos menores */
+    }
+
     nav ul {
         position: absolute;
         top: 70px;
@@ -183,7 +467,7 @@ body {
     }
 
     .menu-ativo nav ul {
-        
+
         max-height: 300px;
         /* Ajuste conforme necessário */
     }
@@ -240,11 +524,87 @@ body {
                 max-width: 200px;
                 /* Defina um tamanho máximo, se necessário */
             }
-        
+
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     @media only screen and (min-width: 100px) and (max-width: 600px) {
@@ -254,14 +614,162 @@ body {
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     /*Forçando o codigo pra que não perca resolução para celulares menores*/
 
-
+    .container {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        width: 100%; /* Para ocupar toda a largura */
+        position: relative; /* Para controlar a posição do h1 */
+        top: 100px; /* Distância do topo da página */
+    }
+    
+    
+    h1 {
+        margin: 0; /* Remove margens padrão */
+        font-style: "sans-serif";
+        color: white; /* Cor do texto do título */
+        font-size: 60px; /* Tamanho do texto do título */
+    }
+    h2{
+        margin: 0; /* Remove margens padrão */
+        color: rgb(39, 224, 15); /* Cor do texto do título */
+        font-size: 35px; /* Tamanho do texto do título */
+        margin-top: 35px;
+    }
+    button {
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        color: rgb(38, 16, 97); /* Cor do texto do botão */
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px; /* Empurra o botão para a parte inferior */
+        position: relative;
+        transition: 0.6s;
+        display: flex;
+        
+        
+    }
+    
+    button:hover {
+        background-color: #21a1f1;
+    }
+    footer {
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; /* Espaçamento interno */
+        position: absolute; /* Posiciona o footer na parte inferior */
+        bottom: 0; /* Coloca o footer no fundo da página */
+        width: 100%; /* Largura total */
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    footer ul {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0; /* Remove o preenchimento padrão */
+    }
+    
+    footer ul li {
+        display: inline; /* Exibe os itens da lista em linha */
+        margin: 0 15px; /* Espaçamento entre os links */
+    }
+    
+    footer a {
+        color: white; /* Cor dos links */
+        text-decoration: none; /* Remove o sublinhado dos links */
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+    
     /*Fim do menu forçando*/
 
     @media only screen and (max-width:300) {
@@ -333,14 +841,91 @@ body {
             flex-basis: 12%;
             text-align: right;
 
-
-
-
         }
 
-        .background-image{
+        .background-image {
             display: flex;
         }
+        .game-stage{
+            display: flex;
+        }
+        #stage{
+            display: flex;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     /*Esse resolução foi feita com classe pra utilização de codigo*/
@@ -352,9 +937,11 @@ body {
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+
         .resolucao nav ul {
             position: absolute;
             top: 70px;
@@ -381,6 +968,80 @@ body {
             /* Remova margem direita para menu em coluna */
             margin-bottom: 10px;
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     @media only screen and (min-width: 100px) and (max-width: 740px) {
@@ -390,9 +1051,84 @@ body {
             max-width: 200px;
             /* Defina um tamanho máximo, se necessário */
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     @media only screen and (min-width: 100px) and (max-width: 600px) {
@@ -419,9 +1155,84 @@ body {
             width: 100%;
             max-width: 100%;
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
 
     .resolucao #MenuItens {
@@ -453,7 +1264,7 @@ body {
         color: var(--cor-fonte);
     }
 
-    @media only screen and (max-width: 100px) and (min-width: 400px) {
+    @media only screen and (min-width: 100px) and (max-width: 400px) {
         .resolucao nav ul {
             position: absolute;
             top: 70px;
@@ -493,8 +1304,89 @@ body {
         .resolucao .novoMenu nav ul li a {
             color: var(--cor-fonte);
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
-    .background-image{
+
+    .background-image {
+        display: flex;
+    }
+    .game-stage{
+        display: flex;
+    }
+    #stage{
         display: flex;
     }
 
@@ -509,7 +1401,8 @@ body {
         .resolucao body {
             background-color: var(--cor-padrao-hover), var(--cor-padrao);
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
     }
@@ -518,7 +1411,8 @@ body {
         .resolucao body {
             font-size: 12px;
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
     }
@@ -527,24 +1421,125 @@ body {
         .resolucao body {
             padding: 10px;
         }
-        .background-image{
+
+        .background-image {
             display: flex;
         }
+        .container {
+            display: flex;
+            flex-direction: column; /* Coloca os itens em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            width: 100%; /* Para ocupar toda a largura */
+            position: relative; /* Para controlar a posição do h1 */
+            top: 100px; /* Distância do topo da página */
+        }
+        
+        
+        h1 {
+            margin: 0; /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: white; /* Cor do texto do título */
+            font-size: 60px; /* Tamanho do texto do título */
+        }
+        h2{
+            margin: 0; /* Remove margens padrão */
+            color: rgb(39, 224, 15); /* Cor do texto do título */
+            font-size: 35px; /* Tamanho do texto do título */
+            margin-top: 35px;
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97); /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px; /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+            
+            
+        }
+        
+        button:hover {
+            background-color: #21a1f1;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 10px 0; /* Espaçamento interno */
+            position: absolute; /* Posiciona o footer na parte inferior */
+            bottom: 0; /* Coloca o footer no fundo da página */
+            width: 100%; /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        footer ul {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o preenchimento padrão */
+        }
+        
+        footer ul li {
+            display: inline; /* Exibe os itens da lista em linha */
+            margin: 0 15px; /* Espaçamento entre os links */
+        }
+        
+        footer a {
+            color: white; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        
+        footer a:hover {
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+        
     }
+    
 
     @media (max-width: 600px) {
+        .footer {
+    position: absolute;
+    bottom: 10px; /* Espaçamento do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o rodapé */
+    text-align: center;
+    font-size: 16px; /* Tamanho padrão */
+    color: white; /* Cor do texto */
+}
+
         .rodape-col-4 ul li {
             text-align: center;
         }
     }
-    .background-image{
+
+    .background-image {
+        display: flex;
+    }
+    .game-stage{
+        display: flex;
+    }
+    #stage{
         display: flex;
     }
 }
 
 .footer {
-    margin-top: auto;
+    position: absolute;
+    bottom: 10px; /* Espaçamento do fundo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o rodapé */
+    text-align: center;
+    font-size: 16px; /* Tamanho padrão */
+    color: white; /* Cor do texto */
 }
+
+
 #controls {
     position: absolute;
     bottom: 20px;
@@ -563,4 +1558,177 @@ body {
     background-color: #fff;
     border: none;
     border-radius: 5px;
+}
+@media (max-width: 600px) {
+    body {
+        display: flex;
+        background-image: url('/assets/image/tela2.jpg');
+        background-position: center;
+        background-size: cover; /* Ajusta a imagem para caber na tela */
+        background-repeat: no-repeat; /* Evita repetição */
+        min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
+        max-width: 100%;
+            
+    }
+    .container {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        width: 100%; /* Para ocupar toda a largura */
+        position: relative; /* Para controlar a posição do h1 */
+        top: 100px; /* Distância do topo da página */
+    }
+    
+    
+    h1 {
+        margin: 0; /* Remove margens padrão */
+        font-style: "sans-serif";
+        color: white; /* Cor do texto do título */
+        font-size: 60px; /* Tamanho do texto do título */
+    }
+    h2{
+        margin: 0; /* Remove margens padrão */
+        color: rgb(39, 224, 15); /* Cor do texto do título */
+        font-size: 35px; /* Tamanho do texto do título */
+        margin-top: 35px;
+    }
+    button {
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        color: rgb(38, 16, 97); /* Cor do texto do botão */
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px; /* Empurra o botão para a parte inferior */
+        position: relative;
+        transition: 0.6s;
+        display: flex;
+        
+        
+    }
+    
+    button:hover {
+        background-color: #21a1f1;
+    }
+    footer {
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; /* Espaçamento interno */
+        position: absolute; /* Posiciona o footer na parte inferior */
+        bottom: 0; /* Coloca o footer no fundo da página */
+        width: 100%; /* Largura total */
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    footer ul {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0; /* Remove o preenchimento padrão */
+    }
+    
+    footer ul li {
+        display: inline; /* Exibe os itens da lista em linha */
+        margin: 0 15px; /* Espaçamento entre os links */
+    }
+    
+    footer a {
+        color: white; /* Cor dos links */
+        text-decoration: none; /* Remove o sublinhado dos links */
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+    
+}
+
+ @media only screen and (max-width: 100px) and (max-width: 300px){
+    body {
+        display: flex;
+        background-position: center;
+        background-size: cover; /* Ajusta a imagem para caber na tela */
+        background-repeat: no-repeat; /* Evita repetição */
+        min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
+        max-width: 100%;
+            
+    }
+    .container {
+        display: flex;
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        width: 100%; /* Para ocupar toda a largura */
+        position: relative; /* Para controlar a posição do h1 */
+        top: 100%; /* Distância do topo da página */
+    }
+    
+    
+    h1 {
+        margin: 0; /* Remove margens padrão */
+        font-style: "sans-serif";
+        color: white; /* Cor do texto do título */
+        font-size: 60px; /* Tamanho do texto do título */
+    }
+    h2{
+        margin: 0; /* Remove margens padrão */
+        color: rgb(47, 82, 82); /* Cor do texto do título */
+        font-size: 35px; /* Tamanho do texto do título */
+        margin-top: 35px;
+    }
+    button {
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        color: rgb(38, 16, 97); /* Cor do texto do botão */
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #61dafb;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px; /* Empurra o botão para a parte inferior */
+        position: relative;
+        transition: 0.6s;
+        display: flex;
+        
+        
+    }
+    
+    button:hover {
+        background-color: #21a1f1;
+    }
+    
+    footer {
+        background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
+        color: white; /* Cor do texto */
+        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; /* Espaçamento interno */
+        position: absolute; /* Posiciona o footer na parte inferior */
+        bottom: 0; /* Coloca o footer no fundo da página */
+        width: 100%; /* Largura total */
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    footer ul {
+        list-style-type: none; /* Remove os marcadores da lista */
+        padding: 0; /* Remove o preenchimento padrão */
+    }
+    
+    footer ul li {
+        display: inline; /* Exibe os itens da lista em linha */
+        margin: 0 15px; /* Espaçamento entre os links */
+    }
+    
+    footer a {
+        color: white; /* Cor dos links */
+        text-decoration: none; /* Remove o sublinhado dos links */
+    }
+    
+    footer a:hover {
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+    
 }

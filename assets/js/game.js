@@ -6,6 +6,32 @@ let snake = [{ x: 9, y: 9 }];
 let snakeDirection = 'RIGHT';
 let apple = { x: Math.floor(Math.random() * canvas.width / blockSize), y: Math.floor(Math.random() * canvas.height / blockSize) };
 
+
+
+// Carregar a imagem de fundo
+const backgroundImage = new Image();
+backgroundImage.src = "caminho/para/sua/imagem.jpg"; // Substitua pelo caminho da sua imagem
+
+// Ajustar o tamanho do canvas
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    draw(); // Desenhe novamente após redimensionar
+}
+
+// Desenhar a imagem de fundo
+function draw() {
+    // Desenhar a imagem escalada
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+}
+
+// Redimensionar canvas no carregamento da página e ao redimensionar a janela
+window.addEventListener("load", () => {
+    resizeCanvas();
+    backgroundImage.onload = draw; // Desenhar a imagem após ela ter sido carregada
+});
+window.addEventListener("resize", resizeCanvas);
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 

@@ -182,16 +182,28 @@ window.onload = function () {
 
     let isMoving = false; // Variável de controle para o som de movimento
 
+    function displayScores() {
+        ctx.fillStyle = "white";
+        ctx.font = `${lp / 4} 15px Sans-Serif`; // Tamanho responsivo
+        ctx.textAlign = "left";
+        ctx.fillText("Record: " + recordAtual, lp / 15, stage.height - 10);
+        
+        ctx.textAlign = "right"; // Alinhamento à direita para o novo recorde
+        ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 2, stage.height - 10);
+    }
+    
 
+
+    
     // Função principal do jogo
     function game() {
         if (gameOver) {
             if (!showGameOver) {
                 // Exibe "Game Over" no centro do mapa
                 ctx.fillStyle = "white";
-                ctx.font = "100px sans-serif";
+                ctx.font = "60px center  sans-serif";
                 ctx.textAlign = "center"; // Alinha o texto ao centro
-                ctx.fillText("Game Over", stage.width / 2 - 50, stage.height / 2);
+                ctx.fillText("      Game Over ", stage.width / 2 - 50, stage.height / 2);
                 showGameOver = true;
 
                 if (recordAtual > recordSalvo) {
@@ -205,9 +217,9 @@ window.onload = function () {
             // Exibe a mensagem para voltar à página inicial
             if (!showRestartMessage) {
                 ctx.fillStyle = "white";
-                ctx.font = "30px Arial";
+                ctx.font = "100% Arial";
                 ctx.textAlign = "center"; // Alinha o texto ao centro
-                ctx.fillText("Pressione Enter para Continuar ou S para sair! ", stage.width / 2 - 50, stage.  height / 2 + 50);
+                ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.  height / 2 + 50);
                 showRestartMessage = true;
             }
             clearInterval(gameInterval);
@@ -296,9 +308,9 @@ window.onload = function () {
                 clearInterval(gameInterval); // Pausa temporária no jogo
                 backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
                 ctx.fillStyle = "white";
-                ctx.font = "50px Arial";
+                ctx.font = `${lp / 4} px Sans-Serif`; // Tamanho responsivo
                 ctx.textAlign = "center";
-                ctx.fillText("Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
+                ctx.fillText(" Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
                 setTimeout(() => {
                     generateWalls();
                     gameInterval = setInterval(game, 180 - (level * 20));
@@ -319,11 +331,9 @@ window.onload = function () {
 
         // Exibe o nível no rodapé
         ctx.fillStyle = "white";
-        ctx.font = "30px sans-serif";
+        ctx.font = `${lp / 4} px Sans-Serif`; // Tamanho responsivo
         ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
         ctx.fillStyle = "white";
-        ctx.font = "30px sans-serif";
-        ctx.fillText("Fase " + level, stage.width / 2 - 50, stage.height - 10);
         displayScores(); // Chama a função para exibir os scores
         displayLevel(); // Chama a função para exibir o nível apenas se o jogo estiver ativo
     }
@@ -410,8 +420,33 @@ window.onload = function () {
     }
 
     // Inicia o jogo
-    
     resetGame();
+   
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+    
+        // Estilo do texto
+        ctx.fillStyle = "white";
+        ctx.font = `${lp / 4} px Sans-Serif`; // Tamanho responsivo
+        ctx.textAlign = "center"; // Centraliza o texto
+        // Renderiza as mensagens no canvas
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);s
+        ctx.fillText("  Record: " +  recordAtual, canvas.width / 4, canvas.height - 30);
+        ctx.fillText("  New Record: " + recordSalvo, (canvas.width / 4) * 3, canvas.height - 30);
+    }
+    
+    // Chame a função draw para renderizar o texto
+    draw();
+
+    window.addEventListener('resize', () => {
+        // Ajustar o tamanho do canvas ao redimensionar a janela
+        canvas.width = window.innerWidth * 0.8;
+        canvas.height = window.innerHeight * 0.8;
+        draw(); // Redesenhar o canvas
+        
+    });
     
 };
+
 canvas.addEventListener("touchstart", handleTouch);
