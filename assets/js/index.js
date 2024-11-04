@@ -92,23 +92,25 @@ window.onload = function () {
 
     function handleTouch(event) {
         event.preventDefault();
-        const touch = event.touches ? event.touches[0] : event; // Se for um toque, pega o primeiro toque; se for mouse, usa o evento diretamente.
-        const touchX = touch.clientX - stage.offsetLeft;
-        const touchY = touch.clientY - stage.offsetTop;
-        const snakeHead = snake[0];
+        const touch = event.touches ? event.touches[0] : event; // Detecta o toque ou clique
+        const touchX = touch.clientX;
+        const touchY = touch.clientY;
     
-        // Lógica de direção com base na posição do toque
-        if (touchX < snakeHead.x * blockSize) {
-            if (snakeDirection !== 'RIGHT') snakeDirection = 'LEFT';
-        } else {
-            if (snakeDirection !== 'LEFT') snakeDirection = 'RIGHT';
-        }
-        if (touchY < snakeHead.y * blockSize) {
-            if (snakeDirection !== 'DOWN') snakeDirection = 'UP';
-        } else {
-            if (snakeDirection !== 'UP') snakeDirection = 'DOWN';
+        // Define a direção com base no toque: esquerda, direita, cima ou baixo
+        if (touchX < window.innerWidth / 2 && vx === 0) {
+            vx = -1; vy = 0; // Esquerda
+        } else if (touchX > window.innerWidth / 2 && vx === 0) {
+            vx = 1; vy = 0; // Direita
+        } else if (touchY < window.innerHeight / 2 && vy === 0) {
+            vx = 0; vy = -1; // Cima
+        } else if (touchY > window.innerHeight / 2 && vy === 0) {
+            vx = 0; vy = 1; // Baixo
         }
     }
+    
+    // Adiciona o evento de toque ao canvas
+    stage.addEventListener("touchstart", handleTouch);
+    
     
     // Função para gerar paredes em posições aleatórias
     function generateWalls() {

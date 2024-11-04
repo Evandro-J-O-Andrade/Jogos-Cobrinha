@@ -47,23 +47,25 @@ function update() {
 
 function handleTouch(event) {
     event.preventDefault();
-    const touch = event.touches[0];
-    const touchX = touch.clientX - canvas.offsetLeft;
-    const touchY = touch.clientY - canvas.offsetTop;
-    const snakeHead = snake[0];
+    const touch = event.touches ? event.touches[0] : event; // Detecta o toque ou clique
+    const touchX = touch.clientX;
+    const touchY = touch.clientY;
 
-    // Lógica de direção oposta ao toque
-    if (touchX < snakeHead.x * blockSize) {
-        if (snakeDirection !== 'RIGHT') snakeDirection = 'LEFT';
-    } else {
-        if (snakeDirection !== 'LEFT') snakeDirection = 'RIGHT';
-    }
-    if (touchY < snakeHead.y * blockSize) {
-        if (snakeDirection !== 'DOWN') snakeDirection = 'UP';
-    } else {
-        if (snakeDirection !== 'UP') snakeDirection = 'DOWN';
+    // Define a direção com base no toque: esquerda, direita, cima ou baixo
+    if (touchX < window.innerWidth / 2 && vx === 0) {
+        vx = -1; vy = 0; // Esquerda
+    } else if (touchX > window.innerWidth / 2 && vx === 0) {
+        vx = 1; vy = 0; // Direita
+    } else if (touchY < window.innerHeight / 2 && vy === 0) {
+        vx = 0; vy = -1; // Cima
+    } else if (touchY > window.innerHeight / 2 && vy === 0) {
+        vx = 0; vy = 1; // Baixo
     }
 }
+
+// Adiciona o evento de toque ao canvas
+stage.addEventListener("touchstart", handleTouch);
+
 
 function resetGame() {
     snake = [{ x: 9, y: 9 }];
