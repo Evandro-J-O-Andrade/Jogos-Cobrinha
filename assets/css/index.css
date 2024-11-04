@@ -26,7 +26,14 @@ body {
 
 #stage {
     border: 20px solid rgba(139, 9, 0, 0.959); /* Borda do jogo */
-}
+        display:flex; /* remove espaço abaixo do canvas */
+        margin: 0 auto; /* centraliza o canvas */
+        background-color: black; /* cor de fundo do canvas */
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
 
 html, body {
     height: 100%;
@@ -40,10 +47,15 @@ html, body {
     flex-direction: column; /* Organiza os itens em coluna */
     padding: 0;
 }
-
+canvas {
+    display: flex;
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .game-stage {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: black;
     display: flex;
 }
@@ -151,11 +163,14 @@ footer a:hover {
     border-radius: 5px;
 }
 #stage {
-    display: block; /* remove espaço abaixo do canvas */
+    display:flex; /* remove espaço abaixo do canvas */
     margin: 0 auto; /* centraliza o canvas */
     background-color: black; /* cor de fundo do canvas */
-    
+    width: 100%;
+    height: 100%;
+    display: block;
 }
+
 .jogo-container {
     position: relative;
     width: 100%;
