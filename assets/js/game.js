@@ -47,6 +47,7 @@ function draw() {
     ctx.fillRect(apple.x * blockSize, apple.y * blockSize, blockSize, blockSize);
 }
 
+
 function update() {
     const head = { ...snake[0] };
 
@@ -104,6 +105,7 @@ function gameLoop() {
     draw();
     setTimeout(gameLoop, 100);
 }
+
 // Função de toque
 function handleTouch(event) {
     event.preventDefault();
@@ -129,3 +131,23 @@ canvas.addEventListener("touchstart", handleTouch);
 canvas.addEventListener("mousedown", handleTouch);
 // Iniciar o loop do jogo
 gameLoop();
+
+function ajustarCanvas() {
+    let largura = window.innerWidth * 0.9;
+    let altura = Math.min(window.innerHeight * 0.9, 800); // Limita a altura a 800px
+    
+    // Aplicando diferentes limites com base na largura da tela
+    if (window.innerWidth <= 600) { // Smartphones
+      altura = Math.min(window.innerHeight * 0.9, 500);
+    } else if (window.innerWidth <= 1023) { // Tablets
+      altura = Math.min(window.innerHeight * 0.9, 600);
+    }
+  
+    canvas.width = largura;
+    canvas.height = altura;
+  }
+  
+  // Evento para redimensionar o canvas ao carregar e ao redimensionar a tela
+  window.addEventListener('load', ajustarCanvas);
+  window.addEventListener('resize', ajustarCanvas);
+  window.addEventListener("orientationchange", ajustarCanvas); // Captura a mudança de orientação
