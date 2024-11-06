@@ -1,6 +1,5 @@
-
-    var stage = document.getElementById("stage");
-    var ctx = stage.getContext("2d");
+var stage = document.getElementById("stage");
+var ctx = stage.getContext("2d");
 
 
 // Captura das áreas de toque
@@ -169,6 +168,8 @@ function ajustarLayout() {
         menuCelular.style.display = 'none'; // Esconde o menu celular
     }
 }
+
+
 canvas.addEventListener("touchstart", handleTouch);
 canvas.addEventListener("mousedown", handleTouch);
 // Adiciona o evento de toque à área de jogo
