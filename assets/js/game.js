@@ -151,3 +151,30 @@ function ajustarCanvas() {
   window.addEventListener('load', ajustarCanvas);
   window.addEventListener('resize', ajustarCanvas);
   window.addEventListener("orientationchange", ajustarCanvas); // Captura a mudança de orientação
+  // Seleciona o elemento canvas para o modo tela cheia
+
+
+// Função para iniciar o jogo e ativar tela cheia
+function iniciarJogoTelaCheia() {
+  if (canvas.requestFullscreen) {
+    canvas.requestFullscreen();
+  } else if (canvas.mozRequestFullScreen) { // Firefox
+    canvas.mozRequestFullScreen();
+  } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari e Opera
+    canvas.webkitRequestFullscreen();
+  } else if (canvas.msRequestFullscreen) { // IE/Edge
+    canvas.msRequestFullscreen();
+  }
+
+  // Chama a função de inicialização do jogo (substitua pela função real)
+  iniciarLogicaDoJogo();
+}
+
+// Função de exemplo para iniciar a lógica do jogo
+function iniciarLogicaDoJogo() {
+  console.log("Jogo iniciado!");
+  // Aqui você colocaria o código para iniciar o seu jogo
+}
+
+// Evento para iniciar o jogo automaticamente em tela cheia ao carregar a página
+window.addEventListener('load', iniciarJogoTelaCheia);

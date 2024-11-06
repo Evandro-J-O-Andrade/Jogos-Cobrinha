@@ -163,6 +163,12 @@ footer a:hover {
     width: 20px; /* Largura do botão */
     height: 50px; /* Altura do botão */
 }
+canvas {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%; /* Limita a altura máxima do canvas */
+  }
 .game-stage {
     width: 100%;
     height: 100%;
@@ -176,7 +182,7 @@ footer a:hover {
     background-color: black; /* cor de fundo do canvas */
     width: 100%;
     height: 100%;
-    display: block;
+    display: flex;
 }
 
 html, body {

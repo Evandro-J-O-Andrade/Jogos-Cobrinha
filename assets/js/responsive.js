@@ -1,7 +1,7 @@
 var stage = document.getElementById("stage");
 var ctx = stage.getContext("2d");
 
-
+const canvas = document.querySelector('canvas');
 // Captura das áreas de toque
 const toqueCima = document.getElementById("toqueCima");
 const toqueBaixo = document.getElementById("toqueBaixo");
@@ -135,6 +135,27 @@ function handleTouch(event) {
         }
     }
 }
+
+function ajustarCanvas() {
+    let largura = window.innerWidth * 0.9;
+    let altura = Math.min(window.innerHeight * 0.9, 800); // Limita a altura a 800px
+    
+    // Aplicando diferentes limites com base na largura da tela
+    if (window.innerWidth <= 600) { // Smartphones
+      altura = Math.min(window.innerHeight * 0.9, 500);
+    } else if (window.innerWidth <= 1023) { // Tablets
+      altura = Math.min(window.innerHeight * 0.9, 600);
+    }
+  
+    canvas.width = largura;
+    canvas.height = altura;
+  }
+  
+  // Evento para redimensionar o canvas ao carregar e ao redimensionar a tela
+  window.addEventListener('load', ajustarCanvas);
+  window.addEventListener('resize', ajustarCanvas);
+  window.addEventListener("orientationchange", ajustarCanvas); // Captura a mudança de orientação
+
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -182,3 +203,5 @@ window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 // Chama a função no carregamento da página para garantir que o layout esteja correto
 ajustarLayout();
+
+

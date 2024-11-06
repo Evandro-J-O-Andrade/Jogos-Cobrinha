@@ -3,6 +3,7 @@ window.onload = function () {
     var ctx = stage.getContext("2d");
 
     // Variáveis de controle
+    const botaoIniciar = document.getElementById('botaoIniciar');
     const vel = 1; // Velocidade da cobra
     var vx = 0, vy = 1; // Direção inicial (cobrinha começa descendo)
     var px, py; // Posição inicial da cobrinha
@@ -70,6 +71,12 @@ window.onload = function () {
         return color;
     }
 
+    function iniciarJogo() {
+        console.log("Iniciando o jogo...");
+        window.location.href = '/assets/html/index.html'; // Redireciona para a página do jogo
+      }
+
+    
     // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = []; // Reinicia as paredes a cada nova fase
@@ -464,6 +471,11 @@ window.onload = function () {
         draw(); // Redesenhar o canvas
         
     });
+
+    botaoIniciar.addEventListener('click', () => {
+        // Executa a função que inicia o jogo
+        iniciarJogo();
+      });
     
 };
 
