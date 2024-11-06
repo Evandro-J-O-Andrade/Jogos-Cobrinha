@@ -15,19 +15,27 @@
 <body>
     <div class="container">
         <h1> Seja bem-vindo ao Jogo Snake!</h1>
-
         <h2> Jogo feito por Evandro</h2>
+        <br>
+        <h3>Para seu melhor aproveitamento colocar o jogo em Horizontal!</h3>
         <button onclick="startGame()">Iniciar Jogo</button>
     </div>
     
+  
     <div class="background-image"></div>
 
-    <script>
-        function startGame() {
-            window.location.href = '/assets/html/index.html'; // Altere para o nome do arquivo do seu jogo
-           
-        }
-    </script>
+    <div id="game-over-screen" style="display: none;">
+        <button id="restart-button">Reiniciar Jogo</button>
+        <button id="back-to-home-button">Voltar para Página Principal</button>
+        <button onclick="reiniciarJogo()">Jogar novamente</button>
+      </div>
+
+      <div class="sons">
+        <audio id="menuHome" src="/assets/audio/som_menu.mp3"  autoplay loop></audio>
+    </div>
+      
+
+    
     <footer>
         <p>&copy; 2024. Evandro Andrade, Todo direito Reservado! .</p>
         <ul>
@@ -36,11 +44,23 @@
             <li><a href="#privacidade">Política de Privacidade</a></li>
         </ul>
     </footer>
-    <div class="sons">
-        <audio id="menuHome" src="/assets/audio/som_menu.mp3"  autoplay loop></audio>
-    </div>
+    
 </body>
+<script>
+    function startGame() {
+        window.location.href = '/assets/html/index.html'; // Altere para o nome do arquivo do seu jogo
+       
+    }
+</script>
+<script>
+    function reiniciarJogo() {
+        window.location.href = '/assets/html/index.html'; // Altere para o nome do arquivo do seu jogo
+       
+    }
+</script>
 <script src="/assets/js/index.js" defer></script> <!-- Referencie seu arquivo JS aqui -->
 <script src="/assets/js/responsive.js" defer></script>
+<script src="/assets/js/FullScreen.js" defer></script>
 <script src="/assets/js/game.js" defer></script>
+
 </html>

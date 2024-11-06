@@ -1,6 +1,8 @@
 // Seleciona o canvas e o botão de início
 const canvas = document.querySelector('canvas');
 var botaoIniciar = document.querySelector('#botaoIniciar');
+var startGame = document.getElementById('#startGame');
+var stage =document.querySelector('canva');
 
 // Cria um botão de saída de tela cheia para dispositivos móveis
 const botaoSairTelaCheia = document.createElement('button');
@@ -47,6 +49,38 @@ function sairDaTelaCheia() {
   }
 }
 
+// Função para exibir a tela de Game Over com os botões
+function showGameOverScreen() {
+    // Esconde a tela do jogo (canvas)
+    document.getElementById('stage').style.display = 'none';
+  
+    // Exibe a tela de Game Over
+    document.getElementById('game-over-screen').style.display = 'block';
+  
+    // Adiciona a funcionalidade dos botões
+    document.getElementById('restart-button').addEventListener('click', restartGame);
+    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
+  }
+  
+  // Função para reiniciar o jogo
+  function restartGame() {
+    // Aqui você pode redefinir qualquer variável de estado do jogo, por exemplo:
+    // resetar a pontuação, reiniciar a posição da cobra, etc.
+  
+    // Mostrar novamente o canvas e esconder a tela de Game Over
+    document.getElementById('game-canvas').style.display = 'block';
+    document.getElementById('game-over-screen').style.display = 'none';
+  
+    // Chamar função para reiniciar o jogo (exemplo)
+    startGame();  // Certifique-se de que startGame() reinicia o jogo adequadamente
+  }
+  
+  // Função para voltar à página principal
+  function goToHomePage() {
+    window.location.href = '/assets/html/index.html'; // Substitua pela URL da sua página inicial
+  }
+  
+
 // Evento para iniciar o jogo com clique no botão
 botaoIniciar.addEventListener('click', iniciarJogo);
 
@@ -69,6 +103,20 @@ document.addEventListener('fullscreenchange', () => {
   }
 });
 
+function enterFullscreen() {
+    if (canvas.requestFullscreen) {
+      canvas.requestFullscreen();
+    } else if (canvas.mozRequestFullScreen) { // Firefox
+      canvas.mozRequestFullScreen();
+    } else if (canvas.webkitRequestFullscreen) { // Chrome e Safari
+      canvas.webkitRequestFullscreen();
+    } else if (canvas.msRequestFullscreen) { // IE/Edge
+      canvas.msRequestFullscreen();
+    }
+  }
+  
+  // Chamando a função para ativar a tela cheia
+  enterFullscreen();
 
 // Seleciona o elemento canvas para o modo tela cheia
 
@@ -99,7 +147,7 @@ function iniciarLogicaDoJogo() {
 window.addEventListener('load', iniciarJogoTelaCheia);
 
 // Seleciona o botão de início usando o ID
-const botaoIniciar = document.getElementById('botaoIniciar');
+
 
 // Adiciona o evento de clique para o botão
 botaoIniciar.addEventListener('click', () => {

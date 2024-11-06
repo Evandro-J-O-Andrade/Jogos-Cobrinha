@@ -7,7 +7,7 @@
 body {
     height: 100vh; /* Usa a altura da janela de visualização */
     width: 100%;
-    background-image: url('/assets/image/tela2.jpg'); /* Altere para o caminho correto da sua imagem */
+    background-image: url('/assets/image/tela4.jpg'); /* Altere para o caminho correto da sua imagem */
     background-position: center; /* Centraliza a imagem */
     background-size: cover; /* Faz a imagem cobrir todo o espaço */
     display: flex; /* Usado para centralizar o conteúdo */
@@ -20,10 +20,37 @@ body {
 canvas {
     display: flex;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    display: flex;
 }
 
+#game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  #game-over-screen button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #game-over-screen button:hover {
+    background-color: #e53935;
+  }
+  
 @media (max-width: 768px) {
     body {
         background-repeat: no-repeat; /* Adicione esta linha */

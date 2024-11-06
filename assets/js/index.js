@@ -31,15 +31,15 @@ window.onload = function () {
     var gameOverSound = new Audio('/assets/audio/gameover.mp3');
     var levelUpSound = new Audio('/assets/audio/levelup.mp3');
     var fundoTela = new Audio('/assets/audio/fundo.mp3');
-
+    
     // Configurações de volume
     backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
-    moveSound.volume = 1.0; // volume normal para o som de movimento
+    moveSound.volume = 0.3; // volume normal para o som de movimento
     eatSound.volume = 1.0; // volume normal para o som de comer
-    gameOverSound.volume = 1.0; // volume normal para o som de game over
-    levelUpSound.volume = 1.0; // volume normal para o som de passar de fase
+    gameOverSound.volume = 0.5; // volume normal para o som de game over
+    levelUpSound.volume = 0.5; // volume normal para o som de passar de fase
     fundoTela.volume = 0.3; // volume normal para o som de fundo da tela 
-
+    
     // Tocar música de fundo
     backgroundMusic.loop = true; // Repetir a música de fundo
     backgroundMusic.play();
@@ -217,9 +217,20 @@ window.onload = function () {
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
     }
     
-
-
+// Função para exibir a tela de Game Over com os botões
+function showGameOverScreen() {
+    // Esconde a tela de jogo
+    document.getElementById('stage').style.display = 'none';
     
+    // Exibe a tela de Game Over
+    document.getElementById('game-over-screen').style.display = 'block';
+  
+    // Adiciona a funcionalidade aos botões
+    document.getElementById('restart-button').addEventListener('click', restartGame);
+    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
+  }
+  
+  
     // Função principal do jogo
     function game() {
         if (gameOver) {
@@ -426,6 +437,20 @@ window.onload = function () {
        
     });
 
+    function enterFullscreen() {
+        if (canvas.requestFullscreen) {
+          canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { // Firefox
+          canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { // Chrome e Safari
+          canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { // IE/Edge
+          canvas.msRequestFullscreen();
+        }
+      }
+      
+      // Chamando a função para ativar a tela cheia
+      enterFullscreen();
     // Função para reiniciar o jogo
     function resetGame() {
         gameOver = false;
@@ -476,6 +501,54 @@ window.onload = function () {
         // Executa a função que inicia o jogo
         iniciarJogo();
       });
+
+      // Função para reiniciar o jogo
+  function restartGame() {
+    // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
+    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
+    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+    
+    // Aqui você pode chamar a função que reinicia o jogo
+    startGame();
+  }
+
+  function reiniciarJogo(){
+    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
+    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+    
+    // Aqui você pode chamar a função que reinicia o jogo
+    startGame();
+
+  }
+  function addGameOverButtonEvents() {
+    // Obtem os botões de reiniciar e voltar
+    const restartButton = document.getElementById('restart-button');
+    const backButton = document.getElementById('back-button');
+
+    // Adiciona evento de clique para o botão de reiniciar
+    restartButton.addEventListener('click', restartGame);
+    
+    // Adiciona evento de clique para o botão de voltar
+    backButton.addEventListener('click', goToHomePage);
+
+    // Para dispositivos móveis, também adicionamos eventos de toque
+    restartButton.addEventListener('touchstart', restartGame);
+    backButton.addEventListener('touchstart', goToHomePage);
+}
+
+function restartGame() {
+    // Lógica para reiniciar o jogo
+    location.reload(); // Simplesmente recarrega a página (ou você pode resetar o estado do jogo aqui)
+}
+
+function goToHomePage() {
+    // Lógica para voltar à página inicial
+    window.location.href = 'index.html'; // Alterar para o link da sua página inicial
+}
+  // Função para voltar à página principal
+  function goToHomePage() {
+    window.location.href = 'index.html'; // Substitua com a URL da sua página inicial
+  }
     
 };
 

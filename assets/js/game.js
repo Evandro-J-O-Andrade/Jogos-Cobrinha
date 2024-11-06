@@ -10,7 +10,7 @@ let apple = { x: Math.floor(Math.random() * canvas.width / blockSize), y: Math.f
 
 // Carregar a imagem de fundo
 const backgroundImage = new Image();
-backgroundImage.src = "caminho/para/sua/imagem.jpg"; // Substitua pelo caminho da sua imagem
+backgroundImage.src = "/assets/image/tela4.jpg"; // Substitua pelo caminho da sua imagem
 
 // Ajustar o tamanho do canvas
 function resizeCanvas() {
@@ -90,9 +90,63 @@ function handleTouch(event) {
     }
 }
 
+// Função para exibir a tela de Game Over com os botões
+function showGameOverScreen() {
+    // Esconde a tela de jogo
+    document.getElementById('stage').style.display = 'none';
+    
+    // Exibe a tela de Game Over
+    document.getElementById('game-over-screen').style.display = 'block';
+  
+    // Adiciona a funcionalidade aos botões
+    document.getElementById('restart-button').addEventListener('click', restartGame);
+    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
+  }
+  
+  // Função para reiniciar o jogo
+  function restartGame() {
+    // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
+    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
+    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+    
+    // Aqui você pode chamar a função que reinicia o jogo
+    startGame();
+  }
+  
+  // Função para voltar à página principal
+  function goToHomePage() {
+    window.location.href = 'index.html'; // Substitua com a URL da sua página inicial
+  }
+  
 // Adiciona o evento de toque ao canvas
 stage.addEventListener("touchstart", handleTouch);
 
+
+function addGameOverButtonEvents() {
+    // Obtem os botões de reiniciar e voltar
+    const restartButton = document.getElementById('restart-button');
+    const backButton = document.getElementById('back-button');
+
+    // Adiciona evento de clique para o botão de reiniciar
+    restartButton.addEventListener('click', restartGame);
+    
+    // Adiciona evento de clique para o botão de voltar
+    backButton.addEventListener('click', goToHomePage);
+
+    // Para dispositivos móveis, também adicionamos eventos de toque
+    restartButton.addEventListener('touchstart', restartGame);
+    backButton.addEventListener('touchstart', goToHomePage);
+}
+
+function restartGame() {
+    // Lógica para reiniciar o jogo
+    location.reload(); // Simplesmente recarrega a página (ou você pode resetar o estado do jogo aqui)
+}
+
+function goToHomePage() {
+    // Lógica para voltar à página inicial
+    window.location.href = '/assets/html/index.html'; // Alterar para o link da sua página inicial
+}
 
 function resetGame() {
     snake = [{ x: 9, y: 9 }];

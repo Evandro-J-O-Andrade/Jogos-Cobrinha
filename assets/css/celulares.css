@@ -13,7 +13,7 @@ body {
     height: 100%;
     width: 100%;
     /* Usa a altura da janela de visualização */
-    background-image: url('/assets/image/tela2.jpg');
+    background-image: url('/assets/image/tela4.jpg');
     /* Altere para o caminho correto da sua imagem */
     background-position: center;
     /* Centraliza a imagem */
@@ -35,11 +35,13 @@ canvas {
     width: 100%;
     height: 100%;
     max-width: 100%;
-    max-height: 100%; /* Limita a altura máxima do canvas */
-  }
+    max-height: 100%;
+    /* Limita a altura máxima do canvas */
+}
 
 .background-image {
     display: flex;
+    background-image: url('/assets/image/tela4.webp');
     /* Usa a altura da janela de visualização */
     /* Altere para o caminho correto da sua imagem */
     background-position: center;
@@ -98,7 +100,7 @@ h2 {
     display: flex;
     margin: 0;
     /* Remove margens padrão */
-    color: rgb(241, 240, 247);
+    color: rgb(226, 154, 19);
     /* Cor do texto do título */
     font-size: 45px;
     /* Tamanho do texto do título */
@@ -106,6 +108,22 @@ h2 {
     padding: 0;
 }
 
+h3 {
+    justify-content: space-between;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    margin: 0;
+    /* Remove margens padrão */
+    color: rgb(12, 4, 56);
+    /* Cor do texto do título */
+    font-size: 25px;
+    /* Tamanho do texto do título */
+    margin-top: 50px;
+    padding: 0;
+    bottom: 0;
+    height: 0;
+}
 button {
     padding: 10px 20px;
     /* Espaçamento interno do botão */
@@ -254,26 +272,32 @@ footer a:hover {
 
 @media (min-width: 1024px) {
     canvas {
-      width: 100%; /* Ajusta para 80% da largura da tela */
-      height: 100%; /* Ajusta para 80% da altura da tela */
+        width: 100%;
+        /* Ajusta para 80% da largura da tela */
+        height: 100%;
+        /* Ajusta para 80% da altura da tela */
     }
-  }
-  
-  /* Canvas para tablets e telas médias */
-  @media (max-width: 1023px) {
+}
+
+/* Canvas para tablets e telas médias */
+@media (max-width: 1023px) {
     canvas {
-      width: 100%; /* Ajusta para 90% da largura da tela */
-      max-height: 100%; /* Limita a altura em telas médias */
+        width: 100%;
+        /* Ajusta para 90% da largura da tela */
+        max-height: 100%;
+        /* Limita a altura em telas médias */
     }
-  }
-  
-  /* Canvas para dispositivos móveis (smartphones) */
-  @media (max-width: 600px) {
+}
+
+/* Canvas para dispositivos móveis (smartphones) */
+@media (max-width: 600px) {
     canvas {
-      width: 100%; /* Ajusta para 95% da largura da tela */
-      max-height: 100%; /* Limita a altura em telas pequenas */
+        width: 100%;
+        /* Ajusta para 95% da largura da tela */
+        max-height: 100%;
+        /* Limita a altura em telas pequenas */
     }
-  }
+}
 
 /* Suas media queries adaptadas */
 @media only screen and (min-width: 100px) and (max-width: 500px) {
@@ -658,7 +682,7 @@ footer a:hover {
     .game-stage {
         width: 100%;
         height: 100%;
-        background-color: black;
+
         display: flex;
     }
 
@@ -667,7 +691,6 @@ footer a:hover {
         /* remove espaço abaixo do canvas */
         margin: 0 auto;
         /* centraliza o canvas */
-        background-color: black;
         /* cor de fundo do canvas */
         width: 100%;
         height: 100%;
@@ -676,6 +699,7 @@ footer a:hover {
 
     .background-image {
         display: flex;
+
     }
 
     body {
@@ -741,7 +765,7 @@ footer a:hover {
 
     .menu-ativo nav ul {
         max-width: 300px;
-        transition: max-heitght 0.3s ease-in-out;
+        transition: max-height 0.3s ease-in-out;
     }
 
     nav ul li {
@@ -781,7 +805,6 @@ footer a:hover {
         .game-stage {
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
         }
 
@@ -790,11 +813,9 @@ footer a:hover {
             /* remove espaço abaixo do canvas */
             margin: 0 auto;
             /* centraliza o canvas */
-            background-color: black;
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
-            display: block;
         }
 
         .background-image {
@@ -1173,7 +1194,7 @@ footer a:hover {
 
     /*Fim do menu forçando*/
 
-    @media only screen and (max-width:300) {
+    @media only screen and (max-width:300px) {
         .linha {
             text-align: center;
         }
@@ -1270,7 +1291,6 @@ footer a:hover {
         .game-stage {
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
         }
 
@@ -1279,11 +1299,9 @@ footer a:hover {
             /* remove espaço abaixo do canvas */
             margin: 0 auto;
             /* centraliza o canvas */
-            background-color: black;
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
-            display: block;
         }
 
         .container {
@@ -1587,7 +1605,6 @@ footer a:hover {
         .game-stage {
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
         }
 
@@ -1596,11 +1613,9 @@ footer a:hover {
             /* remove espaço abaixo do canvas */
             margin: 0 auto;
             /* centraliza o canvas */
-            background-color: black;
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
-            display: block;
         }
 
         .container {
@@ -1727,7 +1742,6 @@ footer a:hover {
         .game-stage {
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
         }
 
@@ -1736,7 +1750,6 @@ footer a:hover {
             /* remove espaço abaixo do canvas */
             margin: 0 auto;
             /* centraliza o canvas */
-            background-color: black;
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
@@ -2080,47 +2093,341 @@ footer a:hover {
 
     .background-image {
         display: flex;
+        background-image: url('/assets/image/tela4.jpg');
+
+        .game-stage {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        #stage {
+            display: flex;
+            /* remove espaço abaixo do canvas */
+            margin: 0 auto;
+            /* centraliza o canvas */
+            /* cor de fundo do canvas */
+            width: 100%;
+            height: 100%;
+
+        }
+
     }
 
-    .game-stage {
-        width: 100%;
-        height: 100%;
-        background-color: black;
+
+    .resolucao {
+        /* As regras padrão (caso queira manter) */
+
+
+        @media (max-width: 768px) {
+            .resolucao body {
+                background-color: var(--cor-padrao-hover), var(--cor-padrao);
+            }
+
+            .background-image {
+                display: flex;
+                background-image: url('/assets/image/tela4.webp');
+            }
+
+            .game-stage {
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+
+            #stage {
+                display: flex;
+                /* remove espaço abaixo do canvas */
+                margin: 0 auto;
+                /* centraliza o canvas */
+                /* cor de fundo do canvas */
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resolucao body {
+                font-size: 12px;
+            }
+
+            .background-image {
+                display: flex;
+                background-image: url('/assets/image/tela4.webp');
+            }
+
+            .game-stage {
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+
+            #stage {
+                display: flex;
+                /* remove espaço abaixo do canvas */
+                margin: 0 auto;
+                /* centraliza o canvas */
+                /* cor de fundo do canvas */
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .resolucao body {
+                padding: 10px;
+            }
+
+            .game-stage {
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+            }
+
+            #stage {
+                display: flex;
+                /* remove espaço abaixo do canvas */
+                margin: 0 auto;
+                /* centraliza o canvas */
+
+                /* cor de fundo do canvas */
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            .background-image {
+                display: flex;
+                background-image: url('/assets/image/tela4.webp');
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                /* Coloca os itens em coluna */
+                align-items: center;
+                /* Centraliza os itens horizontalmente */
+                width: 100%;
+                /* Para ocupar toda a largura */
+                position: relative;
+                /* Para controlar a posição do h1 */
+                top: 100px;
+                /* Distância do topo da página */
+            }
+
+            h1 {
+                text-align: center;
+                display: flex;
+                margin: 0;
+                /* Remove margens padrão */
+                font-style: "sans-serif";
+                color: rgb(240, 3, 34);
+                /* Cor do texto do título */
+                font-size: 80px;
+                /* Tamanho do texto do título */
+                padding: 0;
+            }
+
+            h2 {
+                text-align: center;
+                display: flex;
+                margin: 0;
+                /* Remove margens padrão */
+                color: rgb(241, 240, 247);
+                /* Cor do texto do título */
+                font-size: 45px;
+                /* Tamanho do texto do título */
+                margin-top: 35px;
+                padding: 0;
+            }
+
+            button {
+                padding: 10px 20px;
+                /* Espaçamento interno do botão */
+                color: rgb(38, 16, 97);
+                /* Cor do texto do botão */
+                font-size: 25px;
+                cursor: pointer;
+                background-color: #61dafb;
+                border: none;
+                border-radius: 5px;
+                margin-top: 50px;
+                /* Empurra o botão para a parte inferior */
+                position: relative;
+                transition: 0.6s;
+                display: flex;
+
+
+            }
+
+            button:hover {
+                background-color: #21a1f1;
+            }
+
+            footer {
+                background-color: rgba(0, 0, 0, 0.7);
+                /* Cor de fundo com leve transparência */
+                color: white;
+                /* Cor do texto */
+                text-align: center;
+                /* Centraliza o texto */
+                padding: 10px 0;
+                /* Espaçamento interno */
+                position: absolute;
+                /* Posiciona o footer na parte inferior */
+                bottom: 0;
+                /* Coloca o footer no fundo da página */
+                width: 100%;
+                /* Largura total */
+                font-size: 25px;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            footer ul {
+                list-style-type: none;
+                /* Remove os marcadores da lista */
+                padding: 0;
+                /* Remove o preenchimento padrão */
+            }
+
+            footer ul li {
+                display: inline;
+                /* Exibe os itens da lista em linha */
+                margin: 0 15px;
+                /* Espaçamento entre os links */
+            }
+
+            footer a {
+                color: white;
+                /* Cor dos links */
+                text-decoration: none;
+                /* Remove o sublinhado dos links */
+            }
+
+            footer a:hover {
+                text-decoration: underline;
+                /* Adiciona sublinhado ao passar o mouse */
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+            .footer {
+                position: absolute;
+                bottom: 10px;
+                /* Espaçamento do fundo */
+                left: 50%;
+                transform: translateX(-50%);
+                /* Centraliza o rodapé */
+                text-align: center;
+                font-size: 16px;
+                /* Tamanho padrão */
+                color: white;
+                /* Cor do texto */
+            }
+
+            .game-stage {
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+
+            #stage {
+                display: flex;
+                /* remove espaço abaixo do canvas */
+                margin: 0 auto;
+                /* centraliza o canvas */
+                /* cor de fundo do canvas */
+                width: 100%;
+                height: 100%;
+            }
+
+            .rodape-col-4 ul li {
+                align-items: center;
+                display: flex;
+                text-align: center;
+            }
+        }
+
+        .background-image {
+            display: flex;
+            background-image: url('/assets/image/tela4.webp');
+        }
+
+        .game-stage {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        #stage {
+            display: flex;
+            /* remove espaço abaixo do canvas */
+            margin: 0 auto;
+            /* centraliza o canvas */
+            /* cor de fundo do canvas */
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 10px;
+        /* Espaçamento do fundo */
+        left: 50%;
+        transform: translateX(-50%);
+        /* Centraliza o rodapé */
+        text-align: center;
+        font-size: 16px;
+        /* Tamanho padrão */
+        color: white;
+        /* Cor do texto */
+    }
+
+
+    #controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    #stage {
-        display: flex;
-        /* remove espaço abaixo do canvas */
-        margin: 0 auto;
-        /* centraliza o canvas */
-        background-color: black;
-        /* cor de fundo do canvas */
-        width: 100%;
-        height: 100%;
-        display: block;
+    #controls button {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 24px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
     }
 
-}
-
-
-.resolucao {
-    /* As regras padrão (caso queira manter) */
-
-
-    @media (max-width: 768px) {
-        .resolucao body {
-            background-color: var(--cor-padrao-hover), var(--cor-padrao);
-        }
-
-        .background-image {
+    @media (max-width: 600px) {
+        body {
             display: flex;
+            background-image: url('/assets/image/tela4.webp');
+            background-position: center;
+            background-size: cover;
+            /* Ajusta a imagem para caber na tela */
+            background-repeat: no-repeat;
+            /* Evita repetição */
+            min-height: 100%;
+            /* Garante que o body ocupe pelo menos a altura da tela */
+            max-width: 600%;
+
         }
 
         .game-stage {
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
         }
 
@@ -2129,69 +2436,9 @@ footer a:hover {
             /* remove espaço abaixo do canvas */
             margin: 0 auto;
             /* centraliza o canvas */
-            background-color: black;
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
-            display: block;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .resolucao body {
-            font-size: 12px;
-        }
-
-        .background-image {
-            display: flex;
-        }
-
-        .game-stage {
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: flex;
-        }
-
-        #stage {
-            display: flex;
-            /* remove espaço abaixo do canvas */
-            margin: 0 auto;
-            /* centraliza o canvas */
-            background-color: black;
-            /* cor de fundo do canvas */
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .resolucao body {
-            padding: 10px;
-        }
-
-        .game-stage {
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: flex;
-        }
-
-        #stage {
-            display: flex;
-            /* remove espaço abaixo do canvas */
-            margin: 0 auto;
-            /* centraliza o canvas */
-            background-color: black;
-            /* cor de fundo do canvas */
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .background-image {
-            display: flex;
         }
 
         .container {
@@ -2208,7 +2455,155 @@ footer a:hover {
             /* Distância do topo da página */
         }
 
+
         h1 {
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: rgb(7, 3, 240);
+            /* Cor do texto do título */
+            font-size: 50px;
+            /* Tamanho do texto do título */
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(241, 240, 247);
+            /* Cor do texto do título */
+            font-size: 40px;
+            /* Tamanho do texto do título */
+            margin-top: 35px;
+            padding: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97);
+            /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px;
+            /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
+
+
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Cor de fundo com leve transparência */
+            color: white;
+            /* Cor do texto */
+            text-align: center;
+            /* Centraliza o texto */
+            padding: 10px 0;
+            /* Espaçamento interno */
+            position: absolute;
+            /* Posiciona o footer na parte inferior */
+            bottom: 0;
+            /* Coloca o footer no fundo da página */
+            width: 100%;
+            /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        footer ul {
+            list-style-type: none;
+            /* Remove os marcadores da lista */
+            padding: 0;
+            /* Remove o preenchimento padrão */
+        }
+
+        footer ul li {
+            display: inline;
+            /* Exibe os itens da lista em linha */
+            margin: 0 15px;
+            /* Espaçamento entre os links */
+        }
+
+        footer a {
+            color: white;
+            /* Cor dos links */
+            text-decoration: none;
+            /* Remove o sublinhado dos links */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            /* Adiciona sublinhado ao passar o mouse */
+        }
+
+    }
+
+
+    @media only screen and (max-width: 100px) and (min-width:1500px) {
+        body {
+            display: flex;
+            background-position: center;
+            background-size: cover;
+            /* Ajusta a imagem para caber na tela */
+            background-repeat: no-repeat;
+            /* Evita repetição */
+            min-height: 100%;
+            /* Garante que o body ocupe pelo menos a altura da tela */
+            max-width: 100%;
+
+        }
+
+        .game-stage {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(194, 138, 138);
+            display: flex;
+        }
+
+        #stage {
+            display: flex;
+            /* remove espaço abaixo do canvas */
+            margin: 0 auto;
+            /* centraliza o canvas */
+            /* cor de fundo do canvas */
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            /* Coloca os itens em coluna */
+            align-items: center;
+            /* Centraliza os itens horizontalmente */
+            width: 100%;
+            /* Para ocupar toda a largura */
+            position: relative;
+            /* Para controlar a posição do h1 */
+            top: 100%;
+            /* Distância do topo da página */
+        }
+
+
+        h1 {
+            justify-content: space-around;
             text-align: center;
             display: flex;
             margin: 0;
@@ -2222,6 +2617,7 @@ footer a:hover {
         }
 
         h2 {
+            justify-content: space-between;
             text-align: center;
             display: flex;
             margin: 0;
@@ -2306,20 +2702,18 @@ footer a:hover {
 
     }
 
+    @media only screen and (mix-width: 740px) and (max-width: 100px) {
+        body {
+            display: flex;
+            background-position: center;
+            background-size: cover;
+            /* Ajusta a imagem para caber na tela */
+            background-repeat: no-repeat;
+            /* Evita repetição */
+            min-height: 100vh;
+            /* Garante que o body ocupe pelo menos a altura da tela */
+            max-width: 100%;
 
-    @media (max-width: 600px) {
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            /* Espaçamento do fundo */
-            left: 50%;
-            transform: translateX(-50%);
-            /* Centraliza o rodapé */
-            text-align: center;
-            font-size: 16px;
-            /* Tamanho padrão */
-            color: white;
-            /* Cor do texto */
         }
 
         .game-stage {
@@ -2327,6 +2721,8 @@ footer a:hover {
             height: 100%;
             background-color: black;
             display: flex;
+            justify-content: space-between;
+            text-align: center;
         }
 
         #stage {
@@ -2338,516 +2734,123 @@ footer a:hover {
             /* cor de fundo do canvas */
             width: 100%;
             height: 100%;
-            display: block;
-        }
-
-        .rodape-col-4 ul li {
+            display: flex;
             text-align: center;
+            justify-content: space-between;
         }
-    }
 
-    .background-image {
-        display: flex;
-    }
-
-    .game-stage {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        display: flex;
-    }
-
-    #stage {
-        display: flex;
-        /* remove espaço abaixo do canvas */
-        margin: 0 auto;
-        /* centraliza o canvas */
-        background-color: black;
-        /* cor de fundo do canvas */
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-}
-
-.footer {
-    position: absolute;
-    bottom: 10px;
-    /* Espaçamento do fundo */
-    left: 50%;
-    transform: translateX(-50%);
-    /* Centraliza o rodapé */
-    text-align: center;
-    font-size: 16px;
-    /* Tamanho padrão */
-    color: white;
-    /* Cor do texto */
-}
+        .container {
+            display: flex;
+            flex-direction: column;
+            /* Coloca os itens em coluna */
+            align-items: center;
+            /* Centraliza os itens horizontalmente */
+            width: 100%;
+            /* Para ocupar toda a largura */
+            position: relative;
+            /* Para controlar a posição do h1 */
+            top: 100%;
+            /* Distância do topo da página */
+        }
 
 
-#controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        h1 {
+            justify-content: space-around;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            font-style: "sans-serif";
+            color: rgb(240, 3, 34);
+            /* Cor do texto do título */
+            font-size: 80px;
+            /* Tamanho do texto do título */
+            padding: 0;
+        }
 
-#controls button {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    font-size: 24px;
-    background-color: #fff;
-    border: none;
-    border-radius: 5px;
-}
+        h2 {
+            justify-content: space-between;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(241, 240, 247);
+            /* Cor do texto do título */
+            font-size: 45px;
+            /* Tamanho do texto do título */
+            margin-top: 35px;
+            padding: 0;
+        }
 
-@media (max-width: 600px) {
-    body {
-        display: flex;
-        background-image: url('/assets/image/tela2.jpg');
-        background-position: center;
-        background-size: cover;
-        /* Ajusta a imagem para caber na tela */
-        background-repeat: no-repeat;
-        /* Evita repetição */
-        min-height: 100vh;
-        /* Garante que o body ocupe pelo menos a altura da tela */
-        max-width: 100%;
-
-    }
-
-    .game-stage {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        display: flex;
-    }
-
-    #stage {
-        display: flex;
-        /* remove espaço abaixo do canvas */
-        margin: 0 auto;
-        /* centraliza o canvas */
-        background-color: black;
-        /* cor de fundo do canvas */
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        /* Coloca os itens em coluna */
-        align-items: center;
-        /* Centraliza os itens horizontalmente */
-        width: 100%;
-        /* Para ocupar toda a largura */
-        position: relative;
-        /* Para controlar a posição do h1 */
-        top: 100px;
-        /* Distância do topo da página */
-    }
+        button {
+            padding: 10px 20px;
+            /* Espaçamento interno do botão */
+            color: rgb(38, 16, 97);
+            /* Cor do texto do botão */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            margin-top: 50px;
+            /* Empurra o botão para a parte inferior */
+            position: relative;
+            transition: 0.6s;
+            display: flex;
 
 
-    h1 {
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        font-style: "sans-serif";
-        color: rgb(240, 3, 34);
-        /* Cor do texto do título */
-        font-size: 50px;
-        /* Tamanho do texto do título */
-        padding: 0;
-    }
+        }
 
-    h2 {
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        color: rgb(241, 240, 247);
-        /* Cor do texto do título */
-        font-size: 35px;
-        /* Tamanho do texto do título */
-        margin-top: 35px;
-        padding: 0;
-    }
+        button:hover {
+            background-color: #21a1f1;
+        }
 
-    button {
-        padding: 10px 20px;
-        /* Espaçamento interno do botão */
-        color: rgb(38, 16, 97);
-        /* Cor do texto do botão */
-        font-size: 25px;
-        cursor: pointer;
-        background-color: #61dafb;
-        border: none;
-        border-radius: 5px;
-        margin-top: 50px;
-        /* Empurra o botão para a parte inferior */
-        position: relative;
-        transition: 0.6s;
-        display: flex;
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Cor de fundo com leve transparência */
+            color: white;
+            /* Cor do texto */
+            text-align: center;
+            /* Centraliza o texto */
+            padding: 10px 0;
+            /* Espaçamento interno */
+            position: absolute;
+            /* Posiciona o footer na parte inferior */
+            bottom: 0;
+            /* Coloca o footer no fundo da página */
+            width: 100%;
+            /* Largura total */
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
 
+        }
+
+        footer ul {
+            list-style-type: none;
+            /* Remove os marcadores da lista */
+            padding: 0;
+            /* Remove o preenchimento padrão */
+        }
+
+        footer ul li {
+            display: inline;
+            /* Exibe os itens da lista em linha */
+            margin: 0 15px;
+            /* Espaçamento entre os links */
+        }
+
+        footer a {
+            color: white;
+            /* Cor dos links */
+            text-decoration: none;
+            /* Remove o sublinhado dos links */
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            /* Adiciona sublinhado ao passar o mouse */
+        }
 
     }
-
-    button:hover {
-        background-color: #21a1f1;
-    }
-
-    footer {
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Cor de fundo com leve transparência */
-        color: white;
-        /* Cor do texto */
-        text-align: center;
-        /* Centraliza o texto */
-        padding: 10px 0;
-        /* Espaçamento interno */
-        position: absolute;
-        /* Posiciona o footer na parte inferior */
-        bottom: 0;
-        /* Coloca o footer no fundo da página */
-        width: 100%;
-        /* Largura total */
-        font-size: 25px;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    footer ul {
-        list-style-type: none;
-        /* Remove os marcadores da lista */
-        padding: 0;
-        /* Remove o preenchimento padrão */
-    }
-
-    footer ul li {
-        display: inline;
-        /* Exibe os itens da lista em linha */
-        margin: 0 15px;
-        /* Espaçamento entre os links */
-    }
-
-    footer a {
-        color: white;
-        /* Cor dos links */
-        text-decoration: none;
-        /* Remove o sublinhado dos links */
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-        /* Adiciona sublinhado ao passar o mouse */
-    }
-
-}
-
-
-@media only screen and (max-width: 100px) and (min-width:1500px) {
-    body {
-        display: flex;
-        background-position: center;
-        background-size: cover;
-        /* Ajusta a imagem para caber na tela */
-        background-repeat: no-repeat;
-        /* Evita repetição */
-        min-height: 100vh;
-        /* Garante que o body ocupe pelo menos a altura da tela */
-        max-width: 100%;
-
-    }
-
-    .game-stage {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        display: flex;
-    }
-
-    #stage {
-        display: flex;
-        /* remove espaço abaixo do canvas */
-        margin: 0 auto;
-        /* centraliza o canvas */
-        background-color: black;
-        /* cor de fundo do canvas */
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        /* Coloca os itens em coluna */
-        align-items: center;
-        /* Centraliza os itens horizontalmente */
-        width: 100%;
-        /* Para ocupar toda a largura */
-        position: relative;
-        /* Para controlar a posição do h1 */
-        top: 100%;
-        /* Distância do topo da página */
-    }
-
-
-    h1 {
-        justify-content: space-around;
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        font-style: "sans-serif";
-        color: rgb(240, 3, 34);
-        /* Cor do texto do título */
-        font-size: 80px;
-        /* Tamanho do texto do título */
-        padding: 0;
-    }
-
-    h2 {
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        color: rgb(241, 240, 247);
-        /* Cor do texto do título */
-        font-size: 45px;
-        /* Tamanho do texto do título */
-        margin-top: 35px;
-        padding: 0;
-    }
-
-    button {
-        padding: 10px 20px;
-        /* Espaçamento interno do botão */
-        color: rgb(38, 16, 97);
-        /* Cor do texto do botão */
-        font-size: 25px;
-        cursor: pointer;
-        background-color: #61dafb;
-        border: none;
-        border-radius: 5px;
-        margin-top: 50px;
-        /* Empurra o botão para a parte inferior */
-        position: relative;
-        transition: 0.6s;
-        display: flex;
-
-
-    }
-
-    button:hover {
-        background-color: #21a1f1;
-    }
-
-    footer {
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Cor de fundo com leve transparência */
-        color: white;
-        /* Cor do texto */
-        text-align: center;
-        /* Centraliza o texto */
-        padding: 10px 0;
-        /* Espaçamento interno */
-        position: absolute;
-        /* Posiciona o footer na parte inferior */
-        bottom: 0;
-        /* Coloca o footer no fundo da página */
-        width: 100%;
-        /* Largura total */
-        font-size: 25px;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    footer ul {
-        list-style-type: none;
-        /* Remove os marcadores da lista */
-        padding: 0;
-        /* Remove o preenchimento padrão */
-    }
-
-    footer ul li {
-        display: inline;
-        /* Exibe os itens da lista em linha */
-        margin: 0 15px;
-        /* Espaçamento entre os links */
-    }
-
-    footer a {
-        color: white;
-        /* Cor dos links */
-        text-decoration: none;
-        /* Remove o sublinhado dos links */
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-        /* Adiciona sublinhado ao passar o mouse */
-    }
-
-}
-@media only screen and (mix-width: 740px) and (max-width: 100px) {
-    body {
-        display: flex;
-        background-position: center;
-        background-size: cover;
-        /* Ajusta a imagem para caber na tela */
-        background-repeat: no-repeat;
-        /* Evita repetição */
-        min-height: 100vh;
-        /* Garante que o body ocupe pelo menos a altura da tela */
-        max-width: 100%;
-
-    }
-
-    .game-stage {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-    }
-
-    #stage {
-        display: flex;
-        /* remove espaço abaixo do canvas */
-        margin: 0 auto;
-        /* centraliza o canvas */
-        background-color: black;
-        /* cor de fundo do canvas */
-        width: 100%;
-        height: 100%;
-        display: flex;
-        text-align: center;
-        justify-content: space-between;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        /* Coloca os itens em coluna */
-        align-items: center;
-        /* Centraliza os itens horizontalmente */
-        width: 100%;
-        /* Para ocupar toda a largura */
-        position: relative;
-        /* Para controlar a posição do h1 */
-        top: 100%;
-        /* Distância do topo da página */
-    }
-
-
-    h1 {
-        justify-content: space-around;
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        font-style: "sans-serif";
-        color: rgb(240, 3, 34);
-        /* Cor do texto do título */
-        font-size: 80px;
-        /* Tamanho do texto do título */
-        padding: 0;
-    }
-
-    h2 {
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        margin: 0;
-        /* Remove margens padrão */
-        color: rgb(241, 240, 247);
-        /* Cor do texto do título */
-        font-size: 45px;
-        /* Tamanho do texto do título */
-        margin-top: 35px;
-        padding: 0;
-    }
-
-    button {
-        padding: 10px 20px;
-        /* Espaçamento interno do botão */
-        color: rgb(38, 16, 97);
-        /* Cor do texto do botão */
-        font-size: 25px;
-        cursor: pointer;
-        background-color: #61dafb;
-        border: none;
-        border-radius: 5px;
-        margin-top: 50px;
-        /* Empurra o botão para a parte inferior */
-        position: relative;
-        transition: 0.6s;
-        display: flex;
-
-
-    }
-
-    button:hover {
-        background-color: #21a1f1;
-    }
-
-    footer {
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Cor de fundo com leve transparência */
-        color: white;
-        /* Cor do texto */
-        text-align: center;
-        /* Centraliza o texto */
-        padding: 10px 0;
-        /* Espaçamento interno */
-        position: absolute;
-        /* Posiciona o footer na parte inferior */
-        bottom: 0;
-        /* Coloca o footer no fundo da página */
-        width: 100%;
-        /* Largura total */
-        font-size: 25px;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    footer ul {
-        list-style-type: none;
-        /* Remove os marcadores da lista */
-        padding: 0;
-        /* Remove o preenchimento padrão */
-    }
-
-    footer ul li {
-        display: inline;
-        /* Exibe os itens da lista em linha */
-        margin: 0 15px;
-        /* Espaçamento entre os links */
-    }
-
-    footer a {
-        color: white;
-        /* Cor dos links */
-        text-decoration: none;
-        /* Remove o sublinhado dos links */
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-        /* Adiciona sublinhado ao passar o mouse */
-    }
-
 }
