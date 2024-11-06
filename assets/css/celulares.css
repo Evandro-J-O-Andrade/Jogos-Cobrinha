@@ -446,7 +446,22 @@ footer a:hover {
         margin-top: 35px;
         padding: 0;
     }
-
+    h3 {
+        justify-content: space-between;
+        position: absolute;
+        text-align: center;
+        display: flex;
+        margin: 0;
+        /* Remove margens padrão */
+        color: rgb(12, 4, 56);
+        /* Cor do texto do título */
+        font-size: 25px;
+        /* Tamanho do texto do título */
+        margin-top: 50px;
+        padding: 0;
+        bottom: 0;
+        height: 0;
+    } 
     button {
         padding: 10px 20px;
         /* Espaçamento interno do botão */
@@ -596,6 +611,22 @@ footer a:hover {
         /* Tamanho do texto do título */
         margin-top: 35px;
         padding: 0;
+    }
+    h3 {
+        justify-content: space-between;
+        position: absolute;
+        text-align: center;
+        display: flex;
+        margin: 0;
+        /* Remove margens padrão */
+        color: rgb(12, 4, 56);
+        /* Cor do texto do título */
+        font-size: 25px;
+        /* Tamanho do texto do título */
+        margin-top: 50px;
+        padding: 0;
+        bottom: 0;
+        height: 0;
     }
 
     button {
@@ -862,7 +893,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+h3 {
+    justify-content: space-between;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    margin: 0;
+    /* Remove margens padrão */
+    color: rgb(12, 4, 56);
+    /* Cor do texto do título */
+    font-size: 25px;
+    /* Tamanho do texto do título */
+    margin-top: 50px;
+    padding: 0;
+    bottom: 0;
+    height: 0;
+}
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -1006,7 +1052,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -1121,7 +1182,22 @@ footer a:hover {
         margin-top: 35px;
         padding: 0;
     }
-
+    h3 {
+        justify-content: space-between;
+        position: absolute;
+        text-align: center;
+        display: flex;
+        margin: 0;
+        /* Remove margens padrão */
+        color: rgb(12, 4, 56);
+        /* Cor do texto do título */
+        font-size: 25px;
+        /* Tamanho do texto do título */
+        margin-top: 50px;
+        padding: 0;
+        bottom: 0;
+        height: 0;
+    }
     button {
         padding: 10px 20px;
         /* Espaçamento interno do botão */
@@ -1344,7 +1420,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -1517,7 +1608,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -1657,6 +1763,22 @@ footer a:hover {
             /* Tamanho do texto do título */
             margin-top: 35px;
             padding: 0;
+        }
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
         }
 
         button {
@@ -1815,6 +1937,22 @@ footer a:hover {
             /* Tamanho do texto do título */
             margin-top: 35px;
             padding: 0;
+        }
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
         }
 
         button {
@@ -2018,7 +2156,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -2241,7 +2394,22 @@ footer a:hover {
                 margin-top: 35px;
                 padding: 0;
             }
-
+            h3 {
+                justify-content: space-between;
+                position: absolute;
+                text-align: center;
+                display: flex;
+                margin: 0;
+                /* Remove margens padrão */
+                color: rgb(12, 4, 56);
+                /* Cor do texto do título */
+                font-size: 25px;
+                /* Tamanho do texto do título */
+                margin-top: 50px;
+                padding: 0;
+                bottom: 0;
+                height: 0;
+            }
             button {
                 padding: 10px 20px;
                 /* Espaçamento interno do botão */
@@ -2481,7 +2649,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -2629,7 +2812,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
-
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
         button {
             padding: 10px 20px;
             /* Espaçamento interno do botão */
@@ -2781,6 +2979,22 @@ footer a:hover {
             margin-top: 35px;
             padding: 0;
         }
+        h3 {
+            justify-content: space-between;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            margin: 0;
+            /* Remove margens padrão */
+            color: rgb(12, 4, 56);
+            /* Cor do texto do título */
+            font-size: 25px;
+            /* Tamanho do texto do título */
+            margin-top: 50px;
+            padding: 0;
+            bottom: 0;
+            height: 0;
+        }
 
         button {
             padding: 10px 20px;
@@ -2854,3 +3068,4 @@ footer a:hover {
 
     }
 }
+
