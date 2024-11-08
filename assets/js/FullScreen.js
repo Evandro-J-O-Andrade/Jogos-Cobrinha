@@ -52,17 +52,18 @@ function sairDaTelaCheia() {
 
 // Função para exibir a tela de Game Over com os botões
 function showGameOverScreen() {
-    // Esconde a tela do jogo (canvas)
-    document.getElementById('stage').style.display = 'none';
+  // Esconde a tela de jogo
+  const gameOverScreen = document.getElementById("game-over-screen");
+  gameOverScreen.style.display = "block"; // Exibe a tela de game over
+  document.getElementById('stage').style.display = 'none';
   
-    // Exibe a tela de Game Over
-    document.getElementById('game-over-screen').style.display = 'block';
-  
-    // Adiciona a funcionalidade dos botões
-    document.getElementById('restart-button').addEventListener('click', restartGame);
-    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
-  }
-  
+  // Exibe a tela de Game Over
+  document.getElementById('game-over-screen').style.display = 'block';
+
+  // Adiciona a funcionalidade aos botões
+  document.getElementById('restart-button').addEventListener('click', restartGame);
+  document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
+}
   // Função para reiniciar o jogo
   function restartGame() {
     // Aqui você pode redefinir qualquer variável de estado do jogo, por exemplo:
@@ -160,4 +161,46 @@ botaoIniciar.addEventListener('click', () => {
 function iniciarJogo() {
   console.log("Iniciando o jogo...");
   window.location.href = '/assets/html/index.html'; // Redireciona para a página do jogo
+}
+
+// Função para mostrar a tela de Game Over
+function showGameOverScreen() {
+  const gameOverScreen = document.getElementById("game-over-screen");
+  gameOverScreen.style.display = "block"; // Exibe a tela de Game Over
+
+  // Ações para os botões
+  const restartButton = document.getElementById("button");
+  const homeButton = document.getElementById("button");
+
+  // Botão Reiniciar
+  restartButton.addEventListener("click", () => location.reload());
+
+  // Botão Voltar ao Início
+  homeButton.addEventListener("click", () => {
+      window.location.href = "/index.html";
+  });
+}
+
+// Detecta se é um dispositivo móvel e ajusta os controles conforme necessário
+function showMobileControls(stage, lp) {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+      // Exibe a tela de Game Over com controles específicos
+      showGameOverScreen();
+  } else {
+      // Exibe a mensagem de texto para desktop
+      const ctx = stage.getContext("2d");
+      ctx.fillStyle = "white";
+      ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
+      ctx.textAlign = "center";
+      ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
+  }
+}
+
+// Exemplo de uso da função para exibir os controles ao final do jogo
+let showRestartMessage = false;
+if (!showRestartMessage) {
+  showMobileControls(stage, lp);
+  showRestartMessage = true;
 }

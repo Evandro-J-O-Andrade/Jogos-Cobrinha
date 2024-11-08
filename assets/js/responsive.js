@@ -158,6 +158,8 @@ function handleTouch(event) {
 // Função para exibir a tela de Game Over com os botões
 function showGameOverScreen() {
     // Esconde a tela de jogo
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "block"; // Exibe a tela de game over
     document.getElementById('stage').style.display = 'none';
     
     // Exibe a tela de Game Over
@@ -167,7 +169,6 @@ function showGameOverScreen() {
     document.getElementById('restart-button').addEventListener('click', restartGame);
     document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
   }
-  
   // Função para reiniciar o jogo
   function restartGame() {
     // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
@@ -277,3 +278,22 @@ resizeCanvas();
 ajustarLayout();
 
 
+// Função para mostrar a tela de Game Over
+function showGameOverScreen() {
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "block"; // Exibe a tela de Game Over
+
+    // Ações para os botões
+    const restartButton = document.getElementById("restart-button");
+    const homeButton = document.getElementById("back-to-home-button");
+
+    // Botão Reiniciar
+    restartButton.addEventListener("click", () => location.reload());
+
+    // Botão Voltar ao Início
+    homeButton.addEventListener("click", () => {
+        window.location.href = "/index.html";
+    });
+}
+
+// Detecta se é um dispositivo móvel e ajusta os controles conforme necessário

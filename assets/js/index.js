@@ -3,8 +3,10 @@ window.onload = function () {
     var ctx = stage.getContext("2d");
 
     // Variáveis de controle
+    let restartButton;
+    let homeButton;
     var botaoIniciar = document.getElementById('botaoIniciar');
-    var vel = 1; // Velocidade da cobra
+    const vel = 1; // Velocidade da cobra
     var vx = 0, vy = 1; // Direção inicial (cobrinha começa descendo)
     var px, py; // Posição inicial da cobrinha
     var lp, tp, qpX, qpY; // Tamanhos de bloco e quantidades no canvas
@@ -31,15 +33,15 @@ window.onload = function () {
     var gameOverSound = new Audio('/assets/audio/gameover.mp3');
     var levelUpSound = new Audio('/assets/audio/levelup.mp3');
     var fundoTela = new Audio('/assets/audio/fundo.mp3');
-    
+
     // Configurações de volume
     backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
     moveSound.volume = 0.3; // volume normal para o som de movimento
-    eatSound.volume = 1.0; // volume normal para o som de comer
+    eatSound.volume = 0.3; // volume normal para o som de comer
     gameOverSound.volume = 0.5; // volume normal para o som de game over
     levelUpSound.volume = 0.5; // volume normal para o som de passar de fase
     fundoTela.volume = 0.3; // volume normal para o som de fundo da tela 
-    
+
     // Tocar música de fundo
     backgroundMusic.loop = true; // Repetir a música de fundo
     backgroundMusic.play();
@@ -74,9 +76,9 @@ window.onload = function () {
     function iniciarJogo() {
         console.log("Iniciando o jogo...");
         window.location.href = '/assets/html/index.html'; // Redireciona para a página do jogo
-      }
+    }
 
-    
+
     // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = []; // Reinicia as paredes a cada nova fase
@@ -102,7 +104,7 @@ window.onload = function () {
         const touch = event.touches ? event.touches[0] : event; // Detecta o toque ou clique
         const touchX = touch.clientX;
         const touchY = touch.clientY;
-    
+
         // Define a direção com base no toque: esquerda, direita, cima ou baixo
         if (touchX < window.innerWidth / 2 && vx === 0) {
             vx = -1; vy = 0; // Esquerda
@@ -114,11 +116,11 @@ window.onload = function () {
             vx = 0; vy = 1; // Baixo
         }
     }
-    
+
     // Adiciona o evento de toque ao canvas
     stage.addEventListener("touchstart", handleTouch);
-    
-    
+
+
     // Função para gerar paredes em posições aleatórias
     function generateWalls() {
         walls = []; // Reinicia as paredes a cada nova fase
@@ -142,22 +144,22 @@ window.onload = function () {
     function ajustarCanvas() {
         let largura = window.innerWidth * 0.9;
         let altura = Math.min(window.innerHeight * 0.9, 800); // Limita a altura a 800px
-        
+
         // Aplicando diferentes limites com base na largura da tela
         if (window.innerWidth <= 600) { // Smartphones
-          altura = Math.min(window.innerHeight * 0.9, 500);
+            altura = Math.min(window.innerHeight * 0.9, 500);
         } else if (window.innerWidth <= 1023) { // Tablets
-          altura = Math.min(window.innerHeight * 0.9, 600);
+            altura = Math.min(window.innerHeight * 0.9, 600);
         }
-      
+
         canvas.width = largura;
         canvas.height = altura;
-      }
-      
-      // Evento para redimensionar o canvas ao carregar e ao redimensionar a tela
-      window.addEventListener('load', ajustarCanvas);
-      window.addEventListener('resize', ajustarCanvas);
-      window.addEventListener("orientationchange", ajustarCanvas); // Captura a mudança de orientação
+    }
+
+    // Evento para redimensionar o canvas ao carregar e ao redimensionar a tela
+    window.addEventListener('load', ajustarCanvas);
+    window.addEventListener('resize', ajustarCanvas);
+    window.addEventListener("orientationchange", ajustarCanvas); // Captura a mudança de orientação
     // Função para verificar se a maçã está em cima da cobra ou das paredes
     function isAppleOnSnakeOrWall() {
         return trail.some(segment => segment.x === ax && segment.y === ay) || walls.some(wall => wall.x === ax && wall.y === ay);
@@ -216,21 +218,10 @@ window.onload = function () {
         ctx.textAlign = "right"; // Alinhamento à direita para o novo recorde
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
     }
-    
-// Função para exibir a tela de Game Over com os botões
-function showGameOverScreen() {
-    // Esconde a tela de jogo
-    document.getElementById('stage').style.display = 'none';
-    
-    // Exibe a tela de Game Over
-    document.getElementById('game-over-screen').style.display = 'block';
-  
-    // Adiciona a funcionalidade aos botões
-    document.getElementById('restart-button').addEventListener('click', restartGame);
-    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
-  }
-  
-  
+
+
+
+
     // Função principal do jogo
     function game() {
         if (gameOver) {
@@ -239,7 +230,7 @@ function showGameOverScreen() {
                 ctx.fillStyle = "white";
                 ctx.font = `${lp / 4} 40px Sans-Serif`; // Tamanho responsivo
                 ctx.textAlign = "center"; // Alinha o texto ao centro
-                ctx.fillText("    Game Over ", stage.width / 2 - 50, stage.height / 2);
+                ctx.fillText("     Game Over  ", stage.width / 2 - 50, stage.height / 2);
                 showGameOver = true;
 
                 if (recordAtual > recordSalvo) {
@@ -249,17 +240,20 @@ function showGameOverScreen() {
 
                 gameOverSound.play(); // Toca som de game over
             }
+            showGameOverScreen();
 
             // Exibe a mensagem para voltar à página inicial
             if (!showRestartMessage) {
                 ctx.fillStyle = "white";
                 ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
                 ctx.textAlign = "center"; // Alinha o texto ao centro
-                ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.  height / 2 + 50);
+                ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
                 showRestartMessage = true;
             }
+            
             clearInterval(gameInterval);
             return;
+
         }
 
         px += vx;
@@ -344,14 +338,14 @@ function showGameOverScreen() {
                 clearInterval(gameInterval); // Pausa temporária no jogo
                 backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
                 ctx.fillStyle = "white";
-                ctx.font = `${lp / 4} 20px Sans-Serif`; // Tamanho responsivo
+                ctx.font = `${lp / 4} 25px Sans-Serif`; // Tamanho responsivo
                 ctx.textAlign = "center";
                 ctx.fillText(" Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
                 setTimeout(() => {
                     generateWalls();
-                    gameInterval = setInterval(game, 180 - (level * 20));
-                }, 2000); // Aumenta a velocidade
-                levelUpSoun.play();
+                    gameInterval = setInterval(game, 185 - (level * 20));
+                }, 200); // Aumenta a velocidade
+                levelUpSound.play();
             }
 
             if (gameOver)
@@ -372,7 +366,93 @@ function showGameOverScreen() {
         ctx.fillStyle = "white";
         displayScores(); // Chama a função para exibir os scores
         displayLevel(); // Chama a função para exibir o nível apenas se o jogo estiver ativo
+       
+
     }
+//===========================================================================//
+    function showGameOverScreen() {
+        // Esconde a tela de jogo
+        const gameOverScreen = document.getElementById("game-over-screen");
+        gameOverScreen.style.display = "block"; // Exibe a tela de game over
+        document.getElementById('stage').style.display = 'none';
+
+        // Exibe a tela de Game Over
+        const restartButton = document.getElementById("restart-button");
+        const homeButton = document.getElementById("back-to-home-button");
+    
+        document.getElementById('game-over-screen').style.display = 'block';
+        restartButton.addEventListener("click", () => location.reload());
+        // Adiciona a funcionalidade aos botões
+        document.getElementById('restart-button').addEventListener('click', restartGame);
+        document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
+        homeButton.addEventListener("click", () => {
+            window.location.href = "/index.html";
+        });
+    }
+
+//========================================================//
+
+
+// Exemplo de uso da função para exibir os controles ao final do jogo
+//================================================================
+
+
+function showMobileControls(stage, lp) {
+    // Verifica se o dispositivo é móvel
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+     
+      if (isMobile) {
+        // Cria o botão "Reiniciar Jogo"
+        showGameOverScreen();
+        const restartButton = document.createElement("restart-button");
+        restartButton.innerText = "Reiniciar Jogo";
+        restartButton.style.position = "absolute";
+        restartButton.style.top = `${stage.height / 2 - 20}px`;
+        restartButton.style.left = `${stage.width / 2 - 60}px`;
+        restartButton.style.padding = "10px";
+        restartButton.style.fontSize = "16px";
+        restartButton.style.display = "none"; // Inicialmente escondido
+        document.body.appendChild(restartButton);
+        restartButton.addEventListener("click", () => location.reload());
+        // Cria o botão "Voltar ao Início"
+
+        
+        const homeButton = document.createElement("homeButton");
+        homeButton.innerText = "Voltar ao Início";
+        homeButton.style.position = "absolute";
+        homeButton.style.top = `${stage.height / 2 + 40}px`;
+        homeButton.style.left = `${stage.width / 2 - 60}px`;
+        homeButton.style.padding = "10px";
+        homeButton.style.fontSize = "16px";
+        restartButton.style.display = "none"; // Inicialmente escondido
+        // Adiciona ações aos botões
+        document.body.appendChild(homeButton);
+         
+        homeButton.addEventListener("click", () => {
+            window.location.href = "/index.html";
+        });
+  
+        // Adiciona os botões ao corpo do documento
+        document.body.appendChild(restartButton);
+        document.body.appendChild(homeButton);
+    } else {
+        // Exibe a mensagem de texto para desktop
+        const ctx = stage.getContext("2d");
+        ctx.fillStyle = "white";
+        ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
+        ctx.textAlign = "center"; // Alinha o texto ao centro
+        ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
+    }
+    
+  }
+  
+ 
+
+  //================================================================
+
+//========================================================//
+
+
 
     // Controle de teclado
     document.addEventListener("keydown", function (e) {
@@ -413,13 +493,13 @@ function showGameOverScreen() {
                 moveSound.play(); // Toca som de movimento
 
             }
-        }  
-        
+        }
+
         function handleTouch(event) {
             event.preventDefault(); // Previne o comportamento padrão
             const touch = event.touches[0];
             const snakeHead = { x: px, y: py }; // Posição da cabeça da cobrinha
-        
+
             // Lógica de direção com base na posição do toque
             if (touch.clientX < snakeHead.x * lp) {
                 if (vx === 0) { vx = -vel; vy = 0; } // Mover para a esquerda
@@ -432,25 +512,25 @@ function showGameOverScreen() {
                 if (vy === 0) { vx = 0; vy = vel; } // Mover para baixo
             }
         }
-        
+
         // Adiciona evento de toque ao canvas
-       
+
     });
 
     function enterFullscreen() {
         if (canvas.requestFullscreen) {
-          canvas.requestFullscreen();
+            canvas.requestFullscreen();
         } else if (canvas.mozRequestFullScreen) { // Firefox
-          canvas.mozRequestFullScreen();
+            canvas.mozRequestFullScreen();
         } else if (canvas.webkitRequestFullscreen) { // Chrome e Safari
-          canvas.webkitRequestFullscreen();
+            canvas.webkitRequestFullscreen();
         } else if (canvas.msRequestFullscreen) { // IE/Edge
-          canvas.msRequestFullscreen();
+            canvas.msRequestFullscreen();
         }
-      }
-      
-      // Chamando a função para ativar a tela cheia
-      enterFullscreen();
+    }
+
+    // Chamando a função para ativar a tela cheia
+    enterFullscreen();
     // Função para reiniciar o jogo
     function resetGame() {
         gameOver = false;
@@ -465,27 +545,27 @@ function showGameOverScreen() {
         level = 1; // Reseta o nível
         generateWalls(); // Gera novas paredes
         generateApple(); // Gera nova maçã
-        gameInterval = setInterval(game, 180); // Reinicia o intervalo do jogo
+        gameInterval = setInterval(game, 18); // Reinicia o intervalo do jogo
         snakeColor = generateColor(); // Gera nova cor para a cobrinha
     }
 
     // Inicia o jogo
     resetGame();
-   
+
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
-    
+
         // Estilo do texto
         ctx.fillStyle = "white";
         ctx.font = `${lp / 4} 25px Sans-Serif`; // Tamanho responsivo
         ctx.textAlign = "center"; // Centraliza o texto
         // Renderiza as mensagens no canvas
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);s
-        ctx.fillText("  Record: " +  recordAtual, canvas.width / 4, canvas.height - 30);
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height); s
+        ctx.fillText("  Record: " + recordAtual, canvas.width / 4, canvas.height - 30);
         ctx.fillText("  New Record: " + recordSalvo, (canvas.width / 4) * 3, canvas.height - 30);
     }
-    
+
     // Chame a função draw para renderizar o texto
     draw();
 
@@ -494,62 +574,66 @@ function showGameOverScreen() {
         canvas.width = window.innerWidth * 0.8;
         canvas.height = window.innerHeight * 0.8;
         draw(); // Redesenhar o canvas
-        
+
     });
 
     botaoIniciar.addEventListener('click', () => {
         // Executa a função que inicia o jogo
         iniciarJogo();
-      });
+    });
 
-      // Função para reiniciar o jogo
-  function restartGame() {
-    // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
-    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
-    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+    // Função para reiniciar o jogo
+    function restartGame() {
+        // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
+        document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
+        document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+
+        // Aqui você pode chamar a função que reinicia o jogo
+        startGame();
+    }
+
+    function reiniciarJogo() {
+        document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
+        document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+
+        // Aqui você pode chamar a função que reinicia o jogo
+        startGame();
+
+    }
+
     
-    // Aqui você pode chamar a função que reinicia o jogo
-    startGame();
-  }
+    function addGameOverButtonEvents() {
+        // Obtem os botões de reiniciar e voltar
+        const restartButton = document.getElementById('restart-button');
+        const backButton = document.getElementById('back-button');
 
-  function reiniciarJogo(){
-    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
-    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
+        // Adiciona evento de clique para o botão de reiniciar
+        restartButton.addEventListener('click', restartGame);
+
+        // Adiciona evento de clique para o botão de voltar
+        backButton.addEventListener('click', goToHomePage);
+
+        // Para dispositivos móveis, também adicionamos eventos de toque
+        restartButton.addEventListener('touchstart', restartGame);
+        backButton.addEventListener('touchstart', goToHomePage);
+    }
+
+    function restartGame() {
+        // Lógica para reiniciar o jogo
+        location.reload(); // Simplesmente recarrega a página (ou você pode resetar o estado do jogo aqui)
+    }
+
+    function goToHomePage() {
+        // Lógica para voltar à página inicial
+        window.location.href = '/index.html'; // Alterar para o link da sua página inicial
+    }
+    // Função para voltar à página principal
+    function goToHomePage() {
+        window.location.href = '/index.html'; // Substitua com a URL da sua página inicial
+    }
     
-    // Aqui você pode chamar a função que reinicia o jogo
-    startGame();
 
-  }
-  function addGameOverButtonEvents() {
-    // Obtem os botões de reiniciar e voltar
-    const restartButton = document.getElementById('restart-button');
-    const backButton = document.getElementById('back-button');
-
-    // Adiciona evento de clique para o botão de reiniciar
-    restartButton.addEventListener('click', restartGame);
-    
-    // Adiciona evento de clique para o botão de voltar
-    backButton.addEventListener('click', goToHomePage);
-
-    // Para dispositivos móveis, também adicionamos eventos de toque
-    restartButton.addEventListener('touchstart', restartGame);
-    backButton.addEventListener('touchstart', goToHomePage);
-}
-
-function restartGame() {
-    // Lógica para reiniciar o jogo
-    location.reload(); // Simplesmente recarrega a página (ou você pode resetar o estado do jogo aqui)
-}
-
-function goToHomePage() {
-    // Lógica para voltar à página inicial
-    window.location.href = '/asets/html/index.html'; // Alterar para o link da sua página inicial
-}
-  // Função para voltar à página principal
-  function goToHomePage() {
-    window.location.href = '/asets/html/index.html'; // Substitua com a URL da sua página inicial
-  }
-    
 };
 
 canvas.addEventListener("touchstart", handleTouch);
+

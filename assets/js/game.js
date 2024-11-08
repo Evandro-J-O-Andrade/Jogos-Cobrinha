@@ -16,6 +16,8 @@ let apple = { x: Math.floor(Math.random() * canvas.width / blockSize), y: Math.f
 const backgroundImage = new Image();
 backgroundImage.src = "/assets/image/tela4.jpg"; // Substitua pelo caminho da sua imagem
 
+  
+
 // Ajustar o tamanho do canvas
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -97,6 +99,8 @@ function handleTouch(event) {
 // Função para exibir a tela de Game Over com os botões
 function showGameOverScreen() {
     // Esconde a tela de jogo
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "block"; // Exibe a tela de game over
     document.getElementById('stage').style.display = 'none';
     
     // Exibe a tela de Game Over
@@ -236,3 +240,45 @@ function iniciarLogicaDoJogo() {
 
 // Evento para iniciar o jogo automaticamente em tela cheia ao carregar a página
 window.addEventListener('load', iniciarJogoTelaCheia);
+
+// Função para mostrar a tela de Game Over
+function showGameOverScreen() {
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "block"; // Exibe a tela de Game Over
+
+    // Ações para os botões
+    const restartButton = document.getElementById("restart-button");
+    const homeButton = document.getElementById("back-to-home-button");
+
+    // Botão Reiniciar
+    restartButton.addEventListener("click", () => location.reload());
+
+    // Botão Voltar ao Início
+    homeButton.addEventListener("click", () => {
+        window.location.href = "/index.html";
+    });
+}
+
+// Detecta se é um dispositivo móvel e ajusta os controles conforme necessário
+function showMobileControls(stage, lp) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Exibe a tela de Game Over com controles específicos
+        showGameOverScreen();
+    } else {
+        // Exibe a mensagem de texto para desktop
+        const ctx = stage.getContext("2d");
+        ctx.fillStyle = "white";
+        ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
+        ctx.textAlign = "center";
+        ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
+    }
+}
+
+// Exemplo de uso da função para exibir os controles ao final do jogo
+let showRestartMessage = false;
+if (!showRestartMessage) {
+    showMobileControls(stage, lp);
+    showRestartMessage = true;
+}

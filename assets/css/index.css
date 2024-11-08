@@ -5,6 +5,7 @@
 }
 
 body {
+    position: absolute;
     height: 100%;
     width: 100%;
     /* Usa a altura da janela de visualização */
@@ -20,18 +21,16 @@ body {
     /* Organiza o conteúdo em coluna */
     margin: 0;
     /* Remove margens padrão do body */
-    background-color: black; /* Cor de fundo */
-    background-repeat: no-repeat; /* Adicione esta linha */
+     background-repeat: no-repeat; /* Adicione esta linha */
 }
 
 #stage {
     border: 20px solid rgba(139, 9, 0, 0.959); /* Borda do jogo */
         display:flex; /* remove espaço abaixo do canvas */
         margin: 0 auto; /* centraliza o canvas */
-        background-color: black; /* cor de fundo do canvas */
         width: 100%;
         height: 100%;
-        display: block;
+        display: flex;
     }
 
 
@@ -46,6 +45,7 @@ html, body {
     align-items: flex-start; /* Alinha os itens ao topo do contêiner */
     flex-direction: column; /* Organiza os itens em coluna */
     padding: 0;
+    position: absolute;
 }
 canvas {
     display: flex;
@@ -129,7 +129,8 @@ footer ul {
 
 footer ul li {
     display: inline; /* Exibe os itens da lista em linha */
-    margin: 0 15px; /* Espaçamento entre os links */
+    margin: 0 10px; /* Espaçamento entre os links */
+    display: flex;
 }
 
 footer a {
@@ -143,7 +144,7 @@ footer a:hover {
 
 
 #controls {
-    position: absolute;
+    position: relative;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -153,6 +154,7 @@ footer a:hover {
 }
 
 #controls button {
+    position: relative;
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -259,6 +261,7 @@ canvas {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+    display: none;
     color: white;
   }
   
@@ -274,6 +277,8 @@ canvas {
   }
   
   #game-over-screen button:hover {
-    background-color: #e53935;
+    background-color: #f44336;
   }
+  
+
   

@@ -5,6 +5,7 @@
 }
 
 body {
+    position: absolute;
     height: 100vh; /* Usa a altura da janela de visualização */
     width: 100%;
     background-image: url('/assets/image/tela4.jpg'); /* Altere para o caminho correto da sua imagem */
@@ -25,7 +26,7 @@ canvas {
 }
 
 #game-over-screen {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -34,6 +35,7 @@ canvas {
     padding: 20px;
     border-radius: 10px;
     color: white;
+    
   }
   
   #game-over-screen button {
@@ -76,7 +78,6 @@ html, body {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha os itens ao topo do contêiner */
     flex-direction: column; /* Organiza os itens em coluna */
     padding: 0;
 }
@@ -123,6 +124,7 @@ footer {
     font-size: 25px;
     display: flex;
     flex-direction: column;
+    align-items:center;
     
 }
 
@@ -133,7 +135,7 @@ footer ul {
 
 footer ul li {
     display: inline; /* Exibe os itens da lista em linha */
-    margin: 0 15px; /* Espaçamento entre os links */
+    margin: 0 10px; /* Espaçamento entre os links */
 }
 
 footer a {
@@ -225,11 +227,12 @@ html, body {
     padding: 0;
 }
 .footer {
+    display: flex;
     position: absolute;
     bottom: 10px; /* Espaçamento do fundo */
     left: 50%;
     transform: translateX(-50%); /* Centraliza o rodapé */
     text-align: center;
-    font-size: 13px; /* Tamanho padrão */
+    font-size: 10px; /* Tamanho padrão */
     color: white; /* Cor do texto */
 }
