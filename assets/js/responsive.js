@@ -1,7 +1,12 @@
 var stage = document.getElementById("stage");
 var ctx = stage.getContext("2d");
 
+
 const canvas = document.querySelector('canvas');
+const botaoIniciar = document.querySelector('#botaoIniciar');
+const startGame = document.getElementById('#startGame');
+var stage =document.querySelectorI('canva');
+
 // Captura das áreas de toque
 const toqueCima = document.getElementById("toqueCima");
 const toqueBaixo = document.getElementById("toqueBaixo");
@@ -9,6 +14,7 @@ const toqueEsquerda = document.getElementById("toqueEsquerda");
 const toqueDireita = document.getElementById("toqueDireita");
 let direcao = 'baixo'; // Direção inicial da cobra
 // Adiciona eventos de toque
+
 
 
 MenuItens.style.maxHeight = "0px";
@@ -174,7 +180,7 @@ function showGameOverScreen() {
   
   // Função para voltar à página principal
   function goToHomePage() {
-    window.location.href = 'index.html'; // Substitua com a URL da sua página inicial
+    window.location.href = '/asets/html/index.html'; // Substitua com a URL da sua página inicial
   }
   function addGameOverButtonEvents() {
     // Obtem os botões de reiniciar e voltar

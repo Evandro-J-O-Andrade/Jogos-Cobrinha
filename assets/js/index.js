@@ -3,8 +3,8 @@ window.onload = function () {
     var ctx = stage.getContext("2d");
 
     // Variáveis de controle
-    const botaoIniciar = document.getElementById('botaoIniciar');
-    const vel = 1; // Velocidade da cobra
+    var botaoIniciar = document.getElementById('botaoIniciar');
+    var vel = 1; // Velocidade da cobra
     var vx = 0, vy = 1; // Direção inicial (cobrinha começa descendo)
     var px, py; // Posição inicial da cobrinha
     var lp, tp, qpX, qpY; // Tamanhos de bloco e quantidades no canvas
@@ -543,11 +543,11 @@ function restartGame() {
 
 function goToHomePage() {
     // Lógica para voltar à página inicial
-    window.location.href = 'index.html'; // Alterar para o link da sua página inicial
+    window.location.href = '/asets/html/index.html'; // Alterar para o link da sua página inicial
 }
   // Função para voltar à página principal
   function goToHomePage() {
-    window.location.href = 'index.html'; // Substitua com a URL da sua página inicial
+    window.location.href = '/asets/html/index.html'; // Substitua com a URL da sua página inicial
   }
     
 };

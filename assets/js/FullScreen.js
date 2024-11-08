@@ -1,8 +1,9 @@
-// Seleciona o canvas e o botão de início
+var canvas = document.getElementById('stage');
+var ctx = canvas.getContext('2d');
 const canvas = document.querySelector('canvas');
-var botaoIniciar = document.querySelector('#botaoIniciar');
-var startGame = document.getElementById('#startGame');
-var stage =document.querySelector('canva');
+const botaoIniciar = document.querySelector('#botaoIniciar');
+const startGame = document.getElementById('#startGame');
+const stage =document.querySelectorI('canva');
 
 // Cria um botão de saída de tela cheia para dispositivos móveis
 const botaoSairTelaCheia = document.createElement('button');

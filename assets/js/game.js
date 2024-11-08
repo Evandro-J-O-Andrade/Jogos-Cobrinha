@@ -1,5 +1,9 @@
-const canvas = document.getElementById('stage');
-const ctx = canvas.getContext('2d');
+var canvas = document.getElementById('stage');
+var ctx = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const botaoIniciar = document.querySelector('#botaoIniciar');
+const startGame = document.getElementById('#startGame');
+const stage =document.querySelectorI('canva');
 
 const blockSize = 20;
 let snake = [{ x: 9, y: 9 }];
@@ -115,7 +119,7 @@ function showGameOverScreen() {
   
   // Função para voltar à página principal
   function goToHomePage() {
-    window.location.href = 'index.html'; // Substitua com a URL da sua página inicial
+    window.location.href = '/assets/html/index.html'; // Substitua com a URL da sua página inicial
   }
   
 // Adiciona o evento de toque ao canvas
