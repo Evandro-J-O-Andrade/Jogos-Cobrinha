@@ -108,7 +108,7 @@ button:hover {
     background-color: #21a1f1;
 }
 
-..footer {
+.footer {
     background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com leve transparência */
     color: white; /* Cor do texto */
     text-align: center; /* Centraliza o texto */
