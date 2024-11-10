@@ -29,9 +29,28 @@
     <button id="back-to-home-button">Voltar Pagina</button>
   </div>
   
-  <input type="text" id="playerInitials" placeholder="Digite suas iniciais" style="display:none;">
-  <button id="saveScore" style="display:none;">Salvar Recorde</button>
-  
+<!-- Campo de entrada para o nome do jogador -->
+<!-- HTML para o input de iniciais e botão de salvar -->
+<!-- Campo de entrada para as iniciais e botão de salvar -->
+<!-- Campo de entrada de iniciais -->
+<div id="highScoreEntry" style="display: none;">
+    <h2>Quebrou o recorde!</h2>
+    <p>Digite suas iniciais:</p>
+    <input type="text" id="initialsInput" maxlength="3" placeholder="ABC">
+    <button id="saveScoreBtn" onclick="saveHighScore()">Salvar</button>
+</div>
+
+<!-- Lista de recordes -->
+<div id="highScoreList" style="display: none;"></div>
+
+<!-- Tela de Game Over padrão -->
+<div id="gameOverScreen" style="display: none;">
+    <h2>Game Over</h2>
+    <p>Pressione reiniciar para jogar novamente!</p>
+</div>
+
+
+
 <div class="background-image"></div>
 
     <!-- Canvas do jogo -->
@@ -41,8 +60,10 @@
     <!-- Script do jogo -->
     
 </body>
-<script src="/assets/js/index.js" defer></script>
-    <script src="/assets/js/responsive.js" defer></script>
-    <script src="/assets/js/game.js" defer></script>
-    <script src="/assets/js/FullScreen.js" defer></script>
+<script src="/assets/js/index.js" defer></script> <!-- Referencie seu arquivo JS aqui -->
+<script src="/assets/js/responsive.js" defer></script>
+<script src="/assets/js/game.js" defer></script>
+<script src="/assets/js/FullScreen.js" defer></script>
+<script src="/assets/js/listadeRecord.js" defer></script>
+
 </html>

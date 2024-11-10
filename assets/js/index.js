@@ -3,6 +3,10 @@ window.onload = function () {
     var ctx = stage.getContext("2d");
 
     // Variáveis de controle
+
+     let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // Lista de recordes
+
+
     let restartButton;
     let homeButton;
     var botaoIniciar = document.getElementById('botaoIniciar');
@@ -14,6 +18,7 @@ window.onload = function () {
     var trail = []; // Rastro da cobrinha
     var tail = 5; // Comprimento inicial da cobrinha
     var gameOver = false; // Controle de estado do jogo
+    let exibirRecord = false;
     var level = 1; // Nível inicial
     var applesEaten = 0; // Contagem de maçãs comidas
     var walls = []; // Array para as paredes
@@ -24,7 +29,7 @@ window.onload = function () {
     var gameInterval; // Intervalo do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
     var backgroundColor = "black"; // Cor de fundo do jogo
-    var mapColors = [" rondown","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
+    var mapColors = [" rondown", "#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Sons do jogo
     var backgroundMusic = new Audio('/asset/audio/fundo.mp3');
@@ -206,6 +211,8 @@ window.onload = function () {
         ctx.textAlign = "left";
         ctx.fillText(" Record: " + recordAtual, stage.width - lp / 20, stage.height - 10);
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
+        
+
     }
 
     let isMoving = false; // Variável de controle para o som de movimento
@@ -217,12 +224,13 @@ window.onload = function () {
         ctx.fillText("Record: " + recordAtual, - lp / 20, stage.height - 10);
         ctx.textAlign = "right"; // Alinhamento à direita para o novo recorde
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
+        
+
+
     }
 
 
 
-
-    // Função principal do jogo
     function game() {
         if (gameOver) {
             if (!showGameOver) {
@@ -231,16 +239,21 @@ window.onload = function () {
                 ctx.textAlign = "center";
                 ctx.fillText("Game Over", stage.width / 2 - 50, stage.height / 2);
                 showGameOver = true;
-    
+
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
+                    updateHighScores(recordAtual); // Atualiza a lista de recordes com o recorde atual
+                    displayHighScores(); // Exibe a lista de recordes na tela
+
                 }
-    
+
+
                 gameOverSound.play();
             }
             showGameOverScreen();
-    
+
+
             if (!showRestartMessage) {
                 ctx.fillStyle = "white";
                 ctx.font = `${lp / 4} 17px Sans-Serif`;
@@ -248,45 +261,45 @@ window.onload = function () {
                 ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
                 showRestartMessage = true;
             }
-    
+           
             clearInterval(gameInterval);
             return;
         }
-    
+
         px += vx;
         py += vy;
         if (vx !== 0 || vy !== 0) {
             moveSound.play();
         }
-        
+
         ctx.fillStyle = backgroundColor;
         ctx.fillRect(0, 0, stage.width, stage.height);
-    
+
         // Desenha o fundo do mapa com bordas pixeladas
         for (let x = 0; x < qpX; x++) {
             for (let y = 0; y < qpY; y++) {
                 ctx.fillStyle = backgroundColor;
                 ctx.fillRect(x * lp, y * tp, lp, tp); // Preenche cada célula do mapa
-                
+
                 ctx.strokeStyle = "darkgray"; // Cor da borda das células
                 ctx.lineWidth = 1;
-                ctx.strokeRect(x * lp, y * tp, lp, tp); // Desenha a borda de cada célula
+                //ctx.strokeRect(x * lp, y * tp, lp, tp); // Desenha a borda de cada célula
             }
         }
-    
+
         checkCollision();
         if (px < 0 || px >= qpX || py < 0 || py >= qpY) {
             gameOver = true;
         }
-    
+
         let appleColor = "red";
         let headColor = "#FF4500";
-    
+
         if (backgroundColor === "red") {
             appleColor = "yellow";
             headColor = "blue";
         }
-    
+
         // Desenha a maçã com borda
         ctx.fillStyle = appleColor;
         ctx.beginPath();
@@ -295,7 +308,7 @@ window.onload = function () {
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.stroke();
-    
+
         // Desenha as paredes com bordas
         ctx.fillStyle = "blue";
         for (let i = 0; i < walls.length; i++) {
@@ -306,14 +319,14 @@ window.onload = function () {
                 gameOver = true;
             }
         }
-    
+
         // Desenha a cobrinha com bordas
         ctx.fillStyle = headColor;
         ctx.fillRect(px * lp, py * tp, lp, tp);
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.strokeRect(px * lp, py * tp, lp, tp);
-    
+
         ctx.fillStyle = snakeColor;
         for (let i = 0; i < trail.length; i++) {
             ctx.fillRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
@@ -321,26 +334,26 @@ window.onload = function () {
             ctx.lineWidth = 1;
             ctx.strokeRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
         }
-    
+
         for (let i = 0; i < trail.length; i++) {
             if (trail[i].x === px && trail[i].y === py) {
                 gameOver = true;
                 break;
             }
         }
-    
+
         trail.push({ x: px, y: py });
         while (trail.length > tail) {
             trail.shift();
         }
-    
+
         if (ax === px && ay === py) {
             tail++;
             applesEaten++;
-            recordAtual = applesEaten * 100;
+            recordAtual = applesEaten * 100000;
             eatSound.play();
             generateApple();
-    
+
             if (applesEaten >= 10 + (level - 1) * 20) {
                 level++;
                 levelUpSound.play();
@@ -356,23 +369,113 @@ window.onload = function () {
                 }, 2000);
                 levelUpSound.play();
             }
-    
+
             if (gameOver) {
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
+                    displayHighScores();
+
                 }
+
+
             }
+
+
         }
-    
+        // Inicialize o array de recordes do localStorage ou crie um novo
+        // Variáveis de recorde
+
+        
+
+        //AQUI A LISTA DE RECOR APARECE MAIS ANTES DO JOGO 
+
+
+        // Inicialize o array de recordes com objetos que armazenam nome e pontuação
+
+        // Função para atualizar os recordes ao final do jogo
+
+
+        // Função para exibir a lista de recordes na tela
+
+
+        // Exemplo de uso no gameOver
+
+        // Verifica se bateu o recorde mais alto
+        // Inicialize o array de recordes do localStorage ou crie um novo
+       
+        // Função para atualizar os recordes ao final do jogo
+       
+        
+        //AQUI A LISTA DE RECOR APARECE MAIS ANTES DO JOGO 
+
+
         ctx.fillStyle = "white";
         ctx.font = `${lp / 4} 17px Sans-Serif`;
         ctx.fillText("Fase " + level, stage.width / 2 - 10, stage.height - 10);
         displayScores();
         displayLevel();
+        displayHighScores();
+
     }
-    
-//===========================================================================//
+   // Definindo variáveis globais
+
+
+// Função principal de game over
+
+
+    // Verifica se o jogador quebrou o recorde
+  
+
+
+// Função para salvar o novo recorde com iniciais
+function saveHighScore() {
+    const initials = document.getElementById("initialsInput").value.toUpperCase();
+    if (initials) {
+        // Adiciona o novo recorde e ordena
+        highScores.push({ initials, score: recordAtual });
+        highScores.sort((a, b) => b.score - a.score);
+        if (highScores.length > 10) highScores.pop(); // Mantém apenas os 10 melhores
+
+        // Salva a lista de recordes no localStorage
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+
+        // Oculta o campo de entrada e remove o evento para evitar múltiplos cliques
+        document.getElementById("highScoreEntry").style.display = "none";
+        document.getElementById("saveScoreBtn").removeEventListener("click", saveHighScore);
+
+        // Exibe a lista de recordes
+        displayHighScores();
+    }
+}
+
+// Função para exibir os recordes no final do jogo
+function displayHighScores() {
+    const highScoreList = document.getElementById("highScoreList");
+    highScoreList.innerHTML = "<h2>Top 10 Recordes</h2>";
+
+    highScores.forEach((entry, index) => {
+        const scoreEntry = document.createElement("p");
+        scoreEntry.innerText = `${index + 1}. ${entry.initials}: ${entry.score}`;
+        highScoreList.appendChild(scoreEntry);
+    });
+
+    // Exibe o contêiner com a lista de recordes
+    highScoreList.style.display = "block";
+}
+
+// Exibe uma tela de game over (sem quebra de recorde)
+function showGameOverScreen() {
+    const gameOverScreen = document.getElementById("gameOverScreen");
+    gameOverScreen.style.display = "block";
+}
+
+// Executa quando a página carrega para exibir recordes previamente salvos
+
+ 
+
+
+    //===========================================================================//
     function showGameOverScreen() {
         // Esconde a tela de jogo
         const gameOverScreen = document.getElementById("game-over-screen");
@@ -382,7 +485,7 @@ window.onload = function () {
         // Exibe a tela de Game Over
         const restartButton = document.getElementById("restart-button");
         const homeButton = document.getElementById("back-to-home-button");
-    
+
         document.getElementById('game-over-screen').style.display = 'block';
         restartButton.addEventListener("click", () => location.reload());
         // Adiciona a funcionalidade aos botões
@@ -391,69 +494,71 @@ window.onload = function () {
         homeButton.addEventListener("click", () => {
             window.location.href = "/index.html";
         });
+
+
     }
 
-//========================================================//
+    //========================================================//
 
 
-// Exemplo de uso da função para exibir os controles ao final do jogo
-//================================================================
+    // Exemplo de uso da função para exibir os controles ao final do jogo
+    //================================================================
 
 
-function showMobileControls(stage, lp) {
-    // Verifica se o dispositivo é móvel
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-     
-      if (isMobile) {
-        // Cria o botão "Reiniciar Jogo"
-        showGameOverScreen();
-        const restartButton = document.createElement("restart-button");
-        restartButton.innerText = "Reiniciar Jogo";
-        restartButton.style.position = "absolute";
-        restartButton.style.top = `${stage.height / 2 - 20}px`;
-        restartButton.style.left = `${stage.width / 2 - 60}px`;
-        restartButton.style.padding = "10px";
-        restartButton.style.fontSize = "16px";
-        restartButton.style.display = "none"; // Inicialmente escondido
-        document.body.appendChild(restartButton);
-        restartButton.addEventListener("click", () => location.reload());
-        // Cria o botão "Voltar ao Início"
+    function showMobileControls(stage, lp) {
+        // Verifica se o dispositivo é móvel
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        
-        const homeButton = document.createElement("homeButton");
-        homeButton.innerText = "Voltar ao Início";
-        homeButton.style.position = "absolute";
-        homeButton.style.top = `${stage.height / 2 + 40}px`;
-        homeButton.style.left = `${stage.width / 2 - 60}px`;
-        homeButton.style.padding = "10px";
-        homeButton.style.fontSize = "16px";
-        restartButton.style.display = "none"; // Inicialmente escondido
-        // Adiciona ações aos botões
-        document.body.appendChild(homeButton);
-         
-        homeButton.addEventListener("click", () => {
-            window.location.href = "/index.html";
-        });
-  
-        // Adiciona os botões ao corpo do documento
-        document.body.appendChild(restartButton);
-        document.body.appendChild(homeButton);
-    } else {
-        // Exibe a mensagem de texto para desktop
-        const ctx = stage.getContext("2d");
-        ctx.fillStyle = "white";
-        ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
-        ctx.textAlign = "center"; // Alinha o texto ao centro
-        ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
+        if (isMobile) {
+            // Cria o botão "Reiniciar Jogo"
+            showGameOverScreen();
+            const restartButton = document.createElement("restart-button");
+            restartButton.innerText = "Reiniciar Jogo";
+            restartButton.style.position = "absolute";
+            restartButton.style.top = `${stage.height / 2 - 20}px`;
+            restartButton.style.left = `${stage.width / 2 - 60}px`;
+            restartButton.style.padding = "10px";
+            restartButton.style.fontSize = "16px";
+            restartButton.style.display = "none"; // Inicialmente escondido
+            document.body.appendChild(restartButton);
+            restartButton.addEventListener("click", () => location.reload());
+            // Cria o botão "Voltar ao Início"
+
+
+            const homeButton = document.createElement("homeButton");
+            homeButton.innerText = "Voltar ao Início";
+            homeButton.style.position = "absolute";
+            homeButton.style.top = `${stage.height / 2 + 40}px`;
+            homeButton.style.left = `${stage.width / 2 - 60}px`;
+            homeButton.style.padding = "10px";
+            homeButton.style.fontSize = "16px";
+            restartButton.style.display = "none"; // Inicialmente escondido
+            // Adiciona ações aos botões
+            document.body.appendChild(homeButton);
+
+            homeButton.addEventListener("click", () => {
+                window.location.href = "/index.html";
+            });
+
+            // Adiciona os botões ao corpo do documento
+            document.body.appendChild(restartButton);
+            document.body.appendChild(homeButton);
+        } else {
+            // Exibe a mensagem de texto para desktop
+            const ctx = stage.getContext("2d");
+            ctx.fillStyle = "white";
+            ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
+            ctx.textAlign = "center"; // Alinha o texto ao centro
+            ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
+        }
+
     }
-    
-  }
-  
- 
 
-  //================================================================
 
-//========================================================//
+
+    //================================================================
+
+    //========================================================//
 
 
 
@@ -467,7 +572,7 @@ function showMobileControls(stage, lp) {
             }
             return;
         }
-      
+
 
         if (e.key === "ArrowUp" && vy !== 1) {
             vx = 0;
@@ -605,7 +710,7 @@ function showMobileControls(stage, lp) {
 
     }
 
-    
+
     function addGameOverButtonEvents() {
         // Obtem os botões de reiniciar e voltar
         const restartButton = document.getElementById('restart-button');
@@ -635,9 +740,11 @@ function showMobileControls(stage, lp) {
     function goToHomePage() {
         window.location.href = '/index.html'; // Substitua com a URL da sua página inicial
     }
-    
+
 
 };
 
 canvas.addEventListener("touchstart", handleTouch);
 
+
+    
