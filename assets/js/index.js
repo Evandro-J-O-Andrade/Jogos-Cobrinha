@@ -23,7 +23,7 @@ window.onload = function () {
     var recordSalvo = localStorage.getItem('recordSalvo') ? parseInt(localStorage.getItem('recordSalvo')) : 0; // Recorde salvo
     var gameInterval; // Intervalo do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
-    var backgroundColor = "green"; // Cor de fundo do jogo
+    var backgroundColor = "black"; // Cor de fundo do jogo
     var mapColors = ["?","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Sons do jogo
