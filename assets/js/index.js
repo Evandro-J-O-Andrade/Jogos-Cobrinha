@@ -24,7 +24,7 @@ window.onload = function () {
     var gameInterval; // Intervalo do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
     var backgroundColor = "black"; // Cor de fundo do jogo
-    var mapColors = ["#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
+    var mapColors = [" rondown","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Sons do jogo
     var backgroundMusic = new Audio('/asset/audio/fundo.mp3');
@@ -38,8 +38,8 @@ window.onload = function () {
     backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
     moveSound.volume = 0.3; // volume normal para o som de movimento
     eatSound.volume = 0.3; // volume normal para o som de comer
-    gameOverSound.volume = 0.5; // volume normal para o som de game over
-    levelUpSound.volume = 0.5; // volume normal para o som de passar de fase
+    gameOverSound.volume = 0.3; // volume normal para o som de game over
+    levelUpSound.volume = 0.3; // volume normal para o som de passar de fase
     fundoTela.volume = 0.3; // volume normal para o som de fundo da tela 
 
     // Tocar música de fundo
@@ -332,7 +332,7 @@ window.onload = function () {
             // Gera uma nova posição para a comida
 
             // Verifica se passou de fase
-            if (applesEaten >= 10 + (level - 1) * 5) { // Aumenta a contagem de maçãs conforme o nível
+            if (applesEaten >= 10 + (level - 1) * 20) { // Aumenta a contagem de maçãs conforme o nível
                 level++;//cont == cont+ level
                 levelUpSound.play(); // Toca som de nível
                 clearInterval(gameInterval); // Pausa temporária no jogo
@@ -343,8 +343,8 @@ window.onload = function () {
                 ctx.fillText(" Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
                 setTimeout(() => {
                     generateWalls();
-                    gameInterval = setInterval(game, 185 - (level * 20));
-                }, 200); // Aumenta a velocidade
+                    gameInterval = setInterval(game, Math.max(50, 185 - (level * 10)));
+                }, 2000); // Aumenta a velocidade
                 levelUpSound.play();
             }
 
@@ -545,7 +545,7 @@ function showMobileControls(stage, lp) {
         level = 1; // Reseta o nível
         generateWalls(); // Gera novas paredes
         generateApple(); // Gera nova maçã
-        gameInterval = setInterval(game, 18); // Reinicia o intervalo do jogo
+        gameInterval = setInterval(game, 185); // Reinicia o intervalo do jogo
         snakeColor = generateColor(); // Gera nova cor para a cobrinha
     }
 

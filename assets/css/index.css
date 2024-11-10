@@ -251,7 +251,7 @@ canvas {
     /* Remove margens padrão do body */
     background-repeat: no-repeat; /* Adicione esta linha */
 }
-
+/* Estilo para o container do game over */
 #game-over-screen {
     position: absolute;
     top: 50%;
@@ -261,24 +261,42 @@ canvas {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
-    display: none;
     color: white;
-  }
-  
-  #game-over-screen button {
+    display: none; /* Por padrão, fica escondido */
+}
+
+/* Estilo para o botão "Jogar" */
+#restart-button {
     margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #f44336;
+    padding: 10px 10px;
+    font-size: 15px;
+    background-color: #f55045; /* Cor verde */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  #game-over-screen button:hover {
-    background-color: #f44336;
-  }
-  
+    display: flex;
+    display: inline;
+}
 
-  
+#restart-button:hover {
+    background-color: #e53935; /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilo para o botão "Voltar" */
+#back-to-home-button {
+    margin: 10px;
+    padding: 10px 10px;
+    font-size: 15px;
+    background-color: #f55045; /* Cor vermelha */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    display: inline;
+}
+
+#back-to-home-button:hover {
+    background-color: #e53935; /* Cor mais escura ao passar o mouse */
+}
