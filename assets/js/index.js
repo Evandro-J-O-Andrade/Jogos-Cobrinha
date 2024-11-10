@@ -23,8 +23,8 @@ window.onload = function () {
     var recordSalvo = localStorage.getItem('recordSalvo') ? parseInt(localStorage.getItem('recordSalvo')) : 0; // Recorde salvo
     var gameInterval; // Intervalo do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
-    var backgroundColor = "black"; // Cor de fundo do jogo
-    var mapColors = [" rondown","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
+    var backgroundColor = "green"; // Cor de fundo do jogo
+    var mapColors = ["?","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Sons do jogo
     var backgroundMusic = new Audio('/asset/audio/fundo.mp3');
@@ -36,7 +36,7 @@ window.onload = function () {
 
     // Configurações de volume
     backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
-    moveSound.volume = 0.3; // volume normal para o som de movimento
+    moveSound.volume = 0.1; // volume normal para o som de movimento
     eatSound.volume = 0.3; // volume normal para o som de comer
     gameOverSound.volume = 0.3; // volume normal para o som de game over
     levelUpSound.volume = 0.3; // volume normal para o som de passar de fase
@@ -226,149 +226,157 @@ window.onload = function () {
     function game() {
         if (gameOver) {
             if (!showGameOver) {
-                // Exibe "Game Over" no centro do mapa
                 ctx.fillStyle = "white";
-                ctx.font = `${lp / 4} 40px Sans-Serif`; // Tamanho responsivo
-                ctx.textAlign = "center"; // Alinha o texto ao centro
-                ctx.fillText("     Game Over  ", stage.width / 2 - 50, stage.height / 2);
+                ctx.font = `${lp / 4} 40px Sans-Serif`;
+                ctx.textAlign = "center";
+                ctx.fillText("Game Over", stage.width / 2 - 50, stage.height / 2);
                 showGameOver = true;
-
+    
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
-                    localStorage.setItem('recordSalvo', recordSalvo); // Salva no localStorage
+                    localStorage.setItem('recordSalvo', recordSalvo);
                 }
-
-                gameOverSound.play(); // Toca som de game over
+    
+                gameOverSound.play();
             }
             showGameOverScreen();
-
-            // Exibe a mensagem para voltar à página inicial
+    
             if (!showRestartMessage) {
                 ctx.fillStyle = "white";
-                ctx.font = `${lp / 4} 17px Sans-Serif`; // Tamanho responsivo
-                ctx.textAlign = "center"; // Alinha o texto ao centro
+                ctx.font = `${lp / 4} 17px Sans-Serif`;
+                ctx.textAlign = "center";
                 ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
                 showRestartMessage = true;
             }
-            
+    
             clearInterval(gameInterval);
             return;
-
         }
-
+    
         px += vx;
         py += vy;
         if (vx !== 0 || vy !== 0) {
             moveSound.play();
         }
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, stage.width, stage.height);//colisão com bordas
+        
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, stage.width, stage.height);
+    
+        // Desenha o fundo do mapa com bordas pixeladas
+        for (let x = 0; x < qpX; x++) {
+            for (let y = 0; y < qpY; y++) {
+                ctx.fillStyle = backgroundColor;
+                ctx.fillRect(x * lp, y * tp, lp, tp); // Preenche cada célula do mapa
+                
+                ctx.strokeStyle = "darkgray"; // Cor da borda das células
+                ctx.lineWidth = 1;
+                ctx.strokeRect(x * lp, y * tp, lp, tp); // Desenha a borda de cada célula
+            }
+        }
+    
         checkCollision();
         if (px < 0 || px >= qpX || py < 0 || py >= qpY) {
             gameOver = true;
         }
-
-        // Limpa o canvas
-        ctx.fillStyle = backgroundColor; // Preenche o fundo com a cor atual do nível
-        ctx.fillRect(0, 0, stage.width, stage.height);
-
-        // Ajuste de cores para a maçã e a cabeça se o fundo for vermelho
+    
         let appleColor = "red";
-        let headColor = "#FF4500"; // Laranja para a cabeça
-
+        let headColor = "#FF4500";
+    
         if (backgroundColor === "red") {
-            appleColor = "yellow"; // Muda a maçã para amarelo
-            headColor = "blue"; // Muda a cabeça para azul
+            appleColor = "yellow";
+            headColor = "blue";
         }
-
-        // Desenha a comida
+    
+        // Desenha a maçã com borda
         ctx.fillStyle = appleColor;
-        ctx.beginPath(); // Inicia um novo caminho
-        ctx.arc(ax * lp + lp / 2, ay * tp + tp / 2, lp / 2, 0, Math.PI * 2); // Desenha um círculo
-        ctx.fill(); // Preenche o círculo
-        // Desenha a maçã
-        ctx.fillStyle = "red";
         ctx.beginPath();
         ctx.arc(ax * lp + lp / 2, ay * tp + tp / 2, lp / 2, 0, Math.PI * 2);
         ctx.fill();
-
-        // Desenha paredes
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    
+        // Desenha as paredes com bordas
         ctx.fillStyle = "blue";
         for (let i = 0; i < walls.length; i++) {
             ctx.fillRect(walls[i].x * lp, walls[i].y * tp, lp, tp);
+            ctx.strokeStyle = "darkgray";
+            ctx.strokeRect(walls[i].x * lp, walls[i].y * tp, lp, tp);
             if (px === walls[i].x && py === walls[i].y) {
                 gameOver = true;
             }
         }
+    
+        // Desenha a cabeça da cobrinha com bordas arredondadas
+    ctx.fillStyle = headColor;
+    ctx.beginPath();
+    ctx.roundRect(px * lp, py * tp, lp, tp, lp / 4); // Bordas arredondadas com raio lp / 4
+    ctx.fill();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
 
-        // Desenha a cobrinha
-        ctx.fillStyle = headColor; // Cor da cabeça
-        ctx.fillRect(px * lp, py * tp, lp, tp);
-        ctx.fillStyle = snakeColor; // Cor do corpo
-        for (let i = 0; i < trail.length; i++) {
-            ctx.fillRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
-        }
-
-        // Verifica colisão com o corpo
+    // Desenha o corpo da cobrinha com bordas arredondadas
+    ctx.fillStyle = snakeColor;
+    for (let i = 0; i < trail.length; i++) {
+        ctx.beginPath();
+        ctx.roundRect(trail[i].x * lp, trail[i].y * tp, lp, tp, lp / 4); // Corpo arredondado
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+    
         for (let i = 0; i < trail.length; i++) {
             if (trail[i].x === px && trail[i].y === py) {
                 gameOver = true;
-                break; // Adicionado break para sair do loop após a colisão
+                break;
             }
         }
-
+    
         trail.push({ x: px, y: py });
         while (trail.length > tail) {
-            trail.shift();//Mantém o comprimento da cobra
+            trail.shift();
         }
-
-        // Verifica se a cobra comeu a comida
+    
         if (ax === px && ay === py) {
             tail++;
             applesEaten++;
-            recordAtual = applesEaten * 100; // Atualiza o record atual
-            eatSound.play(); // Toca som de comer
+            recordAtual = applesEaten * 100;
+            eatSound.play();
             generateApple();
-            // Gera uma nova posição para a comida
-
-            // Verifica se passou de fase
-            if (applesEaten >= 10 + (level - 1) * 20) { // Aumenta a contagem de maçãs conforme o nível
-                level++;//cont == cont+ level
-                levelUpSound.play(); // Toca som de nível
-                clearInterval(gameInterval); // Pausa temporária no jogo
-                backgroundColor = mapColors[(level - 1) % mapColors.length]; // Muda a cor do mapa
+    
+            if (applesEaten >= 10 + (level - 1) * 20) {
+                level++;
+                levelUpSound.play();
+                clearInterval(gameInterval);
+                backgroundColor = mapColors[(level - 1) % mapColors.length];
                 ctx.fillStyle = "white";
-                ctx.font = `${lp / 4} 25px Sans-Serif`; // Tamanho responsivo
+                ctx.font = `${lp / 4} 25px Sans-Serif`;
                 ctx.textAlign = "center";
-                ctx.fillText(" Parabens Você passou de fase!", stage.width / 2, stage.height / 2);
+                ctx.fillText("Parabéns! Você passou de fase!", stage.width / 2, stage.height / 2);
                 setTimeout(() => {
                     generateWalls();
                     gameInterval = setInterval(game, Math.max(50, 185 - (level * 10)));
-                }, 2000); // Aumenta a velocidade
+                }, 2000);
                 levelUpSound.play();
             }
-
-            if (gameOver)
+    
+            if (gameOver) {
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
                 }
-            // Desenha os scores
-            displayScores();
-            isMoving = false; // Reseta a variável de movimento
-
+            }
         }
-
-        // Exibe o nível no rodapé
+    
         ctx.fillStyle = "white";
-        ctx.font = `${lp / 4} 15px Sans-Serif`; // Tamanho responsivo
-        ctx.fillText(" Fase " + level, stage.width / 2 - 10, stage.height - 10);
-        ctx.fillStyle = "white";
-        displayScores(); // Chama a função para exibir os scores
-        displayLevel(); // Chama a função para exibir o nível apenas se o jogo estiver ativo
-       
-
+        ctx.font = `${lp / 4} 17px Sans-Serif`;
+        ctx.fillText("Fase " + level, stage.width / 2 - 10, stage.height - 10);
+        displayScores();
+        displayLevel();
     }
+    
 //===========================================================================//
     function showGameOverScreen() {
         // Esconde a tela de jogo
@@ -457,13 +465,14 @@ function showMobileControls(stage, lp) {
     // Controle de teclado
     document.addEventListener("keydown", function (e) {
         if (gameOver) {
-            if (e.key === "Enter") {
+            if (e.key === "Se precisar colocar a lentra enter aqui") {
                 resetGame();
             } else if (e.key === "s" || e.key === "S") {
                 window.location.href = "/index.html"; // Redireciona para a página inicial
             }
             return;
         }
+      
 
         if (e.key === "ArrowUp" && vy !== 1) {
             vx = 0;
