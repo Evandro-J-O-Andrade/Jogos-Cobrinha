@@ -24,7 +24,7 @@ window.onload = function () {
     var gameInterval; // Intervalo do jogo
     var snakeColor = generateColor(); // Cor inicial da cobrinha
     var backgroundColor = "black"; // Cor de fundo do jogo
-    var mapColors = ["?","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
+    var mapColors = [" rondown","#2E8B57", "#8FBC8F", "#FF4500", "#6A5ACD", "#4682B4"]; // Cores do mapa por fase
 
     // Sons do jogo
     var backgroundMusic = new Audio('/asset/audio/fundo.mp3');
@@ -307,25 +307,20 @@ window.onload = function () {
             }
         }
     
-        // Desenha a cabeça da cobrinha com bordas arredondadas
-    ctx.fillStyle = headColor;
-    ctx.beginPath();
-    ctx.roundRect(px * lp, py * tp, lp, tp, lp / 4); // Bordas arredondadas com raio lp / 4
-    ctx.fill();
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Desenha o corpo da cobrinha com bordas arredondadas
-    ctx.fillStyle = snakeColor;
-    for (let i = 0; i < trail.length; i++) {
-        ctx.beginPath();
-        ctx.roundRect(trail[i].x * lp, trail[i].y * tp, lp, tp, lp / 4); // Corpo arredondado
-        ctx.fill();
+        // Desenha a cobrinha com bordas
+        ctx.fillStyle = headColor;
+        ctx.fillRect(px * lp, py * tp, lp, tp);
         ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-    }
+        ctx.lineWidth = 2;
+        ctx.strokeRect(px * lp, py * tp, lp, tp);
+    
+        ctx.fillStyle = snakeColor;
+        for (let i = 0; i < trail.length; i++) {
+            ctx.fillRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 1;
+            ctx.strokeRect(trail[i].x * lp, trail[i].y * tp, lp, tp);
+        }
     
         for (let i = 0; i < trail.length; i++) {
             if (trail[i].x === px && trail[i].y === py) {
