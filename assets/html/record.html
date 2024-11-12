@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="description" content="Jogo da cobrinha Snake, voltada pra relembra os velhos tempos">
+    <meta name="keywords"
+        content="#JogoCobrinha, Jogo da Cobrinha, Snake game, Snake, jogos Antigos, jogo cobrinha do celular nokia, snakeshow">
+    <meta name="author" content="Evandro Andrade CEO da  New Wave Sistemas Digital">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/celulares.css">
+    <link rel="stylesheet" href="/assets/css/record.css">
+    <!-- 
+    Referencie seu CSS aqui -->
+    <meta charset="UTF-8">
+    <title>Records</title>
+</head>
+
+
+<body>
+    <div class id="game-over-screen" style="display: block;">
+        <button id="restart-button" >Novo Jogo</button> 
+        <button id="back-to-home-button">Voltar Pagina</button>
+        <button id="btnRecordes" onclick="openRecordPage()">Ver Recordes</button>
+        
+      </div>
+
+
+
+    <div class="background-image-record"></div>
+    <div id="highScoresList"></div>
+   
+</body>
+<script>
+    // Função para o botão "Novo Jogo"
+    function restartGame() {
+        window.location.href = '../html/index.html';
+        // Insira o código para reiniciar o jogo aqui
+    }
+
+    // Função para o botão "Voltar Página"
+    function goToHomePage() {
+     
+        // Insira o código para redirecionar à página inicial aqui
+        window.location.href = '/index.html';
+    }
+
+    // Função para o botão "Ver Recordes"
+    function openRecordPage() {
+            // Redireciona para a página de recordes
+        window.location.href = '/assets/html/record.html';
+    }
+
+    // Adicionando os eventos aos botões
+    document.getElementById("restart-button").addEventListener("click", restartGame);
+    document.getElementById("back-to-home-button").addEventListener("click", goToHomePage);
+    // O botão "Ver Recordes" já está com onclick no HTML, mas também poderia ser:
+    // document.getElementById("btnRecordes").addEventListener("click", openRecordPage);
+</script>
+<script src="/assets/js/index.js" defer></script> <!-- Referencie seu arquivo JS aqui -->
+<script src="/assets/js/responsive.js" defer></script>
+<script src="/assets/js/game.js" defer></script>
+<script src="/assets/js/FullScreen.js" defer></script>
+<script src="/assets/js/listadeRecord.js" defer></script>
+<script src="/assets/js/listadeRecord.js" defer></script> 
+</html>

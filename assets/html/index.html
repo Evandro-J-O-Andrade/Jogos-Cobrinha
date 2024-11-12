@@ -8,7 +8,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Cobrinha--Game Snake</title>
+    <title>Jogo da Cobrinha</title>
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/celulares.css">
@@ -27,27 +27,14 @@
 <div class id="game-over-screen" style="display: none;">
     <button id="restart-button" >Novo Jogo</button> 
     <button id="back-to-home-button">Voltar Pagina</button>
+    <button id="btnRecordes" onclick="openRecordPage()">Ver Recordes</button>
+    
   </div>
   
 <!-- Campo de entrada para o nome do jogador -->
 <!-- HTML para o input de iniciais e botão de salvar -->
 <!-- Campo de entrada para as iniciais e botão de salvar -->
 <!-- Campo de entrada de iniciais -->
-<div id="highScoreEntry" style="display: none;">
-    <h2>Quebrou o recorde!</h2>
-    <p>Digite suas iniciais:</p>
-    <input type="text" id="initialsInput" maxlength="3" placeholder="ABC">
-    <button id="saveScoreBtn" onclick="saveHighScore()">Salvar</button>
-</div>
-
-<!-- Lista de recordes -->
-<div id="highScoreList" style="display: none;"></div>
-
-<!-- Tela de Game Over padrão -->
-<div id="gameOverScreen" style="display: none;">
-    <h2>Game Over</h2>
-    <p>Pressione reiniciar para jogar novamente!</p>
-</div>
 
 
 

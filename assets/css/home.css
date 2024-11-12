@@ -219,7 +219,7 @@ html, body {
     bottom: 10px; /* Espaçamento do fundo */
     left: 50%;
     transform: translateX(-50%); /* Centraliza o rodapé */
-    text-align: center;
+    text-align: r;
     font-size: 10px; /* Tamanho padrão */
     color: white; /* Cor do texto */
 }

@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* Usa a altura da janela de visualização */
+    background-image: url('/assets/image/tela5.jpg');
+    /* Altere para o caminho correto da sua imagem */
+    background-position: center;
+    /* Centraliza a imagem */
+    background-size: cover;
+    /* Faz a imagem cobrir todo o espaço */
+    display: flex;
+    /* Usado para centralizar o conteúdo */
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
+    margin: 0;
+    /* Remove margens padrão do body */
+     background-repeat: no-repeat; /* Adicione esta linha */
+}
+

@@ -4,7 +4,7 @@ window.onload = function () {
 
     // Variáveis de controle
 
-     let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // Lista de recordes
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // Lista de recordes
 
 
     let restartButton;
@@ -211,7 +211,7 @@ window.onload = function () {
         ctx.textAlign = "left";
         ctx.fillText(" Record: " + recordAtual, stage.width - lp / 20, stage.height - 10);
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
-        
+
 
     }
 
@@ -224,7 +224,7 @@ window.onload = function () {
         ctx.fillText("Record: " + recordAtual, - lp / 20, stage.height - 10);
         ctx.textAlign = "right"; // Alinhamento à direita para o novo recorde
         ctx.fillText("New Record: " + recordSalvo, stage.width - lp / 20, stage.height - 10);
-        
+
 
 
     }
@@ -261,7 +261,7 @@ window.onload = function () {
                 ctx.fillText("Pressione Enter para Continuar ou S para sair!", stage.width / 2 - 2, stage.height / 2 + 50);
                 showRestartMessage = true;
             }
-           
+
             clearInterval(gameInterval);
             return;
         }
@@ -386,7 +386,7 @@ window.onload = function () {
         // Inicialize o array de recordes do localStorage ou crie um novo
         // Variáveis de recorde
 
-        
+
 
         //AQUI A LISTA DE RECOR APARECE MAIS ANTES DO JOGO 
 
@@ -403,10 +403,10 @@ window.onload = function () {
 
         // Verifica se bateu o recorde mais alto
         // Inicialize o array de recordes do localStorage ou crie um novo
-       
+
         // Função para atualizar os recordes ao final do jogo
-       
-        
+
+
         //AQUI A LISTA DE RECOR APARECE MAIS ANTES DO JOGO 
 
 
@@ -418,61 +418,61 @@ window.onload = function () {
         displayHighScores();
 
     }
-   // Definindo variáveis globais
+    // Definindo variáveis globais
 
 
-// Função principal de game over
+    // Função principal de game over
 
 
     // Verifica se o jogador quebrou o recorde
-  
 
 
-// Função para salvar o novo recorde com iniciais
-function saveHighScore() {
-    const initials = document.getElementById("initialsInput").value.toUpperCase();
-    if (initials) {
-        // Adiciona o novo recorde e ordena
-        highScores.push({ initials, score: recordAtual });
-        highScores.sort((a, b) => b.score - a.score);
-        if (highScores.length > 10) highScores.pop(); // Mantém apenas os 10 melhores
 
-        // Salva a lista de recordes no localStorage
-        localStorage.setItem("highScores", JSON.stringify(highScores));
+    // Função para salvar o novo recorde com iniciais
+    function saveHighScore() {
+        const initials = document.getElementById("initialsInput").value.toUpperCase();
+        if (initials) {
+            // Adiciona o novo recorde e ordena
+            highScores.push({ initials, score: recordAtual });
+            highScores.sort((a, b) => b.score - a.score);
+            if (highScores.length > 10) highScores.pop(); // Mantém apenas os 10 melhores
 
-        // Oculta o campo de entrada e remove o evento para evitar múltiplos cliques
-        document.getElementById("highScoreEntry").style.display = "none";
-        document.getElementById("saveScoreBtn").removeEventListener("click", saveHighScore);
+            // Salva a lista de recordes no localStorage
+            localStorage.setItem("highScores", JSON.stringify(highScores));
 
-        // Exibe a lista de recordes
-        displayHighScores();
+            // Oculta o campo de entrada e remove o evento para evitar múltiplos cliques
+            document.getElementById("highScoreEntry").style.display = "none";
+            document.getElementById("saveScoreBtn").removeEventListener("click", saveHighScore);
+
+            // Exibe a lista de recordes
+            displayHighScores();
+        }
     }
-}
 
-// Função para exibir os recordes no final do jogo
-function displayHighScores() {
-    const highScoreList = document.getElementById("highScoreList");
-    highScoreList.innerHTML = "<h2>Top 10 Recordes</h2>";
+    // Função para exibir os recordes no final do jogo
+    function displayHighScores() {
+        const highScoreList = document.getElementById("highScoreList");
+        highScoreList.innerHTML = "<h2>Top 10 Recordes</h2>";
 
-    highScores.forEach((entry, index) => {
-        const scoreEntry = document.createElement("p");
-        scoreEntry.innerText = `${index + 1}. ${entry.initials}: ${entry.score}`;
-        highScoreList.appendChild(scoreEntry);
-    });
+        highScores.forEach((entry, index) => {
+            const scoreEntry = document.createElement("p");
+            scoreEntry.innerText = `${index + 1}. ${entry.initials}: ${entry.score}`;
+            highScoreList.appendChild(scoreEntry);
+        });
 
-    // Exibe o contêiner com a lista de recordes
-    highScoreList.style.display = "block";
-}
+        // Exibe o contêiner com a lista de recordes
+        highScoreList.style.display = "block";
+    }
 
-// Exibe uma tela de game over (sem quebra de recorde)
-function showGameOverScreen() {
-    const gameOverScreen = document.getElementById("gameOverScreen");
-    gameOverScreen.style.display = "block";
-}
+    // Exibe uma tela de game over (sem quebra de recorde)
+    function showGameOverScreen() {
+        const gameOverScreen = document.getElementById("gameOverScreen");
+        gameOverScreen.style.display = "block";
+    }
 
-// Executa quando a página carrega para exibir recordes previamente salvos
+    // Executa quando a página carrega para exibir recordes previamente salvos
 
- 
+
 
 
     //===========================================================================//
@@ -701,14 +701,7 @@ function showGameOverScreen() {
         startGame();
     }
 
-    function reiniciarJogo() {
-        document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
-        document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
 
-        // Aqui você pode chamar a função que reinicia o jogo
-        startGame();
-
-    }
 
 
     function addGameOverButtonEvents() {
@@ -747,4 +740,4 @@ function showGameOverScreen() {
 canvas.addEventListener("touchstart", handleTouch);
 
 
-    
+

@@ -254,8 +254,8 @@ canvas {
 /* Estilo para o container do game over */
 #game-over-screen {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 25%;
+    left: 25%;
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
@@ -356,3 +356,29 @@ canvas {
     color: white;
     text-align: center;
 }
+#listaRecordes {
+    display: none;
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 200px;
+}
+#btnRecordes{
+    margin: 10px;
+    padding: 10px 10px;
+    font-size: 15px;
+    background-color: #f55045; /* Cor vermelha */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    display: inline;
+
+}
+#btnRecordes:hover {
+    background-color: #e53935; /* Cor mais escura ao passar o mouse */
+}
+

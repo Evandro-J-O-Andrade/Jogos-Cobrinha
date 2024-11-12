@@ -166,7 +166,7 @@ footer {
     /* Largura total */
     font-size: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
 
 }
 
@@ -182,6 +182,7 @@ footer ul li {
     /* Exibe os itens da lista em linha */
     margin: 0 15px;
     /* Espaçamento entre os links */
+    justify-items: end;
 }
 
 footer a {
