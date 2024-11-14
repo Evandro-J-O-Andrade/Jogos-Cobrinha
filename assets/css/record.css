@@ -24,3 +24,14 @@ body {
      background-repeat: no-repeat; /* Adicione esta linha */
 }
 
+        /* Estilos simples para a lista */
+        #lista-recordes {
+            list-style-type: none;
+            padding: 0;
+        }
+        #lista-recordes li {
+            font-size: 18px;
+            padding: 5px 0;
+        }
+
+        

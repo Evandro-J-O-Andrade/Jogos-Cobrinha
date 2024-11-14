@@ -1,77 +1,60 @@
 
-
-
-
-
-function addGameOverButtonEvents() {
-    // Obtem os botões de reiniciar e voltar
-    const restartButton = document.getElementById('restart-button');
-    const backButton = document.getElementById('back-button');
-
-    // Adiciona evento de clique para o botão de reiniciar
-    restartButton.addEventListener('click', restartGame);
-
-    // Adiciona evento de clique para o botão de voltar
-    backButton.addEventListener('click', goToHomePage);
-
-    // Para dispositivos móveis, também adicionamos eventos de toque
-    restartButton.addEventListener('touchstart', restartGame);
-    backButton.addEventListener('touchstart', goToHomePage);
-}
-
-
-
-function showGameOverScreen() {
-    // Esconde a tela de jogo
-    const gameOverScreen = document.getElementById("game-over-screen");
-    gameOverScreen.style.display = "block"; // Exibe a tela de game over
-    document.getElementById('stage').style.display = 'none';
-
-    // Exibe a tela de Game Over
-    const restartButton = document.getElementById("restart-button");
-    const homeButton = document.getElementById("back-to-home-button");
-
-    document.getElementById('game-over-screen').style.display = 'block';
-    restartButton.addEventListener("click", () => location.reload());
-    // Adiciona a funcionalidade aos botões
-    document.getElementById('restart-button').addEventListener('click', restartGame);
-    document.getElementById('back-to-home-button').addEventListener('click', goToHomePage);
-    homeButton.addEventListener("click", () => {
-        window.location.href = "../index.html";
-    });
-
-
-}
-
-
+var recordSalvo = localStorage.getItem('recordSalvo') ? parseInt(localStorage.getItem('recordSalvo')) : 0;
+let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // Lista de recordes
+let recordes = JSON.parse(localStorage.getItem("recordes")) || [];
+// Funções de navegação
 function restartGame() {
-    // Aqui você pode reiniciar o estado do jogo, como reiniciar o canvas, pontuação, etc.
-    document.getElementById('game-canvas').style.display = 'block'; // Mostrar novamente o canvas
-    document.getElementById('game-over-screen').style.display = 'none'; // Esconder a tela de game over
-
-    // Aqui você pode chamar a função que reinicia o jogo
-    startGame();
-}
-
-
-function restartGame() {
-    // Lógica para reiniciar o jogo
-    location.reload(); // Simplesmente recarrega a página (ou você pode resetar o estado do jogo aqui)
+    window.location.href = '../html/index.html';
 }
 
 function goToHomePage() {
-    // Lógica para voltar à página inicial
-    window.location.href = "assets/html/index.html"; // Alterar para o link da sua página inicial
+    window.location.href = '/index.html';
 }
-// Função para voltar à página principal
-function goToHomePage() {
-    window.location.href = "assets/html/index.html"; // Substitua com a URL da sua página inicial
-}
-
-
-
-
 
 function openRecordPage() {
-    window.location.href = "/assets/html/record.html";
+    window.location.href = '/assets/html/record.html';
 }
+
+// Adiciona os eventos aos botões
+document.getElementById("restart-button").addEventListener("click", restartGame);
+document.getElementById("back-to-home-button").addEventListener("click", goToHomePage);
+
+
+
+
+// Função para salvar recordes no localStorage
+
+
+
+function salvarRecorde(nome, pontuacao) {
+    // Obtém a lista de recordes existente ou cria uma lista vazia
+    let recordes = JSON.parse(localStorage.getItem("recordes")) || [];
+    
+    // Adiciona o novo recorde
+    recordes.push({ nome: nome, pontuacao: pontuacao });
+    
+    // Ordena os recordes em ordem decrescente de pontuação e mantém os 15 melhores
+    recordes.sort((a, b) => b.pontuacao - a.pontuacao);
+    recordes = recordes.slice(0, 15); // Mantém apenas os 15 primeiros
+    
+    // Salva a lista atualizada de volta no localStorage
+    localStorage.setItem("recordes", JSON.stringify(recordes));
+}
+
+
+function exibirRecordes() {
+    // Obtém a lista de recordes do localStorage
+    const recordes = JSON.parse(localStorage.getItem("recordes")) || [];
+
+    // Seleciona o elemento UL onde os recordes serão exibidos
+    const listaRecordes = document.getElementById("lista-recordes");
+
+    // Gera o HTML da lista de recordes
+    listaRecordes.innerHTML = recordes.map(recorde => 
+        `<li>${recorde.nome} :: ${recorde.pontuacao}</li>`
+    ).join("");
+}
+
+// Chama a função para exibir os recordes ao carregar a página
+document.addEventListener("DOMContentLoaded", exibirRecordes);
+document.addEventListener("DOMContentLoaded", recordSalvo)

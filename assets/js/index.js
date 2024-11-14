@@ -5,10 +5,9 @@ window.onload = function () {
     // Variáveis de controle
 
     let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // Lista de recordes
-
-
-    let restartButton;
-    let homeButton;
+    var finalizarJogo;
+    var restartButton;
+    var homeButton;
     var botaoIniciar = document.getElementById('botaoIniciar');
     const vel = 1; // Velocidade da cobra
     var vx = 0, vy = 1; // Direção inicial (cobrinha começa descendo)
@@ -18,7 +17,7 @@ window.onload = function () {
     var trail = []; // Rastro da cobrinha
     var tail = 5; // Comprimento inicial da cobrinha
     var gameOver = false; // Controle de estado do jogo
-    let exibirRecord = false;
+    var exibirRecord = false;
     var level = 1; // Nível inicial
     var applesEaten = 0; // Contagem de maçãs comidas
     var walls = []; // Array para as paredes
@@ -41,7 +40,7 @@ window.onload = function () {
 
     // Configurações de volume
     backgroundMusic.volume = 0.3; // volume baixo para a música de fundo
-    moveSound.volume = 0.1; // volume normal para o som de movimento
+    moveSound.volume = 0.2; // volume normal para o som de movimento
     eatSound.volume = 0.3; // volume normal para o som de comer
     gameOverSound.volume = 0.3; // volume normal para o som de game over
     levelUpSound.volume = 0.3; // volume normal para o som de passar de fase
@@ -243,8 +242,8 @@ window.onload = function () {
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
-                    updateHighScores(recordAtual); // Atualiza a lista de recordes com o recorde atual
-                    displayHighScores(); // Exibe a lista de recordes na tela
+
+
 
                 }
 
@@ -350,7 +349,7 @@ window.onload = function () {
         if (ax === px && ay === py) {
             tail++;
             applesEaten++;
-            recordAtual = applesEaten * 100000;
+            recordAtual = applesEaten * 100;
             eatSound.play();
             generateApple();
 
@@ -374,7 +373,7 @@ window.onload = function () {
                 if (recordAtual > recordSalvo) {
                     recordSalvo = recordAtual;
                     localStorage.setItem('recordSalvo', recordSalvo);
-                    displayHighScores();
+
 
                 }
 
@@ -415,7 +414,6 @@ window.onload = function () {
         ctx.fillText("Fase " + level, stage.width / 2 - 10, stage.height - 10);
         displayScores();
         displayLevel();
-        displayHighScores();
 
     }
     // Definindo variáveis globais
@@ -429,46 +427,11 @@ window.onload = function () {
 
 
     // Função para salvar o novo recorde com iniciais
-    function saveHighScore() {
-        const initials = document.getElementById("initialsInput").value.toUpperCase();
-        if (initials) {
-            // Adiciona o novo recorde e ordena
-            highScores.push({ initials, score: recordAtual });
-            highScores.sort((a, b) => b.score - a.score);
-            if (highScores.length > 10) highScores.pop(); // Mantém apenas os 10 melhores
 
-            // Salva a lista de recordes no localStorage
-            localStorage.setItem("highScores", JSON.stringify(highScores));
 
-            // Oculta o campo de entrada e remove o evento para evitar múltiplos cliques
-            document.getElementById("highScoreEntry").style.display = "none";
-            document.getElementById("saveScoreBtn").removeEventListener("click", saveHighScore);
 
-            // Exibe a lista de recordes
-            displayHighScores();
-        }
-    }
 
-    // Função para exibir os recordes no final do jogo
-    function displayHighScores() {
-        const highScoreList = document.getElementById("highScoreList");
-        highScoreList.innerHTML = "<h2>Top 10 Recordes</h2>";
 
-        highScores.forEach((entry, index) => {
-            const scoreEntry = document.createElement("p");
-            scoreEntry.innerText = `${index + 1}. ${entry.initials}: ${entry.score}`;
-            highScoreList.appendChild(scoreEntry);
-        });
-
-        // Exibe o contêiner com a lista de recordes
-        highScoreList.style.display = "block";
-    }
-
-    // Exibe uma tela de game over (sem quebra de recorde)
-    function showGameOverScreen() {
-        const gameOverScreen = document.getElementById("gameOverScreen");
-        gameOverScreen.style.display = "block";
-    }
 
     // Executa quando a página carrega para exibir recordes previamente salvos
 
@@ -735,9 +698,15 @@ window.onload = function () {
     }
 
 
+    // Chama a função para exibir os recordes ao carregar a página
+
+    // Chama a função para exibir os recordes ao carregar a página
+
 };
 
 canvas.addEventListener("touchstart", handleTouch);
+document.addEventListener("DOMContentLoaded", exibirRecordes);
+document.addEventListener("DOMContentLoaded", recordSalvo)
 
 
 
